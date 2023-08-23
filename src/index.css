@@ -1,6 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  --main-font-family: 'Manrope', sans-serif;
   font-weight: 400;
 
   color-scheme: light dark;
@@ -101,7 +100,7 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
+  /* font: inherit; */
   vertical-align: baseline;
 }
 
@@ -121,6 +120,7 @@ section {
 
 
 body {
+  font-family: var(--main-font-family);
   line-height: 1;
   background-color: #0A0A11;
 }
