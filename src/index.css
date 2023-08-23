@@ -118,9 +118,11 @@ section {
   display: block;
 }
 
+
 body {
   font-family: var(--main-font-family);
   line-height: 1;
+  background-color: #0A0A11;
 }
 
 ol,
