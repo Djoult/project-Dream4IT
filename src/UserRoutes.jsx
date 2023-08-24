@@ -5,8 +5,8 @@ import SharedLayout from "./components/SharedLayout/SharedLayout";
 // import PrivateRoute from "components/modules/PrivateRoute/PrivateRoute";
 // import PublicRoute from "components/modules/PublicRoute/PublicRoute";
 const WelcomePage = lazy(() => import("./pages/WelcomePage/WelcomePage"));
-const SignUpPage = lazy(() => import("./pages/SignUpPage/SignUpPage"));
-const SignInPage = lazy(() => import("./pages/SignInPage/SignInPage"));
+const SignupPage = lazy(() => import("./pages/SignupPage/SignupPage"));
+const SigninPage = lazy(() => import("./pages/SigninPage/SigninPage"));
 const MainPage = lazy(() => import("./pages/MainPage/MainPage"));
 const DrinksPage = lazy(() => import("./pages/DrinksPage/DrinksPage"));
 const AddRecipePage = lazy(() => import("./pages/AddRecipePage/AddRecipePage"));
@@ -14,6 +14,12 @@ const RecipePage = lazy(() => import("./pages/RecipePage/RecipePage"));
 const MyRecipesPage = lazy(() => import("./pages/MyRecipesPage/MyRecipesPage"));
 const FavoritePage = lazy(() => import("./pages/FavoritePage/FavoritePage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
+const TermsPage = lazy(() =>
+  import("./pages/TermsOfServicePage/TermsOfServicePage")
+);
+const PrivacyPage = lazy(() =>
+  import("./pages/PrivacyPolicyPage/PrivacyPolicyPage")
+);
 
 const UserRoutes = () => {
   return (
@@ -21,8 +27,8 @@ const UserRoutes = () => {
       <Routes>
         {/* <Route element={<PublicRoute />}> */}
         <Route path="/welcome" element={<WelcomePage />} />
-        <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/signin" element={<SignInPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/signin" element={<SigninPage />} />
         {/* </Route> */}
         {/* <Route element={<PrivateRoute />}> */}
         <Route path="/" element={<SharedLayout />}>
@@ -32,6 +38,8 @@ const UserRoutes = () => {
           <Route path="/recipe/:recipeId" element={<RecipePage />} />
           <Route path="/my" element={<MyRecipesPage />} />
           <Route path="/favorite" element={<FavoritePage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
         </Route>
         {/* </Route> */}
         <Route path="*" element={<NotFoundPage />} />
