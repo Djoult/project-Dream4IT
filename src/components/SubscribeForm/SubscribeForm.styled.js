@@ -46,23 +46,23 @@ export const Container = styled.div`
     padding: 18px ;
     padding-left: 24px;
     border-radius: 200px;
-    border: 1px solid #F3F3F3;
+    border: 1px solid rgba(243, 243, 243, .2);
     margin-bottom: 18px;
     background: transparent;
+    outline: none;
     @media only screen and (min-width: 768px) {
     padding: 15px ;
     font-size: 17px;
   }
-    
-  }
+    :focus{
+      border: 1px solid rgba(243, 243, 243, .5);
+    }
+ 
   ::placeholder{
         color: #f3f3f3;
         font-size: 14px;
-        @media only screen and (min-width: 768px) {
-       font-size: 17px;
-  }
     }
-    
+     }
 `;
 
 export const Submit = styled.button`

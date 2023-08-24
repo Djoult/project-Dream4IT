@@ -1,12 +1,13 @@
 import './App.css'
-import TermsOfServicePage from './pages/TermsOfServicePage/TermsOfServicePage'
+import SubscribeForm from './components/SubscribeForm/SubscribeForm'
+// import TermsOfServicePage from './pages/TermsOfServicePage/TermsOfServicePage'
 
 
 function App() {
 
   return (
     <>
-      <TermsOfServicePage/>
+      <SubscribeForm/>
     </>
   )
 }
