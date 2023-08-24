@@ -1,17 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { logo } from '../../images/index';
+import { logo } from "../../images/index";
+import { StyledLink, StyledLogoDescr, StyledLogoWrapper } from "./Logo.styled";
 
 const Logo = () => {
   return (
-    <div>
-      <img src={logo} alt="logo" />
-      <p>Drink Master</p>
-      </div>
+    <StyledLogoWrapper>
+      <StyledLink to="/">
+        <img src={logo} alt="logo" />
+        <StyledLogoDescr>Drink Master</StyledLogoDescr>
+      </StyledLink>
+    </StyledLogoWrapper>
   );
 };
 
 export default Logo;
-
-
-/* <Link to="#">Drink Master</Link> */
