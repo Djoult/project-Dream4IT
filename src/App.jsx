@@ -1,9 +1,10 @@
 import './App.css'
+import UserRoutes from './UserRoutes'
 
-function App() {
-
+const App = () => {
   return (
     <>
+      <UserRoutes/>
     </>
   )
 }
