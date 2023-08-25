@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Container, Intro, Spacer, Submit, TryAgain } from "./SubscribeForm.styled";
+import { Container, Intro, Spacer, TryAgain } from "./SubscribeForm.styled";
+import { ButtonMain } from "../../UI/Button/Button";
 
 const SubscribeForm = () => {
   const [status, setStatus] = useState(null);
@@ -79,7 +80,8 @@ const SubscribeForm = () => {
               onChange={handleEmailChange}
               value={email}
             />
-            <Submit>SUBSCRIBE</Submit>
+            {/* <Submit>SUBSCRIBE</Submit> */}
+            <ButtonMain type="submit" buttonName="Subscribe" />
           </form>
         </>
       )}
