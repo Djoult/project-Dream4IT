@@ -1,19 +1,28 @@
+import { createGlobalStyle } from "styled-component";
+
+const colors = {
+  textMainColor: "#F3F3F3",
+  iconsColor: "#F3F3F333",
+  buttonLightBgColor: "#F3F3F3",
+  buttonLightBgTextColor: "#161F37",
+  buttonDarkBgColor: "#161F37",
+  buttonDarkBgTextColor: "#F3F3F3",
+  inputNormalStateTextColor: "#F3F3F380",
+  inputAccentStateTextColor: "#F3F3F3",
+  inputBorderNormalStateColor: "#F3F3F333",
+  inputBorderAccentStateColor: "#F3F3F380",
+  inputBorderErrorStateColor: "#DA141480",
+  inputErrorStateColor: "#DA1414",
+  inputBorderCorrectStateColor: "#3CBC8180",
+  inputCorrectStateColor: "#3CBC81",
+  paginationAccentColor: "#4070CD",
+  dropDownListBgColor: "#161F37",
+};
+
+const GlobalStyles = createGlobalStyle`
 :root {
   --main-font-family: 'Manrope', sans-serif;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-  /*  */
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
 }
-
 
 html,
 body,
@@ -100,7 +109,7 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  /* font: inherit; */
+  font: inherit;
   vertical-align: baseline;
 }
 
@@ -118,11 +127,9 @@ section {
   display: block;
 }
 
-
 body {
   font-family: var(--main-font-family);
   line-height: 1;
-  background-color: #0A0A11;
 }
 
 ol,
@@ -147,3 +154,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+`;
+export default {
+  colors,
+  GlobalStyles,
+};
