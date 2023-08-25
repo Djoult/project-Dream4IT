@@ -22,3 +22,16 @@ export const StyledMenuIcon = styled.img`
     display: none;
   }
 `;
+
+export const StyledMenuWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+
+  background-color: white;
+`;
