@@ -1,9 +1,9 @@
-import{n as i,N as s,j as e,P as n}from"./index-00c04cb7.js";const p=i.div`
+import{n as t,P as p,j as e}from"./index-5b9af279.js";const l=t.div`
   text-align: left;
   padding: 273px 855px 376px 100px;
   display: flex;
   flex-direction: column;
-`,x=i.h2`
+`,g=t.h2`
   text-align: start;
   color: #fafafa;
   font-family: Manrope;
@@ -11,7 +11,7 @@ import{n as i,N as s,j as e,P as n}from"./index-00c04cb7.js";const p=i.div`
   font-weight: 600;
   line-height: 44px;
   letter-spacing: -0.8px;
-`,l=i.p`
+`,c=t.p`
   color: #fafafa;
   font-family: Manrope;
   font-size: 18px;
@@ -19,42 +19,11 @@ import{n as i,N as s,j as e,P as n}from"./index-00c04cb7.js";const p=i.div`
   letter-spacing: -0.36px;
   margin-bottom: 40px;
   /* margin-top: 14px; */
-`,d=i.div`
+`,h=t.div`
   display: flex;
   gap: 14px;
   z-index: 200;
-`,c=i.ul`
-  display: flex;
-  gap: 14px;
-`,r=i(s)`
-  text-decoration: none;
-  color: #f3f3f3;
-  font-family: Manrope;
-  font-size: 16px;
-  background-color: transparent;
-  font-weight: 600;
-  line-height: 18px;
-  border-radius: 42px;
-  border: 2px solid rgba(243, 243, 243, 0.2);
-
-  padding: 18px 44px;
-
-  transition: color 0.3s, background-color 0.3s,
-    transform 0.3s cubic-bezier(0.7, 0.98, 0.86, 0.98);
-
-  &:hover,
-  &:focus {
-    background: #f3f3f3;
-    color: #000000;
-    /* transform: scale(1.02); */
-    border: 2px solid rgba(64, 112, 205, 0.5);
-  }
-
-  &.active {
-    text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black,
-      -1px 1px 0 black;
-  }
-`,g=()=>e.jsx("div",{style:{zIndex:100},children:e.jsxs(c,{children:[e.jsx("li",{children:e.jsx(r,{to:"/signup",children:"Registration"})}),e.jsx("li",{children:e.jsx(r,{to:"/signin",children:"Log In"})})]})}),h=i.div`
+`,r=t.div`
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0.6) 46.3%,
@@ -87,25 +56,25 @@ import{n as i,N as s,j as e,P as n}from"./index-00c04cb7.js";const p=i.div`
     max-width: 1440px;
     height: 770px;
   }
-`,t=i.div`
+`,a=t.div`
   position: absolute;
   filter: blur(104.8543701171875px);
   z-index: 1;
-`,u=i(t)`
+`,s=t(a)`
   width: 387px;
   height: 381px;
   border-radius: 387px;
   background: rgba(188, 230, 210, 0.4);
   top: -132px;
   left: 171px;
-`,f=i(t)`
+`,o=t(a)`
   width: 784px;
   height: 849px;
   border-radius: 849px;
   background: rgba(64, 112, 205, 0.5);
   top: -231px;
   left: -494px;
-`,b=i(t)`
+`,n=t(a)`
   width: 549px;
   height: 543px;
   flex-shrink: 0;
@@ -113,4 +82,4 @@ import{n as i,N as s,j as e,P as n}from"./index-00c04cb7.js";const p=i.div`
   background: rgba(64, 112, 205, 0.5);
   top: 458px;
   left: 1181px;
-`,a=({children:o})=>e.jsxs(h,{children:[e.jsxs(t,{children:[e.jsx(u,{}),e.jsx(f,{}),e.jsx(b,{})]}),o]});a.propTypes={children:n.node.isRequired};const j=()=>e.jsx(a,{children:e.jsxs(p,{children:[e.jsx(x,{children:"Welcome to the app!"}),e.jsx(l,{children:"This app offers more than just a collection of recipes - it is designed to be your very own digital cookbook. You can easily save and retrieve your own recipes at any time."}),e.jsx(d,{children:e.jsx(g,{})})]})});export{j as default};
+`,x=({children:i})=>e.jsxs(r,{children:[e.jsxs(a,{children:[e.jsx(s,{}),e.jsx(o,{}),e.jsx(n,{})]}),i]});x.propTypes={children:p.node.isRequired};export{x as B,g as S,l as T,c as W,h as a};
