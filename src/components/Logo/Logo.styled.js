@@ -16,7 +16,3 @@ export const StyledLogoDescr = styled.p`
 
   color: #f3f3f3;
 `;
-
-export const StyledLogoWrapper = styled.div`
-  margin-right: 234px;
-`;

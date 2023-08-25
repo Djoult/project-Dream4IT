@@ -5,7 +5,10 @@ export const StyledNav = styled.nav`
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-right: 233px;
+
+  @media screen and (max-width: 1199px) {
+      display: none;
+  }
 `;
 
 export const StyledNavLink = styled(NavLink)`

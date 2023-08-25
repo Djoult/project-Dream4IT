@@ -6,7 +6,7 @@ const UserLogo = () => {
   return (
     <StyledUserWrapper>
       <img src={defaultUserLogo} alt="User photo" width={44} height={44}/>
-      <StyledUserDescr>Victoria</StyledUserDescr>
+      <StyledUserDescr>User name</StyledUserDescr>
     </StyledUserWrapper>
   );
 };

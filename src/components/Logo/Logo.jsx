@@ -1,15 +1,15 @@
 import React from "react";
 import { logo } from "../../images/index";
-import { StyledLink, StyledLogoDescr, StyledLogoWrapper } from "./Logo.styled";
+import { StyledLink, StyledLogoDescr } from "./Logo.styled";
 
 const Logo = () => {
   return (
-    <StyledLogoWrapper>
+    <div>
       <StyledLink to="/">
         <img src={logo} alt="logo" />
         <StyledLogoDescr>Drink Master</StyledLogoDescr>
       </StyledLink>
-    </StyledLogoWrapper>
+    </div>
   );
 };
 
