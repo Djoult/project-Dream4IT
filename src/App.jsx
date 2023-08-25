@@ -4,7 +4,7 @@ import UserRoutes from './UserRoutes'
 const App = () => {
   return (
     <>
-      <UserRoutes/>
+      <UserRoutes />
     </>
   )
 }
