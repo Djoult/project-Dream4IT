@@ -16,11 +16,6 @@ export const StyledMenuIcon = styled.img`
     width: 38px;
     height: 38px;
   }
-
-  /* desktop screen */
-  @media screen and (min-width: 1200px) {
-    display: none;
-  }
 `;
 
 export const StyledMenuWrapper = styled.div`
@@ -32,6 +27,4 @@ export const StyledMenuWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   z-index: 999;
-
-  background-color: white;
 `;

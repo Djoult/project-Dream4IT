@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 export const StyledUserWrapper = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   cursor: pointer;

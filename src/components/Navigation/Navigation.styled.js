@@ -4,10 +4,14 @@ import { NavLink } from "react-router-dom";
 export const StyledNav = styled.nav`
   display: flex;
   align-items: center;
+  flex-direction: column;
   gap: 16px;
+  margin: auto;
 
-  @media screen and (max-width: 1199px) {
-      display: none;
+  /* desktop screen */
+  @media screen and (min-width: 1200px) {
+    flex-direction: row;
+    margin: 0;
   }
 `;
 

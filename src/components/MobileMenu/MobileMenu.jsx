@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Navigation from "../Navigation/Navigation";
 import { mobileMenu, xCross } from "../../images/index";
 import { StyledMenuIcon, StyledMenuWrapper } from "./MobileMenu";
 
@@ -16,11 +17,23 @@ const MobileMenu = () => {
   return (
     <div>
       {!isShowMenu ? (
-        <StyledMenuIcon onClick={handleMenuOpen} src={mobileMenu} alt="mobile munu" />
+        <StyledMenuIcon
+          onClick={handleMenuOpen}
+          src={mobileMenu}
+          alt="mobile munu"
+        />
       ) : (
-        <StyledMenuIcon onClick={handleMenuClose} src={xCross} alt="mobile munu close" />
+        <StyledMenuIcon
+          onClick={handleMenuClose}
+          src={xCross}
+          alt="mobile munu close"
+        />
       )}
-      {isShowMenu ? <StyledMenuWrapper></StyledMenuWrapper> : null}
+      {isShowMenu ? (
+        <StyledMenuWrapper>
+          <Navigation />
+        </StyledMenuWrapper>
+      ) : null}
     </div>
   );
 };
