@@ -8,11 +8,30 @@ export const StyledLink = styled(Link)`
 `;
 
 export const StyledLogoDescr = styled.p`
-  margin-left: 14px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
-  line-height: 1.22;
+  line-height: 1.13;
   white-space: nowrap;
 
   color: #f3f3f3;
+
+  /* tablet screen */
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.22;
+  }
+`;
+
+export const StyledLogoSVG = styled.img`
+  margin-right: 8px;
+  width: 22px;
+  height: 22px;
+
+  /* tablet screen */
+  @media screen and (min-width: 768px) {
+    margin-right: 14px;
+    width: 28px;
+    height: 28px;
+  }
 `;

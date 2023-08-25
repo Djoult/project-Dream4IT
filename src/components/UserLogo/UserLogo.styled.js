@@ -1,16 +1,38 @@
 import styled from "@emotion/styled";
 
 export const StyledUserWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  @media screen and (max-width: 1199px) {
+    margin-left: auto;
+  }
 `;
 
 export const StyledUserDescr = styled.p`
-    margin-left: 14px;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1.5;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
 
-    color: #f3f3f3;
+  color: #f3f3f3;
+
+  /* tablet screen */
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+`;
+
+export const StyledUserIcon = styled.img`
+  margin-right: 8px;
+  width: 32px;
+  height: 32px;
+
+  /* tablet screen */
+  @media screen and (min-width: 768px) {
+    margin-right: 14px;
+    width: 44px;
+    height: 44px;
+  }
 `;
