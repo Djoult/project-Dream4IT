@@ -1,16 +1,14 @@
-import './App.css'
-import {GlobalStyles} from './styles/GlobalStyles.js'
-import UserRoutes from './UserRoutes'
-import SubscribeForm from './components/SubscribeForm/SubscribeForm'
+import "./App.css";
+import UserRoutes from "./UserRoutes";
+import SubscribeForm from "./components/SubscribeForm/SubscribeForm";
 
 const App = () => {
-
   return (
-    <GlobalStyles>
+    <>
       <UserRoutes />
-      <SubscribeForm/>
-    </GlobalStyles>
-  )
-}
+      <SubscribeForm />
+    </>
+  );
+};
 
-export default App
+export default App;
