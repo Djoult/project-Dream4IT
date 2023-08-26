@@ -15,6 +15,7 @@ import plus from "../images/plus.svg";
 import search from "../images/search.svg";
 import xCross from "../images/xCross.svg"; 
 import trashBin from "../images/trashBin.svg";
+import mobileMenu from '../images/mobileMenu.svg';
 
 // social 
 import facebook from "../images/facebook.svg";
@@ -38,4 +39,5 @@ export {
   trashBin,
   xCross,
   youtube,
+  mobileMenu,
 };
