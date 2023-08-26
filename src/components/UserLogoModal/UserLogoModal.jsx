@@ -1,5 +1,5 @@
 import React from "react";
-import LogoutBtn from "../LogoutBtn/LogoutBtn";
+import LogoutBtn from "../LogoutBtn/LogoutBtn.jsx";
 import { edit } from "../../images/index";
 import {
   StyledDropDownWrapper,

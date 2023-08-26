@@ -3,15 +3,15 @@ import { colors } from "../../styles/GlobalStyles";
 
 export const StyledDropDownWrapper = styled.div`
   position: absolute;
-  top: 140%;
+  top: 130%;
   display: flex;
   flex-direction: column;
   gap: 38px;
   padding: 18px;
-  
+
   border-radius: 6px;
   background-color: red;
-  /* background-color: #161F37; */
+  background-color: ${colors.mainBgColor};
 `;
 
 export const StyledEditIcon = styled.img`
