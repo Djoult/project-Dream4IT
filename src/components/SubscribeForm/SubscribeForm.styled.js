@@ -6,7 +6,7 @@ export const Spacer = styled.div`
 export const Container = styled.div`
   position: relative;
   z-index: 5;
-  max-width: 309px;
+  max-width: 335px;
   display: flex;
   justify-content: center;
   flex-direction: column;
