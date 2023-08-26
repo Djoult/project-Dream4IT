@@ -8,7 +8,7 @@ import {
   SignBtn,
   StyledInputWrapper,
   Icon,
-  // Notify,
+  Notify,
 } from "./SignupForm.styled";
 import { TextInput } from "../SigninForm/SigninForm.styled";
 
@@ -98,9 +98,9 @@ export const SignupForm = () => {
         )}
       </StyledInputWrapper>
 
-      {/* {formik.touched.email && formik.errors.email && (
+      {formik.touched.email && formik.errors.email && (
         <Notify>{formik.errors.email}</Notify>
-      )} */}
+      )}
 
       <StyledInputWrapper>
         <TextInput
@@ -125,11 +125,13 @@ export const SignupForm = () => {
         />
       </StyledInputWrapper>
 
-      {/* {formik.touched.password && formik.errors.password && (
+      {formik.touched.password && formik.errors.password && (
         <Notify>{formik.errors.password}</Notify>
-      )} */}
+      )}
 
       <SignBtn type="submit">Sign Up</SignBtn>
     </FormWrapper>
   );
 };
+
+export default SignupForm;
