@@ -40,9 +40,9 @@ const UserRoutes = () => {
           <Route path="/favorite" element={<FavoritePage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
         {/* </Route> */}
-        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>
   );
