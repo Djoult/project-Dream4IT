@@ -1,4 +1,4 @@
-import{n as i,j as e,L as r}from"./index-20a91bf6.js";const s=i.h1`
+import{n as i,j as e,L as r}from"./index-ed644f11.js";const s=i.h1`
   background: #0a0a11;
   color: #f3f3f3;
   font-family: Manrope;

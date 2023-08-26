@@ -1,4 +1,4 @@
-import{n as t,P as p,j as e}from"./index-20a91bf6.js";const l=t.div`
+import{n as t,P as p,j as a}from"./index-ed644f11.js";const l=t.div`
   text-align: left;
   padding: 273px 855px 376px 100px;
   display: flex;
@@ -24,12 +24,13 @@ import{n as t,P as p,j as e}from"./index-20a91bf6.js";const l=t.div`
   gap: 14px;
   z-index: 200;
 `,r=t.div`
-  background: linear-gradient(
+  background-color: black;
+  /* background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0.6) 46.3%,
     rgba(0, 0, 0, 0.35) 72.75%,
     rgba(0, 0, 0, 0) 100%
-  );
+  ); */
   overflow: hidden;
   position: relative;
   max-width: 375px;
@@ -56,25 +57,25 @@ import{n as t,P as p,j as e}from"./index-20a91bf6.js";const l=t.div`
     max-width: 1440px;
     height: 770px;
   }
-`,a=t.div`
+`,e=t.div`
   position: absolute;
   filter: blur(104.8543701171875px);
   z-index: 1;
-`,s=t(a)`
+`,s=t(e)`
   width: 387px;
   height: 381px;
   border-radius: 387px;
   background: rgba(188, 230, 210, 0.4);
   top: -132px;
   left: 171px;
-`,o=t(a)`
+`,o=t(e)`
   width: 784px;
   height: 849px;
   border-radius: 849px;
   background: rgba(64, 112, 205, 0.5);
   top: -231px;
   left: -494px;
-`,n=t(a)`
+`,n=t(e)`
   width: 549px;
   height: 543px;
   flex-shrink: 0;
@@ -82,4 +83,4 @@ import{n as t,P as p,j as e}from"./index-20a91bf6.js";const l=t.div`
   background: rgba(64, 112, 205, 0.5);
   top: 458px;
   left: 1181px;
-`,x=({children:i})=>e.jsxs(r,{children:[e.jsxs(a,{children:[e.jsx(s,{}),e.jsx(o,{}),e.jsx(n,{})]}),i]});x.propTypes={children:p.node.isRequired};export{x as B,g as S,l as T,c as W,h as a};
+`,x=({children:i})=>a.jsxs(r,{children:[a.jsxs(e,{children:[a.jsx(s,{}),a.jsx(o,{}),a.jsx(n,{})]}),i]});x.propTypes={children:p.node.isRequired};export{x as B,g as S,l as T,c as W,h as a};

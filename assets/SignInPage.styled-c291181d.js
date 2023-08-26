@@ -1,10 +1,10 @@
-import{n as o,L as n}from"./index-20a91bf6.js";const r=o.form`
+import{n as o,L as t}from"./index-ed644f11.js";const p=o.form`
   display: flex;
   flex-direction: column;
   margin-top: 28px;
   margin-bottom: 14px;
   gap: 14px;
-`,p=o.button`
+`,e=o.button`
   color: #161f37;
   font-family: Manrope;
   font-size: 16px;
@@ -30,15 +30,32 @@ import{n as o,L as n}from"./index-20a91bf6.js";const r=o.form`
     background: #161f37;
     color: #f3f3f3;
   }
+`,a=o.div`
+  width: 100%;
+  display: grid;
+  position: relative;
+`,x=o.img`
+  position: absolute;
+  top: 11px;
+  right: 19px;
+`,d=o.div`
+  font-family: Manrope;
+  font-size: 12px;
+  line-height: 14px;
+
+  color: #da1414;
+
+  text-align: start;
+
+  margin-left: 25px;
 `;o.form`
   display: flex;
   flex-direction: column;
-`;const t=o.input`
+`;const s=o.input`
   border-radius: 200px;
   border: 1px solid #f3f3f380;
-
+  color: #f3f3f3;
   padding: 14px 24px;
-  align-items: flex-start;
 
   background-color: transparent;
 
@@ -46,14 +63,16 @@ import{n as o,L as n}from"./index-20a91bf6.js";const r=o.form`
 
   transition: border-color 0.3s;
 
+  border-color: ${({error:i,correct:n})=>i?"red":n?"green":"initial"};
+
   &:focus,
   &:hover {
-    border-color: #f3f3f3;
     &::placeholder {
       color: #f3f3f3;
     }
   }
-`,e=o.div`
+`,l=o.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -79,7 +98,7 @@ import{n as o,L as n}from"./index-20a91bf6.js";const r=o.form`
     padding: 204px 940px 204px 100px;
     width: 400px;
   }
-`,a=o(n)`
+`,f=o(t)`
   color: #f3f3f3;
   font-family: Manrope;
   font-size: 14px;
@@ -94,4 +113,4 @@ import{n as o,L as n}from"./index-20a91bf6.js";const r=o.form`
   &:focus {
     transform: scale(1.12);
   }
-`;export{a as C,r as F,p as S,t as T,e as a};
+`;export{f as C,p as F,x as I,d as N,a as S,s as T,e as a,l as b};
