@@ -1,12 +1,13 @@
 import styled from "@emotion/styled";
 
 export const StartWrapper = styled.div`
-  background: linear-gradient(
+  background-color: black;
+  /* background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0.6) 46.3%,
     rgba(0, 0, 0, 0.35) 72.75%,
     rgba(0, 0, 0, 0) 100%
-  );
+  ); */
   overflow: hidden;
   position: relative;
   max-width: 375px;

@@ -35,3 +35,27 @@ export const SignBtn = styled.button`
     color: #f3f3f3;
   }
 `;
+
+export const StyledInputWrapper = styled.div`
+  width: 100%;
+  display: grid;
+  position: relative;
+`;
+
+export const Icon = styled.img`
+  position: absolute;
+  top: 11px;
+  right: 19px;
+`;
+
+export const Notify = styled.div`
+  font-family: Manrope;
+  font-size: 12px;
+  line-height: 14px;
+
+  color: #da1414;
+
+  text-align: start;
+
+  margin-left: 25px;
+`;

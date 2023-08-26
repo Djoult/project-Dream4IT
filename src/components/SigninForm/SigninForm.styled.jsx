@@ -8,9 +8,8 @@ export const FormWrapper = styled.form`
 export const TextInput = styled.input`
   border-radius: 200px;
   border: 1px solid #f3f3f380;
-
+  color: #f3f3f3;
   padding: 14px 24px;
-  align-items: flex-start;
 
   background-color: transparent;
 
@@ -18,9 +17,11 @@ export const TextInput = styled.input`
 
   transition: border-color 0.3s;
 
+  border-color: ${({ error, correct }) =>
+    error ? "red" : correct ? "green" : "initial"};
+
   &:focus,
   &:hover {
-    border-color: #f3f3f3;
     &::placeholder {
       color: #f3f3f3;
     }
