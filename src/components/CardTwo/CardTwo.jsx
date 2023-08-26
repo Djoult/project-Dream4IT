@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
 
 const Wrapper = styled.div`
-flex-basis: 335px;
+  flex-basis: 335px;
 
   @media screen and (max-width: 767px) {
     &:not(:last-child) {
@@ -15,7 +15,7 @@ flex-basis: 335px;
     flex-basis: 342px;
   }
 
-  @media screen and (min-width: 1240px) {
+  @media screen and (min-width: 1440px) {
     flex-basis: calc((100% - 40px) / 3);
     flex-basis: 400px;
   }
@@ -48,30 +48,20 @@ const Text = styled.p`
 const TextBox = styled.div`
   overflow: hidden;
 
- 
   height: 75px;
   margin: 18px 0;
 
   @media screen and (min-width: 768px) {
-    
     height: 96px;
     margin: 24px 0;
   }
-
-  
 `;
 const Img = styled.img`
-background-position: center top; 
-background-size: cover;
-  // width: 335px;
+  background-position: center top;
+  background-size: cover;
   height: 360px;
 
-  // @media screen and (min-width: 768px) {
-  //   width: 342px;
-  // }
-
-  @media screen and (min-width: 1240px) {
-    // width: 400px;
+  @media screen and (min-width: 1440px) {
     height: 400px;
   }
 `;

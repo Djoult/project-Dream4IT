@@ -11,7 +11,7 @@ const Img = styled.img`
     width: 342px;
   }
 
-  @media screen and (min-width: 1240px) {
+  @media screen and (min-width: 1440px) {
     width: 400px;
     height: 400px;
   }
