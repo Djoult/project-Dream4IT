@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { colors } from "../../styles/GlobalStyles";
 
 export const StyledHeader = styled.header`
   display: flex;
@@ -6,6 +7,7 @@ export const StyledHeader = styled.header`
   padding: 20px 20px 19px 20px;
   max-width: 1440px;
 
+  background-color: ${colors.mainBgColor};
   border-bottom: 1px solid rgba(243, 243, 243, 0.2);
 
   /* tablet screen */

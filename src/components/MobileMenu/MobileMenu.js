@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { colors } from "../../styles/GlobalStyles";
 
 export const StyledMenuIcon = styled.img`
   margin-left: 14px;
@@ -7,7 +8,7 @@ export const StyledMenuIcon = styled.img`
 
   &:hover,
   &:focus {
-    background-color: #161f37;
+    background-color: ${colors.hoverColor};
   }
 
   /* tablet screen */
@@ -27,4 +28,6 @@ export const StyledMenuWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   z-index: 999;
+
+  background-color: ${colors.mainBgColor};
 `;

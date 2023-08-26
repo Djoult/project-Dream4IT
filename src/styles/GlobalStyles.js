@@ -17,6 +17,8 @@ export const colors = {
   inputCorrectStateColor: "#3CBC81",
   paginationAccentColor: "#4070CD",
   dropDownListBgColor: "#161F37",
+  hoverColor: "#434D67",
+  mainBgColor: "#161F37",
 };
 
 export const GlobalStyles = css`

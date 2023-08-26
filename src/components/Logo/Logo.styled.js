@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
+import { colors } from "../../styles/GlobalStyles";
 
 export const StyledLink = styled(Link)`
   display: flex;
@@ -13,7 +14,7 @@ export const StyledLogoDescr = styled.p`
   line-height: 1.13;
   white-space: nowrap;
 
-  color: #f3f3f3;
+  color: ${colors.textMainColor};
 
   /* tablet screen */
   @media screen and (min-width: 768px) {

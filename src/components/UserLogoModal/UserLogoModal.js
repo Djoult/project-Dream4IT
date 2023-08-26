@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { colors } from "../../styles/GlobalStyles";
 
 export const StyledDropDownWrapper = styled.div`
   position: absolute;
@@ -30,5 +31,5 @@ export const StyledDescr = styled.p`
   font-weight: 500;
   line-height: 1.3;
 
-  color: #f3f3f3;
+  color: ${colors.textMainColor};
 `;
