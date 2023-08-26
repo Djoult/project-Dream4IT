@@ -11,4 +11,9 @@ export const StyledLogoutBtn = styled.button`
   color: ${colors.mainBgColor};
   border: none;
   border-radius: 20px;
+
+  &:hover,
+  &:focus {
+    color: ${colors.hoverColor};
+  }
 `;

@@ -32,4 +32,9 @@ export const StyledDescr = styled.p`
   line-height: 1.3;
 
   color: ${colors.textMainColor};
+
+  &:hover,
+  &:focus {
+    color: ${colors.hoverColor};
+  }
 `;
