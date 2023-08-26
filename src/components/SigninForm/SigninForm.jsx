@@ -1,13 +1,16 @@
 // SigninForm.js
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { FormWrapper, SignBtn } from "../SignupForm/SignupForm.styled";
 import { TextInput } from "./SigninForm.styled";
+import { singInThunk } from "../../redux/thunks";
 
 export const SigninForm = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const dispatch = useDispatch();
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -16,7 +19,7 @@ export const SigninForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Submit Login");
+    dispatch(singInThunk(formData));
   };
 
   return (
