@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Container, Intro, Spacer, TryAgain } from "./SubscribeForm.styled";
 import { ButtonMain } from "../../UI/Button/Button";
+// import { InputMain } from "../../UI/Input/Input";
 
 const SubscribeForm = () => {
   const [status, setStatus] = useState(null);// Статус підписки
