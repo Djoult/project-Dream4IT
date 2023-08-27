@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 
 
 export const inputStyles = styled.input`
-    box-sizing: border-box;
+    /* box-sizing: border-box;
     width: 100%;
     padding: 18px ;
     padding-left: 24px;
@@ -29,13 +29,34 @@ export const inputStyles = styled.input`
     padding: 15px ;
     font-size: 17px;
   }
-    }
+    } */
 `;
 
 export const errorStyles = styled.input`
-  border-color: rgba(218,20,20,.5);
+   box-sizing: border-box;
+    width: 100%;
+    padding: 18px ;
+    padding-left: 24px;
+    border-radius: 200px;
+    border: 1px solid rgba(218,20,20,.5);
+    margin-bottom: 18px;
+    font-size: 14px;
+    background: transparent;
+    color: #f3f3f3;
+    outline: none;
 `;
 
 export const acceptedStyles = styled.input`
-  border-color: rgba(60,188,129,.5);
+box-sizing: border-box;
+    width: 100%;
+    padding: 18px ;
+    padding-left: 24px;
+    border-radius: 200px;
+    border: 1px solid rgba(60,188,129,.5);
+    margin-bottom: 18px;
+    font-size: 14px;
+    background: transparent;
+    color: #f3f3f3;
+    outline: none;
+
 `;
