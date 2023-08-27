@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { Container, Intro, Spacer, TryAgain } from "./SubscribeForm.styled";
 import { ButtonMain } from "../../UI/Button/Button";
-// import { InputMain } from "../../UI/Input/Input";
+import { InputMain } from "../../UI/Input/Input";
 
 const SubscribeForm = () => {
   const [status, setStatus] = useState(null);// Статус підписки
   const [email, setEmail] = useState(""); // Значення email з форми
   const [subscribed, setSubscribed] = useState(true);// Початковий стан підписки
 const [currentEmail, setCurrentEmail] = useState(""); // Поточна електронна пошта
-
   const FORM_URL = `http://localhost:3001/subscribe`;
 
 // Функція для відправки форми підписки
@@ -41,10 +40,14 @@ const [currentEmail, setCurrentEmail] = useState(""); // Поточна елек
     }
   };
 // Функція для зміни email при вводі в полі
-  const handleEmailChange = (event) => {
-    const { value } = event.target;
+  // const handleEmailChange = (event) => {
+  //   const { value } = event.target;
+  //   setEmail(value);
+  // };
+   const handleEmailChange = (value) => {
     setEmail(value);
   };
+
 
  // Функція для відписки
   const handleUnsubscribe = async () => {
@@ -99,13 +102,16 @@ const [currentEmail, setCurrentEmail] = useState(""); // Поточна елек
               </Intro>
 
               <form onSubmit={handleSubmit}>
-                <input
+                <InputMain
                   aria-label="Your email address"
                   name="email_address"
                   placeholder="Your email address"
                   required
                   type="email"
-                  onChange={handleEmailChange}
+                   onChange={({ value, }) => {
+                    handleEmailChange(value); // Змінюємо email
+  
+                  }}
                   value={email}
                 />
                 <ButtonMain type="submit" buttonName="Subscribe" />
