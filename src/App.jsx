@@ -1,17 +1,13 @@
-import './App.css'
-import UserRoutes from './UserRoutes'
-import SubscribeForm from './components/SubscribeForm/SubscribeForm'
-
+import "./App.css";
+import UserRoutes from "./UserRoutes";
 
 
 const App = () => {
-
   return (
     <>
       <UserRoutes />
-      <SubscribeForm/>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
