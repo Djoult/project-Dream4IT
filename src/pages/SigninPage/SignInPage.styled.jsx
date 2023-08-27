@@ -11,6 +11,8 @@ export const CustomLink = styled(Link)`
   line-height: 18px;
   text-decoration-line: underline;
 
+  margin-top: 14px;
+
   transition: transform 0.3s cubic-bezier(0.7, 0.98, 0.86, 0.98);
 
   &:hover,
