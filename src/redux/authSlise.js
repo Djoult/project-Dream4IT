@@ -1,12 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { singInThunk, signUpThunk } from './thunks';
+import { createSlice } from "@reduxjs/toolkit";
+import { singInThunk, signUpThunk } from "./thunks";
 
 const initialState = {
   user: {},
-  token: '',
+  token: "",
   isLoading: false,
   userNeedVerification: false,
-  error: '',
+  error: "",
 };
 const handleSignInFulfilled = (state, { payload }) => {
   state.isLoading = false;
@@ -17,32 +17,32 @@ const handleSignInFulfilled = (state, { payload }) => {
 const handleSignUpFulfilled = (state, { payload }) => {
   state.isLoading = false;
   state.userNeedVerification = payload.needVerification;
+  state.user = { email: payload.email, name: payload.name };
 };
 
-const handlePending = state => {
+const handlePending = (state) => {
   state.isLoading = true;
-  state.error = '';
+  state.error = "";
 };
 
 const handleRejected = (state, { payload }) => {
   state.isLoading = false;
   state.error = payload;
-  state.token = '';
+  state.token = "";
 };
 
 const authSlice = createSlice({
-  name: 'auth',
+  name: "auth",
   initialState: initialState,
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
       .addCase(singInThunk.fulfilled, handleSignInFulfilled)
       .addCase(signUpThunk.fulfilled, handleSignUpFulfilled)
-      .addMatcher(action => {
-        return action.type.endsWith('/pending');
+      .addMatcher((action) => {
+        return action.type.endsWith("/pending");
       }, handlePending)
-      .addMatcher(action => {
-        console.log(action);
-        return action.type.endsWith('/rejected');
+      .addMatcher((action) => {
+        return action.type.endsWith("/rejected");
       }, handleRejected);
   },
 });

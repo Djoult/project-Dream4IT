@@ -4,8 +4,9 @@ import { useDispatch } from "react-redux";
 import { FormWrapper, SignBtn } from "./SignupForm.styled";
 import { TextInput } from "../SigninForm/SigninForm.styled";
 import { signUpThunk } from "../../redux/thunks";
+import CircularProgress from "@mui/material/CircularProgress";
 
-export const SignupForm = () => {
+export const SignupForm = ({ isLoading }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,12 +21,13 @@ export const SignupForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(signUpThunk( formData));
+    dispatch(signUpThunk(formData));
   };
 
   return (
     <FormWrapper style={{ zIndex: 100 }} onSubmit={handleSubmit}>
       <TextInput
+        disabled={isLoading}
         type="text"
         name="name"
         placeholder="Username"
@@ -33,6 +35,7 @@ export const SignupForm = () => {
         onChange={handleInputChange}
       />
       <TextInput
+        disabled={isLoading}
         type="email"
         name="email"
         placeholder="Email"
@@ -40,13 +43,16 @@ export const SignupForm = () => {
         onChange={handleInputChange}
       />
       <TextInput
+        disabled={isLoading}
         type="password"
         name="password"
         placeholder="Password"
         value={formData.password}
         onChange={handleInputChange}
       />
-      <SignBtn type="submit">Sign Up</SignBtn>
+      <SignBtn disabled={isLoading} type="submit">
+        Sign Up {isLoading && <CircularProgress size={20} />}
+      </SignBtn>
     </FormWrapper>
   );
 };

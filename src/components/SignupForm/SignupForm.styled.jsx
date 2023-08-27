@@ -9,6 +9,10 @@ export const FormWrapper = styled.form`
 `;
 
 export const SignBtn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   color: #161f37;
   font-family: Manrope;
   font-size: 16px;
@@ -33,5 +37,8 @@ export const SignBtn = styled.button`
     border: 2px solid rgba(64, 112, 205, 0.5);
     background: #161f37;
     color: #f3f3f3;
+  }
+  & > span {
+    margin-left: 5px;
   }
 `;
