@@ -1,7 +1,11 @@
-
+import TitlePage from "../../components/TitlePage/TitlePage";
 
 const RecipePage = () => {
-  return <div>RecipePage</div>;
+    return (
+      <div>
+        <TitlePage titlePage="Pornstar Martini" />
+      </div>
+    );
 };
 
 export default RecipePage;

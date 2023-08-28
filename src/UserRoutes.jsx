@@ -35,7 +35,7 @@ const UserRoutes = () => {
         {/* <Route element={<PrivateRoute />}> */}
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<PrivateRoute><MainPage /></PrivateRoute>} />
-          <Route path="/drinks/:categoryName" element={<DrinksPage />} />
+          <Route path="/drinks" element={<DrinksPage />} />
           <Route path="/add" element={<AddRecipePage />} />
           <Route path="/recipe/:recipeId" element={<RecipePage />} />
           <Route path="/my" element={<MyRecipesPage />} />

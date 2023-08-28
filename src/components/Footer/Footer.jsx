@@ -25,7 +25,7 @@ const Footer = () => {
           </LogoWrapper>
           <NavList>
             <li>
-              <StyledNav to="/drinks/:categoryName">Drinks</StyledNav>
+              <StyledNav to="/drinks">Drinks</StyledNav>
             </li>
             <li>
               <StyledNav to="/add">Add recipes</StyledNav>
