@@ -8,7 +8,7 @@ export const singInThunk = createAsyncThunk(
       const data = await callApi("/api/auth/singin", body);
       return data;
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -21,7 +21,7 @@ export const signUpThunk = createAsyncThunk(
       const data = await callApi("/api/auth/singup", body);
       return data;
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.response.data.message);
     }
   }
 );

@@ -13,7 +13,7 @@ const style = {
   p: 4,
 };
 
-export const Modal = ({ caption, message }) => {
+export const Modal = ({ message }) => {
   const [isOpen, toggleIsOpen] = useState(false);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export const Modal = ({ caption, message }) => {
       aria-describedby="modal-modal-description"
     >
       <Box sx={style}>
-        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+        <Typography id="modal-modal-description" color="white" sx={{ mt: 2 }}>
           {message}
         </Typography>
       </Box>
