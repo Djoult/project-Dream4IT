@@ -12,11 +12,11 @@ export const StyledBackdrop = styled.div`
 `;
 
 export const StyledModal = styled.div`
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-    border-radius: 14px;
-    background-color: teal;
+  border-radius: 14px;
+  background-color: teal;
 `;
