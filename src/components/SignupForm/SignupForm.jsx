@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import { useFormik } from "formik";
 import { getSignupValidationSchema } from "./validationSchemas";
@@ -14,11 +15,14 @@ import {
 } from "./SignupForm.styled";
 
 import { done, eye, eyeOff, error } from "../../images/index";
+import { signUpThunk } from "../../redux/thunks";
+import CircularProgress from "@mui/material/CircularProgress";
 
-export const SignupForm = () => {
+export const SignupForm = ({ isLoading }) => {
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [isPasswordValid, setIsPasswordValid] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
 
   const handleChangeEmail = (e) => {
     formik.handleChange(e);
@@ -31,15 +35,16 @@ export const SignupForm = () => {
   };
 
   const handleFormSubmit = async (values, { resetForm }) => {
-    console.log("Submit SignIn", values);
+    console.log('handleFormSubmit');
     setIsEmailValid(false);
     setIsPasswordValid(false);
     resetForm();
+    dispatch(signUpThunk(values));
   };
 
   const formik = useFormik({
     initialValues: {
-      username: "",
+      name: "",
       email: "",
       password: "",
     },
@@ -58,19 +63,22 @@ export const SignupForm = () => {
             : ""
         }
         style={{ zIndex: 100 }}
-        onSubmit={formik.handleSubmit}>
+        onSubmit={formik.handleSubmit}
+      >
         <TextInput
+          disabled={isLoading}
           style={{ marginBottom: "14px" }}
           type="text"
-          name="username"
+          name="name"
           placeholder="Username"
-          value={formik.values.username}
+          value={formik.values.name}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />
 
         <StyledInputWrapper>
           <TextInput
+            disabled={isLoading}
             style={{ marginBottom: "14px" }}
             type="email"
             name="email"
@@ -99,6 +107,7 @@ export const SignupForm = () => {
 
         <StyledInputWrapper>
           <TextInput
+            disabled={isLoading}
             type={showPassword ? "text" : "password"}
             name="password"
             placeholder="Password"
@@ -125,9 +134,10 @@ export const SignupForm = () => {
       </FormWrapper>
       <SignBtn
         type="submit"
-        disabled={!isEmailValid || !isPasswordValid}
-        onClick={() => handleFormSubmit(formik.values, formik)}>
-        Sign Up
+        disabled={!isEmailValid || !isPasswordValid || isLoading}
+        onClick={() => handleFormSubmit(formik.values, formik)}
+      >
+        Sign Up {isLoading && <CircularProgress size={20} />}
       </SignBtn>
     </>
   );
