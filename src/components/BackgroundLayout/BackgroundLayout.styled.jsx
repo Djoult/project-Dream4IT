@@ -79,6 +79,7 @@ export const Ellipse3 = styled(Ellipse)`
   height: 543px;
   top: 498px;
   left: 331px;
+  z-index: 0;
 
   border-radius: 549px;
   background: rgba(64, 112, 205, 0.5);
