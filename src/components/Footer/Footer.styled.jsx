@@ -1,12 +1,13 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
+import { colors } from '../../styles/GlobalStyles';
 
 export const Section = styled.section`
   padding-top: 40px;
   padding-bottom: 20px;
   padding-left: 20px;
   padding-right: 20px;
-  background-color: #0a0a11;
+  background-color: ${colors.mainBgColor};
   border-top: 2px solid rgba(243, 243, 243, 0.2);
 
   @media (min-width: 768px) {
@@ -98,7 +99,7 @@ export const PrivacyWrapper = styled.div`
 `;
 export const StyledNav = styled(NavLink)`
   text-decoration: none;
-  color: #f3f3f3;
+  color: ${colors.textMainColor};
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
