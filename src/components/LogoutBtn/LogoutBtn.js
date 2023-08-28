@@ -7,6 +7,7 @@ export const StyledLogoutBtn = styled.button`
   font-weight: 600;
   line-height: 1.3;
   white-space: nowrap;
+  cursor: pointer;
 
   color: ${colors.mainBgColor};
   border: none;
@@ -14,6 +15,7 @@ export const StyledLogoutBtn = styled.button`
 
   &:hover,
   &:focus {
-    color: ${colors.hoverColor};
+    background-color: ${colors.hoverColor};
+    color: ${colors.textMainColor};
   }
 `;
