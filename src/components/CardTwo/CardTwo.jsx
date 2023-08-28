@@ -1,18 +1,21 @@
 import { Link } from "react-router-dom";
 import { ReactComponent as TrashBin } from "../../images/trashBin.svg";
-import PropTypes from 'prop-types';
-import { Wrapper, Img, Info, Title, Ingredients, TextBox, Text, ListBtn, ButtonSee, ButtonTrash } from "./CardTwo.styled";
+import PropTypes from "prop-types";
+import {
+  Wrapper,
+  Img,
+  Info,
+  Title,
+  Ingredients,
+  TextBox,
+  Text,
+  ListBtn,
+  ButtonSee,
+  ButtonTrash,
+} from "./CardTwo.styled";
 
-
-// import { useDispatch, useSelector } from 'react-redux';
-// import { deleteCardTwo } from 'redux/operations';
-
-const CardTwo = ({ _id, drink, instructions, drinkThumb }) => {
-  //   const dispatch = useDispatch();
-
-  //   const deleteCard = (id) => {
-  //     dispatch(deleteCardTwo(id));
-  //   };
+const CardTwo = ({ _id, drink, instructions, drinkThumb, onDelete }) => {
+  const id = _id.$oid;
 
   return (
     <Wrapper>
@@ -28,10 +31,9 @@ const CardTwo = ({ _id, drink, instructions, drinkThumb }) => {
         <Link style={{ textDecoration: "none" }} to={`/recipe/${_id}`}>
           <ButtonSee>See recipe</ButtonSee>
         </Link>
-        <ButtonTrash>
+        <ButtonTrash onClick={() => onDelete(id)}>
           <TrashBin style={{ width: "24px", height: "24px" }} />
         </ButtonTrash>
-        {/* <button onClick={() => deleteContacts(el.id)}>delete</button> */}
       </ListBtn>
     </Wrapper>
   );
