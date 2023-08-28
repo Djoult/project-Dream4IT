@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import defaultUserLogo from "../../images/userLogo/userLogo.png";
 import UserLogoModal from "../UserLogoModal/UserLogoModal.jsx";
 import {
@@ -9,6 +9,7 @@ import {
 
 const UserLogo = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const userLogoRef = useRef(null);
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -20,15 +21,23 @@ const UserLogo = () => {
     }
   };
 
+  const handleClickOutside = (event) => {
+    if (userLogoRef.current && !userLogoRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  };
+
   useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("click", handleClickOutside);
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("click", handleClickOutside);
     };
   }, [isOpen]);
 
   return (
-    <StyledUserWrapper onClick={handleToggle}>
+    <StyledUserWrapper onClick={handleToggle} ref={userLogoRef}>
       <StyledUserIcon src={defaultUserLogo} alt="User photo" />
       <StyledUserDescr>User name</StyledUserDescr>
       {isOpen && <UserLogoModal />}

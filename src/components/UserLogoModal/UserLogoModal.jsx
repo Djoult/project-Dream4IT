@@ -1,21 +1,30 @@
-import React from "react";
-import LogoutBtn from "../LogoutBtn/LogoutBtn";
+import React, { useState } from "react";
+import LogoutBtn from "../LogoutBtn/LogoutBtn.jsx";
+import UserInfoModal from "../UserInfoModal/UserInfoModal.jsx";
 import { edit } from "../../images/index";
 import {
   StyledDropDownWrapper,
   StyledEditIcon,
-  StyledWrapper,
-  StyledDescr,
+  SryledEditBtn,
 } from "./UserLogoModal";
 
 const UserLogoModal = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpenModal = (event) => {
+    event.stopPropagation();
+
+    setIsOpen(true);
+  };
+
   return (
     <StyledDropDownWrapper>
-      <StyledWrapper>
-        <StyledDescr>Edit profile</StyledDescr>
-        <StyledEditIcon src={edit} alt="edit" />
-      </StyledWrapper>
+      <SryledEditBtn onClick={handleOpenModal}>
+        Edit profile <StyledEditIcon src={edit} alt="edit" />
+      </SryledEditBtn>
       <LogoutBtn />
+
+      {isOpen && <UserInfoModal />}
     </StyledDropDownWrapper>
   );
 };
