@@ -1,0 +1,1 @@
+import{j as r}from"./index-54264c6a.js";import{T as t}from"./TitlePage-15762c74.js";const a=()=>r.jsx("div",{children:r.jsx(t,{titlePage:"Craft Your Perfect Drink with Drink Master"})});export{a as default};
