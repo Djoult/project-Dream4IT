@@ -8,7 +8,6 @@ export const Container = styled.div`
   z-index: 5;
   max-width: 335px;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   color: #F3F3F3;
  @media only screen and (min-width: 768px) {
