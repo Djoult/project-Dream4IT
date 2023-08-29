@@ -1,23 +1,19 @@
 import React, { useEffect } from "react";
-import Snackbar from "@material-ui/core/Snackbar";
-import MuiAlert from "@material-ui/lab/Alert";
-import { makeStyles } from "@material-ui/core/styles";
+import { Snackbar } from "@mui/base";
+import { Alert as MuiAlert } from "@mui/material";
+import { styled } from "@mui/material/styles";
 
 const Alert = (props) => {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
+};
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: "100%",
-    "& > * + *": {
-      marginTop: theme.spacing(2),
-    },
-  },
+const SnackbarWrapper = styled("div")(({ theme }) => ({
+  width: "100%",
+  display: "flex",
+  justifyContent: "center",
 }));
 
-export const CustomizedSnackbar = ({severity, message}) => {
-  const classes = useStyles();
+export const CustomizedSnackbar = ({ severity, message }) => {
   const [open, setOpen] = React.useState(false);
 
   useEffect(() => {
@@ -33,12 +29,17 @@ export const CustomizedSnackbar = ({severity, message}) => {
   };
 
   return (
-    <div className={classes.root}>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+    <SnackbarWrapper>
+      <Snackbar
+        style={{ width: "50%" }}
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+      >
         <Alert onClose={handleClose} severity={severity}>
           {message}
         </Alert>
       </Snackbar>
-    </div>
+    </SnackbarWrapper>
   );
 };
