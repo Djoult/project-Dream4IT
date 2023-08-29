@@ -8,14 +8,17 @@ export const FormWrapper = styled.form`
 `;
 
 export const TextInput = styled.input`
+  height: 54px;
+
   border-radius: 200px;
   border: 1px solid #f3f3f380;
-  color: #f3f3f3;
-  padding: 14px 24px;
 
+  color: #f3f3f3;
   background-color: transparent;
 
   outline: none;
+
+  padding-left: 24px;
 
   transition: border-color 0.3s;
 
@@ -74,7 +77,7 @@ export const StyledInputWrapper = styled.div`
 
 export const Icon = styled.img`
   position: absolute;
-  top: 11px;
+  top: 16px;
   right: 19px;
 `;
 
@@ -82,7 +85,7 @@ export const NotifyEmail = styled.div`
   font-size: 12px;
   line-height: 14px;
   position: absolute;
-  top: 75px;
+  top: 94px;
   right: 58px;
   color: #da1414;
 `;
@@ -91,8 +94,8 @@ export const NotifyPassword = styled.div`
   font-size: 12px;
   line-height: 14px;
   position: absolute;
-  top: 169px;
-  right: 9px;
+  top: 205px;
+  right: 55px;
   color: #da1414;
 `;
 
@@ -100,7 +103,7 @@ export const NotifyEmailSignin = styled.div`
   font-size: 12px;
   line-height: 14px;
   position: absolute;
-  top: 16px;
+  top: 22px;
   right: 58px;
   color: #da1414;
 `;
@@ -109,7 +112,7 @@ export const NotifyPassSignin = styled.div`
   font-size: 12px;
   line-height: 14px;
   position: absolute;
-  top: 110px;
+  top: 134px;
   right: 56px;
   color: #da1414;
 `;

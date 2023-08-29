@@ -14,15 +14,30 @@ import { Modal } from "../../components/Modals/Modal";
 import { CustomizedSnackbar } from "../../components/commonComponents/CustomizedSnackbar";
 
 export const SignupPage = () => {
-  const { userNeedVerification, isLoading, user, error } = useSelector((state) => {
-    return {
-      userNeedVerification: selectUserNeedVerification(state),
-      isLoading: selectIsLoading(state),
-      user: state.auth.user,
-      error: state.auth.error
-    };
-  });
+  const { userNeedVerification, isLoading, user, error } = useSelector(
+    (state) => {
+      return {
+        userNeedVerification: selectUserNeedVerification(state),
+        isLoading: selectIsLoading(state),
+        user: state.auth.user,
+        error: state.auth.error,
+      };
+    }
+  );
 
+  return (
+    <BackgroundLayout>
+      <SignupWrapper>
+        <SectionTitle>Registration</SectionTitle>
+        <SignupForm isLoading={isLoading} />
+        <CustomLink to="/signin">Sign In</CustomLink>
+      </SignupWrapper>
+      {userNeedVerification && (
+        <Modal message={`Please verify your account on ${user.email}`} />
+      )}
+      {error && <CustomizedSnackbar severity={"error"} message={error} />}
+    </BackgroundLayout>
+  );
   return (
     <BackgroundLayout>
       <SignupWrapper>

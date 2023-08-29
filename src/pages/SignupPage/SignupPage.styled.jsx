@@ -13,17 +13,12 @@ export const SignupWrapper = styled.div`
 
   padding: 240px 20px 210px 20px;
 
-  @media (min-width: 568px) and (max-width: 768px) {
+  @media (min-width: 568px) {
     padding: 330px 304px 330px 64px;
     width: 400px;
   }
 
-  @media (min-width: 768px) and (max-width: 1440px) {
-    padding: 204px 940px 172px 100px;
-    width: 400px;
-  }
-
-  @media (min-width: 1440px) {
+  @media (min-width: 768px) {
     padding: 204px 940px 172px 100px;
     width: 400px;
   }
