@@ -55,9 +55,9 @@ const UserRoutes = () => {
           <Route
             index
             element={
-              // <PrivateRoute>
+              <PrivateRoute>
                 <MainPage />
-              // </PrivateRoute>
+              </PrivateRoute>
             }
           />
           <Route
