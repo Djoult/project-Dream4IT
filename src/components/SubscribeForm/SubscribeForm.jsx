@@ -2,103 +2,73 @@ import { useState } from "react";
 import { Container, Intro, Spacer, TryAgain } from "./SubscribeForm.styled";
 import { ButtonMain } from "../../UI/Button/Button";
 import { InputMain } from "../../UI/Input/Input";
+import axios from "axios";
 
 const SubscribeForm = () => {
-  const [status, setStatus] = useState(null);// Статус підписки
+  const [status, setStatus] = useState(null); // Статус підписки
   const [email, setEmail] = useState(""); // Значення email з форми
-  const [subscribed, setSubscribed] = useState(true);// Початковий стан підписки
-const [currentEmail, setCurrentEmail] = useState(""); // Поточна електронна пошта
-  const FORM_URL = `http://localhost:3001/subscribe`;
+  const [subscribed, setSubscribed] = useState(false); // Початковий стан підписки
+  const [isLoading, setLoading] = useState(false); // стан для відображення лоадера
+const [emailError, setEmailError] = useState({ isValid: true, message: '' });//стан для збереження помилок 
 
-// Функція для відправки форми підписки
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    const data = new FormData(event.target);
+  // Функція для відправки форми підписки
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
     try {
-      const response = await fetch(FORM_URL, {
-        method: "post",
-        body: data,
-        headers: {
-          accept: "application/json",
-        },
-      });
-
-      setEmail(""); // Очищаємо email 
-      const json = await response.json();
-
-      if (json.status === "success") {
-        setStatus("SUCCESS");// Встановлюємо статус успішної підписки
-        setCurrentEmail(email); // Зберігаємо поточну електронну пошту
-        setSubscribed(true); // Відмічаємо підписку
-        return;
-      }
-    } catch (err) {
-      setStatus("ERROR");
-      console.log(err);
-    }
-  };
-// Функція для зміни email при вводі в полі
-  // const handleEmailChange = (event) => {
-  //   const { value } = event.target;
-  //   setEmail(value);
-  // };
-   const handleEmailChange = (value) => {
-    setEmail(value);
-  };
-
-
- // Функція для відписки
-  const handleUnsubscribe = async () => {
-    try {
-      const response = await fetch("/unsubscribe", {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-         body: JSON.stringify({ email_address: currentEmail }), // Використовуємо поточну електронну пошту
-      });
-
-      const json = await response.json();
-
-      if (json.status === "success") {
-        console.log("Unsubscribed successfully");
-        setSubscribed(false); // Оновити стан на "не підписаний"
+      setLoading(true); // Встановити стан "завантаження" на true
+      setStatus("LOADING"); // Встановити статус на "LOADING", показати, що відправка у процесі
+      const response = await axios.post("/api/subscriptions/subscribe", { email }); // Замініть на вашу адресу API підписки
+      if (response.status === 200) {
+        setStatus("SUCCESS"); // Якщо статус відповіді 200, то підписка вдалася
+        setSubscribed(true); // Встановити стан "підписаний" в true
+      } else {
+        setStatus("ERROR"); // Якщо інакший статус відповіді, то відображаємо помилку
       }
     } catch (error) {
-      console.error("Error:", error);
+      setStatus("ERROR"); // В разі помилки при відправці також відображаємо помилку
+    } finally {
+      setLoading(false); // Після завершення запиту ставимо false
     }
   };
 
+  const handleEmailChange = (value, error) => {
+  setEmail(value);
+  setEmailError(error);
+};
+
+
   return (
-    <Container className="py-11 px-8">
-      {subscribed ? (
-        <>
-          {status === "SUCCESS" && (
+    <Container>
+      {isLoading ? (
+        <p>Wait, we are uncorking the champagne...</p>
+      ) : (
+        <div>
+          {subscribed ? (
             <>
-              <h2>Welcome in a Best Relaxing Place!</h2>
-              <Spacer />
-              <h2> Please check your inbox to confirm the subscription!</h2>
+              {status === "SUCCESS" && (
+                <>
+                  <h2>Welcome to the Best Relaxing Place!</h2>
+                  <Spacer />
+                  <h2>Please check your inbox to confirm the subscription!</h2>
+                </>
+              )}
+              {status === "ERROR" && (
+                <>
+                  <h2>Oops, something went wrong...</h2>
+                  <Spacer />
+                  <h2>
+                    Please,{" "}
+                    <TryAgain onClick={() => setStatus(null)}>try again.</TryAgain>
+                  </h2>
+                </>
+              )}
             </>
-          )}
-          {status === "ERROR" && (
-            <>
-              <h2>Oops, something went wrong...</h2>
-              <Spacer />
-              <h2>
-                Please,
-                <TryAgain onClick={() => setStatus(null)}>try again.</TryAgain>
-              </h2>
-            </>
-          )}
-          {status === null && (
+          ) : (
             <>
               <Intro>
                 <h2>Subscribe Form</h2>
-                <p>
-                  Subscribe up to our newsletter. Be in touch with latest news and special offers, etc.
-                </p>
+                <p>Subscribe to our newsletter for the latest news and offers.</p>
               </Intro>
 
               <form onSubmit={handleSubmit}>
@@ -108,25 +78,17 @@ const [currentEmail, setCurrentEmail] = useState(""); // Поточна елек
                   placeholder="Your email address"
                   required
                   type="email"
-                   onChange={({ value, }) => {
-                    handleEmailChange(value); // Змінюємо email
-  
+                  onChange={(e) => {
+                  handleEmailChange(e.value, e.error);
                   }}
                   value={email}
+                  error={emailError}
                 />
                 <ButtonMain type="submit" buttonName="Subscribe" />
               </form>
             </>
           )}
-        </>
-      ) : (
-        // повідомлення про відписку та кнопку для відписки
-      <Intro>
-        <h3>Unsubscribe</h3>
-        <p>You can unsubscribe by pressing the button below.</p>
-        <ButtonMain onClick={handleUnsubscribe} buttonName="Unsubscribe" />
-      </Intro>
-
+        </div>
       )}
     </Container>
   );
