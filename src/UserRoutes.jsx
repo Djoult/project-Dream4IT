@@ -27,24 +27,104 @@ const UserRoutes = () => {
   return (
     <Suspense fallback={<div>...here will be Loader Component</div>}>
       <Routes>
-        {/* <Route element={<PublicRoute />}> */}
-        <Route path="/welcome" element={<PublicRoute><WelcomePage /></PublicRoute>} />
-        <Route path="/signup" element={<PublicRoute><SignupPage /></PublicRoute>} />
-        <Route path="/signin" element={<PublicRoute><SigninPage /></PublicRoute>} />
-        {/* </Route> */}
-        {/* <Route element={<PrivateRoute />}> */}
+        <Route
+          path="/welcome"
+          element={
+            <PublicRoute>
+              <WelcomePage />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <PublicRoute>
+              <SignupPage />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/signin"
+          element={
+            <PublicRoute>
+              <SigninPage />
+            </PublicRoute>
+          }
+        />
         <Route path="/" element={<SharedLayout />}>
-          <Route index element={<PrivateRoute><MainPage /></PrivateRoute>} />
-          <Route path="/drinks" element={<DrinksPage />} />
-          <Route path="/add" element={<AddRecipePage />} />
-          <Route path="/recipe/:recipeId" element={<RecipePage />} />
-          <Route path="/my" element={<MyRecipesPage />} />
-          <Route path="/favorite" element={<FavoritePage />} />
-          <Route path="/terms" element={<TermsPage />} />
-          <Route path="/privacy" element={<PrivacyPage />} />
-          <Route path="*" element={<NotFoundPage />} />
+          <Route
+            index
+            element={
+              <PrivateRoute>
+                <MainPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/drinks"
+            element={
+              <PrivateRoute>
+                <DrinksPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/add"
+            element={
+              <PrivateRoute>
+                <AddRecipePage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/recipe/:recipeId"
+            element={
+              <PrivateRoute>
+                <RecipePage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/my"
+            element={
+              <PrivateRoute>
+                <MyRecipesPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/favorite"
+            element={
+              <PrivateRoute>
+                <FavoritePage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/terms"
+            element={
+              <PrivateRoute>
+                <TermsPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/privacy"
+            element={
+              <PrivateRoute>
+                <PrivacyPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <PublicRoute>
+                <NotFoundPage />
+              </PublicRoute>
+            }
+          />
         </Route>
-        {/* </Route> */}
       </Routes>
     </Suspense>
   );
