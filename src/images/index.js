@@ -22,6 +22,11 @@ import facebook from "../images/facebook.svg";
 import instagram from "../images/instagram.svg";
 import youtube from "../images/youtube.svg";
 
+// pagination
+import arrowRight from "../images/arrowRight.svg";
+import arrowLeft from "../images/arrowLeft.svg";
+import ellipse from "../images/ellipse.svg";
+
 export {
   arrowDown,
   checked,
@@ -40,4 +45,7 @@ export {
   xCross,
   youtube,
   mobileMenu,
+  arrowRight,
+  arrowLeft,
+  ellipse
 };
