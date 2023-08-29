@@ -21,10 +21,10 @@ export const SigninPage = () => {
     <BackgroundLayout>
       <SignupWrapper>
         <SectionTitle>Sign In</SectionTitle>
-        {error && <CustomizedSnackbar severity={"error"} message={error} />}
         <SigninForm isLoading={isLoading} />
         <CustomLink to="/signup">Registration</CustomLink>
       </SignupWrapper>
+      {error && <CustomizedSnackbar severity={"error"} message={error} />}
     </BackgroundLayout>
   );
 };
