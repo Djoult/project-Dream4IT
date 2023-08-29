@@ -1,29 +1,27 @@
+import { useSelector } from "react-redux";
+
 import BackgroundLayout from "../../components/BackgroundLayout/BackgroundLayout";
 import { SigninForm } from "../../components/SigninForm/SigninForm";
 
-import { SignupWrapper } from "../SignupPage/SignupPage.styled";
-import { SectionTitle } from "../WelcomePage/WelcomePage.styled";
-
-import { CustomLink } from "./SignInPage.styled";
-import { useSelector } from "react-redux";
 import { CustomizedSnackbar } from "../../components/commonComponents/CustomizedSnackbar";
-import {
-  selectIsLoading
-} from "../../redux/selectors";
+import { selectIsLoading } from "../../redux/selectors";
+
+import { SectionTitle } from "../WelcomePage/WelcomePage.styled";
+import { CustomLink, SigninWrapper } from "./SignInPage.styled";
 
 export const SigninPage = () => {
-  const { error, isLoading} = useSelector((state) => ({
+  const { error, isLoading } = useSelector((state) => ({
     error: state.auth.error,
     isLoading: selectIsLoading(state),
   }));
 
   return (
     <BackgroundLayout>
-      <SignupWrapper>
+      <SigninWrapper>
         <SectionTitle>Sign In</SectionTitle>
         <SigninForm isLoading={isLoading} />
         <CustomLink to="/signup">Registration</CustomLink>
-      </SignupWrapper>
+      </SigninWrapper>
       {error && <CustomizedSnackbar severity={"error"} message={error} />}
     </BackgroundLayout>
   );
