@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import defaultUserLogo from "../../images/userLogo/userLogo.png";
-import { xCross, plus, edit } from "../../images/index";
+import { xCross, plus, edit, error } from "../../images/index";
 import {
   StyledBackdrop,
   StyledModal,
@@ -13,29 +13,63 @@ import {
   StyledModalInput,
   StyledModalLabel,
   StyledModalBtn,
+  StyledErrorIcon
 } from "./UserInfoModal";
 
 const UserInfoModal = ({ closeModal }) => {
+  const [userName, setUserName] = useState("User name");
+  const [isValidUserName, setIsValidUserName] = useState(true);
+
   const handleModalClick = (event) => {
     event.stopPropagation();
+  };
+
+  const handleChange = (event) => {
+    const { value } = event.currentTarget;
+
+    setUserName(value);
+
+    document.getElementById("name").classList.remove("invalid__input");
+
+    setIsValidUserName(true);
+  };
+
+  const handleSubmitForm = (event) => {
+    event.preventDefault();
+
+    if (userName === "") {
+      document.getElementById("name").classList.add("invalid__input");
+
+      setIsValidUserName(false);
+
+      return;
+    }
+
+    console.log(userName);
   };
 
   return (
     <StyledBackdrop>
       <StyledModal onClick={handleModalClick}>
         <StyledIconClose src={xCross} alt="icon close" onClick={closeModal} />
-        <StyledModalForm>
+        <StyledModalForm onSubmit={handleSubmitForm}>
           <StyledUserLogo src={defaultUserLogo} alt="User photo" />
           <StyledAddPhotoBtn>
             <img src={plus} alt="icon plus" />
           </StyledAddPhotoBtn>
           <StyledModalLabel>
             <StyledModalInput
+              id="name"
               type="text"
               name="name"
-              defaultValue={"User name"}
+              defaultValue={userName}
+              onChange={handleChange}
             />
-            <StyledEditIcon src={edit} alt="edit icon" />
+            {isValidUserName ? (
+              <StyledEditIcon src={edit} alt="edit icon" />
+            ) : (
+              <StyledErrorIcon src={error} alt="error icon" />
+            )}
           </StyledModalLabel>
           <StyledModalBtn type="submit">Save changes</StyledModalBtn>
         </StyledModalForm>

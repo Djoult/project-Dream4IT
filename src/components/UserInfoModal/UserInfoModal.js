@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { colors } from "../../styles/GlobalStyles";
+import { TransitionMain } from "../../styles/shared";
 
 export const StyledBackdrop = styled.div`
   position: fixed;
@@ -20,7 +21,7 @@ export const StyledModal = styled.div`
   padding: 25px 50px;
 
   border-radius: 14px;
-  background-color: ${colors.buttonDarkBgColor};
+  background-color: ${colors.mainBgColor};
 
   @media screen and (min-width: 768px) {
     padding: 50px 50px 75px 50px;
@@ -99,10 +100,14 @@ export const StyledModalInput = styled.input`
   line-height: 1.3;
 
   color: ${colors.textMainColor};
-  background-color: ${colors.buttonDarkBgColor};
+  background-color: ${colors.mainBgColor};
   border: 1px solid rgba(243, 243, 243, 0.5);
   border-radius: 30px;
   outline: none;
+
+  &.invalid__input {
+    border-color: rgba(218, 20, 20, 0.5);
+  }
 
   /* tablet/desktop screen */
   @media screen and (min-width: 768px) {
@@ -127,6 +132,12 @@ export const StyledEditIcon = styled.img`
   }
 `;
 
+export const StyledErrorIcon = styled.img`
+  position: absolute;
+  top: 18px;
+  right: 18px;
+`;
+
 export const StyledModalBtn = styled.button`
   padding: 18px 96px;
   font-size: 14px;
@@ -139,6 +150,7 @@ export const StyledModalBtn = styled.button`
   background-color: ${colors.textMainColor};
   border-radius: 30px;
   border: none;
+  transition: ${TransitionMain('color', 'background-color')};
 
   &:hover,
   &:focus {
