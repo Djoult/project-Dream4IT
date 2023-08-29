@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
 import { colors } from "../../styles/GlobalStyles";
+import { TransitionMain } from "../../styles/shared";
 
 export const StyledNav = styled.nav`
   display: flex;
@@ -27,6 +28,7 @@ export const StyledNavLink = styled(NavLink)`
   color: ${colors.textMainColor};
   border: 1px solid rgba(243, 243, 243, 0.2);
   border-radius: 20px;
+  transition: ${TransitionMain('background-color')};
 
   &:hover,
   &:focus {
