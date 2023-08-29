@@ -1,28 +1,37 @@
+import { useState, useEffect } from "react";
+
 import CardTwo from "../CardTwo/CardTwo";
-import items from "../../data/DB/cocktails6.json";
-import styled from "@emotion/styled";
 
-const List = styled.ul`
+import { List } from "./ListCardsTwo.styled";
+import { useDispatch} from 'react-redux';
 
+// import { useDispatch, useSelector } from 'react-redux';
+// import { deleteCardTwo } from 'redux/operations';
 
-  padding: 0 20px 80px 20px;
-  max-width: 1440px;  
+const ListCardsTwo = ({ items }) => {
+  const [cocktails, setCocktails] = useState(items ?? []);
+  // const { cocktails } = useSelector(state => state.cocktails);
 
-  @media screen and (min-width: 768px) {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 80px 20px;
-    padding: 0 32px 140px 32px;
-  }
-  @media screen and (min-width: 1440px) {
-    padding: 0 100px 140px 100px;
-  }
-`;
-// const ListCardsTwo = ( { items = [] } ) => {
+  const deleteCocktail = (id) => {
+    const updateArray = cocktails.filter(
+      (cocktail) => cocktail._id.$oid !== id
+    );
+    setCocktails(updateArray);
+    // 3
+    // const updateArray = contacts.filter(contact => contact.id !== id);
+    // dispatch(contactsAction(updateArray));
+    // 4
+    //( import { deleteContact } from 'redux/operations';
+          // $pull. Поле users - це масив, з якого видаляємо значення
+          //result = await Recipe.findbyIdAndUpdate(recipe._id, { $pull: {users: userId } });
 
-const ListCardsTwo = () => {
-  const elements = items.map((item) => (
-    <CardTwo key={item._id.$oid} {...item} />
+    // const deleteContacts = id => {
+    //   dispatch(deleteContact(id));
+    // };
+  };
+
+  const elements = cocktails.map((item) => (
+    <CardTwo key={item._id.$oid} {...item} onDelete={deleteCocktail} />
   ));
 
   return (
