@@ -1,9 +1,21 @@
 import React from "react";
+import PropTypes from "prop-types";
 import defaultUserLogo from "../../images/userLogo/userLogo.png";
 import { xCross, plus, edit } from "../../images/index";
-import { StyledBackdrop, StyledModal } from "./UserInfoModal";
+import {
+  StyledBackdrop,
+  StyledModal,
+  StyledIconClose,
+  StyledModalForm,
+  StyledUserLogo,
+  StyledAddPhotoBtn,
+  StyledEditIcon,
+  StyledModalInput,
+  StyledModalLabel,
+  StyledModalBtn,
+} from "./UserInfoModal";
 
-const UserInfoModal = () => {
+const UserInfoModal = ({ closeModal }) => {
   const handleModalClick = (event) => {
     event.stopPropagation();
   };
@@ -11,24 +23,29 @@ const UserInfoModal = () => {
   return (
     <StyledBackdrop>
       <StyledModal onClick={handleModalClick}>
-        <img src={xCross} alt="icon close" />
-        <form>
-          <div>
-            <img src={defaultUserLogo} alt="User photo" />
-            <button>
-              <img src={plus} alt="icon plus" />
-            </button>
-          </div>
-          <input type="text" name="name" id="name" />
-          <label htmlFor="name">
-            User name
-            <img src={edit} alt="edit icon" />
-          </label>
-          <button type="submit">Save changes</button>
-        </form>
+        <StyledIconClose src={xCross} alt="icon close" onClick={closeModal} />
+        <StyledModalForm>
+          <StyledUserLogo src={defaultUserLogo} alt="User photo" />
+          <StyledAddPhotoBtn>
+            <img src={plus} alt="icon plus" />
+          </StyledAddPhotoBtn>
+          <StyledModalLabel>
+            <StyledModalInput
+              type="text"
+              name="name"
+              defaultValue={"User name"}
+            />
+            <StyledEditIcon src={edit} alt="edit icon" />
+          </StyledModalLabel>
+          <StyledModalBtn type="submit">Save changes</StyledModalBtn>
+        </StyledModalForm>
       </StyledModal>
     </StyledBackdrop>
   );
 };
 
 export default UserInfoModal;
+
+UserInfoModal.propTypes = {
+  closeModal: PropTypes.func,
+};

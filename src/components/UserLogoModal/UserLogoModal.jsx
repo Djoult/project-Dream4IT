@@ -17,6 +17,10 @@ const UserLogoModal = () => {
     setIsOpen(true);
   };
 
+  const handleCloseModal = () => {
+    setIsOpen(false);
+  };
+
   return (
     <StyledDropDownWrapper>
       <SryledEditBtn onClick={handleOpenModal}>
@@ -24,7 +28,7 @@ const UserLogoModal = () => {
       </SryledEditBtn>
       <LogoutBtn />
 
-      {isOpen && <UserInfoModal />}
+      {isOpen && <UserInfoModal closeModal={handleCloseModal} />}
     </StyledDropDownWrapper>
   );
 };
