@@ -1,4 +1,4 @@
-import{n as i,j as e,L as r}from"./index-7bd3d3fa.js";import{T as s}from"./TitlePage-89cdd158.js";const l=i.div`
+import{n as i,j as e,L as r}from"./index-2453d47f.js";import{T as s}from"./TitlePage-2e89c0d5.js";const l=i.div`
   flex-basis: 335px;
 
   @media screen and (max-width: 767px) {

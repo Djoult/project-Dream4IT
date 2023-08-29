@@ -1,4 +1,4 @@
-import{n as p,P as a,j as t}from"./index-7bd3d3fa.js";const l=p.div`
+import{n as p,P as a,j as t}from"./index-2453d47f.js";const l=p.div`
   text-align: left;
   padding: 273px 855px 376px 100px;
   display: flex;
@@ -46,7 +46,7 @@ import{n as p,P as a,j as t}from"./index-7bd3d3fa.js";const l=p.div`
   position: absolute;
   filter: blur(104.8543701171875px);
   z-index: 1;
-`,o=p(i)`
+`,n=p(i)`
   width: 257px;
   height: 247px;
   top: 84px;
@@ -67,7 +67,7 @@ import{n as p,P as a,j as t}from"./index-7bd3d3fa.js";const l=p.div`
     top: -132px;
     left: 171px;
   }
-`,n=p(i)`
+`,o=p(i)`
   width: 520px;
   height: 550px;
   top: 20px;
@@ -89,11 +89,12 @@ import{n as p,P as a,j as t}from"./index-7bd3d3fa.js";const l=p.div`
     top: -231px;
     left: -494px;
   }
-`,r=p(i)`
+`,d=p(i)`
   width: 549px;
   height: 543px;
   top: 498px;
   left: 331px;
+  z-index: 0;
 
   border-radius: 549px;
   background: rgba(64, 112, 205, 0.5);
@@ -112,4 +113,4 @@ import{n as p,P as a,j as t}from"./index-7bd3d3fa.js";const l=p.div`
     top: 458px;
     left: 1181px;
   }
-`,s=({children:e})=>t.jsxs(x,{children:[t.jsx(o,{}),t.jsx(n,{}),t.jsx(r,{}),e]});s.propTypes={children:a.node.isRequired};export{s as B,h as S,l as T,g as W,c as a};
+`,r=({children:e})=>t.jsxs(x,{children:[t.jsx(n,{}),t.jsx(o,{}),t.jsx(d,{}),e]});r.propTypes={children:a.node.isRequired};export{r as B,h as S,l as T,g as W,c as a};
