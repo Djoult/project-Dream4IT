@@ -26,13 +26,19 @@ export const GlobalStyles = css`
     --main-font-family: "Manrope", sans-serif;
   }
 
-  html,
-  body,
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    color: var(--primary-black-text-color);
+    font-family: var(--main-font-family);
+  }
+
   div,
+  section,
   span,
-  applet,
   object,
-  iframe,
   h1,
   h2,
   h3,
@@ -40,73 +46,8 @@ export const GlobalStyles = css`
   h5,
   h6,
   p,
-  blockquote,
-  pre,
-  a,
-  abbr,
-  acronym,
-  address,
-  big,
-  cite,
-  code,
-  del,
-  dfn,
-  em,
-  img,
-  ins,
-  kbd,
-  q,
-  s,
-  samp,
-  small,
-  strike,
-  strong,
-  sub,
-  sup,
-  tt,
-  var,
-  b,
-  u,
-  i,
-  center,
-  dl,
-  dt,
-  dd,
-  ol,
-  ul,
-  li,
   fieldset,
-  form,
-  label,
-  legend,
-  table,
-  caption,
-  tbody,
-  tfoot,
-  thead,
-  tr,
-  th,
-  td,
-  article,
-  aside,
-  canvas,
-  details,
-  embed,
-  figure,
-  figcaption,
-  footer,
-  header,
-  hgroup,
-  menu,
-  nav,
-  output,
-  ruby,
-  section,
-  summary,
-  time,
-  mark,
-  audio,
-  video {
+  form {
     margin: 0;
     padding: 0;
     border: 0;
@@ -115,43 +56,30 @@ export const GlobalStyles = css`
     vertical-align: baseline;
   }
 
-  article,
-  aside,
-  details,
-  figcaption,
-  figure,
-  footer,
-  header,
-  hgroup,
-  menu,
   nav,
-  section {
+  a {
     display: block;
-  }
-
-  body {
-    font-family: var(--main-font-family);
-    line-height: 1;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    text-decoration: none;
   }
 
   ol,
-  ul {
+  ul,
+  li {
     list-style: none;
-  }
-  a {
-    text-decoration: none;
-  }
-  blockquote,
-  q {
-    quotes: none;
+    margin: 0;
+    padding: 0;
   }
 
-  blockquote:before,
-  blockquote:after,
-  q:before,
-  q:after {
-    content: "";
-    content: none;
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
   }
 
   table {
