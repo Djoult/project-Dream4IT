@@ -15,6 +15,7 @@ import {
   StyledModalBtn,
   StyledErrorIcon
 } from "./UserInfoModal";
+// kajime7546@wlmycn.com
 
 const UserInfoModal = ({ closeModal }) => {
   const [userName, setUserName] = useState("User name");
