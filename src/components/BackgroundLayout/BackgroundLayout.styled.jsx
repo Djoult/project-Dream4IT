@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 
 export const StartWrapper = styled.div`
-  /* width: 100%;
-  height: 100vh; */
+  width: 100%;
+  height: 100%;
 
   background-color: #0a0a11;
   background-image: linear-gradient(
@@ -15,17 +15,17 @@ export const StartWrapper = styled.div`
   position: relative;
   min-width: 375px;
 
-  background-image: url("/public/glass_mobile.jpg");
+  background-image: url("/src/images/glass/glass_mobile.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
 
   @media (min-width: 568px) and (max-width: 767px) {
-    background-image: url("/public/glass_tablet.jpg");
+    background-image: url("/src/images/glass/glass_tablet.jpg");
     min-width: 568px;
   }
   @media (min-width: 768px) {
-    background-image: url("/public/glass_desktop.jpg");
+    background-image: url("/src/images/glass/glass_desktop.jpg");
     min-width: 769px;
   }
 `;
