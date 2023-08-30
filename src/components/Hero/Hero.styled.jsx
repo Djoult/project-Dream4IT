@@ -1,87 +1,88 @@
 import styled from "@emotion/styled";
 import { colors } from "../../styles/GlobalStyles";
-// import bcgMobile from "../../assets/hero-mobile.jpg";
-// import bcgTablet from "../../assets/hero-tablet.jpg";
-// import bcgDesktop from "../../assets/hero-desktop.jpg";
+import bcgDesktop from "../../assets/hero-desktop.jpg";
 
-export const SectionHero = styled.section`
-  max-height: 690px;
-  padding-top: 120px;
-  padding-bottom: 80px;
-  padding-left: 20px;
-  padding-right: 20px;
+export const Section = styled.section`
   background-color: ${colors.mainBgColor};
+  outline: 1px solid yellow;
+  min-height: 100%;
+  padding-left: 20px;
 
   @media (min-width: 768px) {
-    max-height: 840px;
-    padding-top: 180px;
-    padding-bottom: 140px;
     padding-left: 32px;
-    padding-right: 32px;
   }
-  @media (min-width: 1440px) {
-    max-height: 740px;
-    padding-top: 160px;
+  @media (min-width: 1180px) {
     padding-left: 100px;
-    padding-right: 100px;
   }
 `;
-// export const Wrapper = styled.div`
-//   background-size: 496px 700px;
-//   background-repeat: no-repeat;
-//   background-position: top 106 left 102;
-//   background-image: linear-gradient(
-//       0.95deg,
-//       #0a0a11 -0.56%,
-//       rgba(10, 10, 17, 0) 21.93%
-//     ),
-//     linear-gradient(86.16deg, #0a0a11 8.41%, rgba(10, 10, 17, 0) 46.6%),
-//     url("${bcgMobile}");
+export const Container = styled.div`
+  display: flex-inline;
+  justify-content: st;
+  flex-direction: column;
+  padding-top: 120px;
 
-//   @media screen and (min-width: 480px) {
-//     // width: 769px;
-//     //   height: 100%;
-//     background-size: 710px 1001px;
-//     background-image: linear-gradient(
-//         0.95deg,
-//         #0a0a11 -0.56%,
-//         rgba(10, 10, 17, 0) 21.93%
-//       ),
-//       linear-gradient(86.16deg, #0a0a11 8.41%, rgba(10, 10, 17, 0) 46.6%),
-//       url("${bcgTablet}");
-//   }
+  @media (min-width: 768px) {
+    padding-top: 180px;
+  }
+  @media (min-width: 1180px) {
+    padding-top: 160px;
+  }
+`;
+export const BcgWrapper = styled.div`
+  height: 740px;
+  background-size: 640px 790px;
+  background-repeat: no-repeat;
+  background-position: top 106 left 250;
+  background-image: linear-gradient(
+      0.95deg,
+      #0a0a11 -0.56%,
+      rgba(10, 10, 17, 0) 21.93%
+    ),
+    linear-gradient(86.16deg, #0a0a11 8.41%, rgba(10, 10, 17, 0) 46.6%),
+    url("${bcgDesktop}");
 
-//   @media screen and (min-width: 768px) {
-//     width: 1440px;
-//     height: 790px;
-//     margin: 0 auto;
-//     background-size: 710px 790px;
-//     background-repeat: no-repeat;
-//     background-position: top 0 right 0px;
-//     background-image: linear-gradient(
-//         0.95deg,
-//         #0a0a11 -0.56%,
-//         rgba(10, 10, 17, 0) 21.93%
-//       ),
-//       linear-gradient(86.16deg, #0a0a11 8.41%, rgba(10, 10, 17, 0) 46.6%),
-//       url("${bcgTablet}");
-//   }
-//   @media screen and (min-width: 1180px) {
-//     width: 1440px;
-//     height: 790px;
-//     margin: 0 auto;
-//     background-size: 710px 790px;
-//     background-repeat: no-repeat;
-//     background-position: top 0 right 0px;
-//     background-image: linear-gradient(
-//         0.95deg,
-//         #0a0a11 -0.56%,
-//         rgba(10, 10, 17, 0) 21.93%
-//       ),
-//       linear-gradient(86.16deg, #0a0a11 8.41%, rgba(10, 10, 17, 0) 46.6%),
-//       url("${bcgDesktop}");
-//   }
-// `;
+  @media screen and (min-width: 480px) {
+    height: 790px;
+    background-size: 680px 790px;
+    background-repeat: no-repeat;
+    background-position: top 0 left 120px;
+    background-image: linear-gradient(
+        0.95deg,
+        #0a0a11 -0.56%,
+        rgba(10, 10, 17, 0) 21.93%
+      ),
+      linear-gradient(86.16deg, #0a0a11 8.41%, rgba(10, 10, 17, 0) 46.6%),
+      url("${bcgDesktop}");
+  }
+  @media screen and (min-width: 768px) {
+    height: 790px;
+    margin: 0 auto;
+    background-size: 680px 790px;
+    background-repeat: no-repeat;
+    background-position: top 0 left 320px;
+    background-image: linear-gradient(
+        0.95deg,
+        #0a0a11 -0.56%,
+        rgba(10, 10, 17, 0) 21.93%
+      ),
+      linear-gradient(86.16deg, #0a0a11 8.41%, rgba(10, 10, 17, 0) 46.6%),
+      url("${bcgDesktop}");
+  }
+  @media screen and (min-width: 1180px) {
+    height: 790px;
+    margin: 0 auto;
+    background-size: 700px 790px;
+    background-repeat: no-repeat;
+    background-position: top 0 right 0px;
+    background-image: linear-gradient(
+        0.95deg,
+        #0a0a11 -0.56%,
+        rgba(10, 10, 17, 0) 21.93%
+      ),
+      linear-gradient(86.16deg, #0a0a11 8.41%, rgba(10, 10, 17, 0) 46.6%),
+      url("${bcgDesktop}");
+  }
+`;
 export const HeroTitle = styled.h1`
   max-width: 280px;
   color: ${colors.textMainColor};
