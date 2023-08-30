@@ -1,4 +1,4 @@
-import{n as i,k as p,P as n,j as t}from"./index-e5c1c2b2.js";const m=i.div`
+import{n as i,k as p,P as a,j as t}from"./index-8c8e924e.js";const m=i.div`
   width: 375px;
   font-size: 28px;
   display: flex;
@@ -74,17 +74,17 @@ import{n as i,k as p,P as n,j as t}from"./index-e5c1c2b2.js";const m=i.div`
   position: relative;
   min-width: 375px;
 
-  background-image: url("src/assets/glass_mobile.jpg");
+  background-image: url("/glass_mobile.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
 
   @media (min-width: 568px) and (max-width: 767px) {
-    background-image: url("src/assets/glass_tablet.jpg");
+    background-image: url("/glass_tablet.jpg");
     min-width: 568px;
   }
   @media (min-width: 768px) {
-    background-image: url("src/assets/glass_desktop.jpg");
+    background-image: url("/glass_desktop.jpg");
     min-width: 769px;
   }
 `,o=p`
@@ -105,7 +105,7 @@ import{n as i,k as p,P as n,j as t}from"./index-e5c1c2b2.js";const m=i.div`
   position: absolute;
   filter: blur(104.8543701171875px);
   animation: ${o} 6s infinite, ${d} 10s infinite; // Применяем анимации
-`,s=i(e)`
+`,r=i(e)`
   width: 257px;
   height: 247px;
 
@@ -129,7 +129,7 @@ import{n as i,k as p,P as n,j as t}from"./index-e5c1c2b2.js";const m=i.div`
     top: -132px;
     left: 171px;
   }
-`,r=i(e)`
+`,s=i(e)`
   width: 520px;
   height: 550px;
   top: 20px;
@@ -177,4 +177,4 @@ import{n as i,k as p,P as n,j as t}from"./index-e5c1c2b2.js";const m=i.div`
     top: 458px;
     left: 1181px;
   }
-`,h=({children:a})=>t.jsxs(x,{children:[t.jsx(s,{}),t.jsx(r,{}),t.jsx(l,{}),a]});h.propTypes={children:n.node.isRequired};export{h as B,c as S,m as W,f as a,w as b};
+`,h=({children:n})=>t.jsxs(x,{children:[t.jsx(r,{}),t.jsx(s,{}),t.jsx(l,{}),n]});h.propTypes={children:a.node.isRequired};export{h as B,c as S,m as W,f as a,w as b};
