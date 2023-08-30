@@ -15,17 +15,17 @@ export const StartWrapper = styled.div`
   position: relative;
   min-width: 375px;
 
-  background-image: url("src/assets/glass_mobile.jpg");
+  background-image: url("/glass_mobile.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
 
   @media (min-width: 568px) and (max-width: 767px) {
-    background-image: url("src/assets/glass_tablet.jpg");
+    background-image: url("/glass_tablet.jpg");
     min-width: 568px;
   }
   @media (min-width: 768px) {
-    background-image: url("src/assets/glass_desktop.jpg");
+    background-image: url("/glass_desktop.jpg");
     min-width: 769px;
   }
 `;
