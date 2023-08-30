@@ -1,4 +1,4 @@
-import{n as i,P as x,j as t}from"./index-f8f26683.js";const l=i.div`
+import{n as i,k as p,P as n,j as t}from"./index-e5c1c2b2.js";const m=i.div`
   width: 375px;
   font-size: 28px;
   display: flex;
@@ -17,7 +17,7 @@ import{n as i,P as x,j as t}from"./index-f8f26683.js";const l=i.div`
     width: 485px;
     padding: 273px 855px 376px 100px;
   }
-`,h=i.h2`
+`,c=i.h2`
   color: #fafafa;
 
   align-items: center;
@@ -34,7 +34,7 @@ import{n as i,P as x,j as t}from"./index-f8f26683.js";const l=i.div`
     width: 393px;
     font-size: 40px;
   }
-`,g=i.p`
+`,f=i.p`
   text-align: center;
   color: #fafafa;
 
@@ -56,33 +56,56 @@ import{n as i,P as x,j as t}from"./index-f8f26683.js";const l=i.div`
     text-align: left;
     font-size: 18px;
   }
-`,m=i.div`
+`,w=i.div`
   display: flex;
   gap: 14px;
   z-index: 200;
-`,n=i.div`
+`,x=i.div`
+  width: 100%;
+  height: 100vh;
+
   background-color: #0a0a11;
+  background-image: linear-gradient(
+    to right,
+    rgba(47, 48, 58, 0.4),
+    rgba(47, 48, 58, 0.4)
+  );
   overflow: hidden;
   position: relative;
   min-width: 375px;
-  background-image: url("/src/assets/glass_mobile.jpg");
+
+  background-image: url("src/assets/glass_mobile.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
 
   @media (min-width: 568px) and (max-width: 767px) {
-    background-image: url("/src/assets/glass_tablet.jpg");
+    background-image: url("src/assets/glass_tablet.jpg");
     min-width: 568px;
   }
   @media (min-width: 768px) {
-    background-image: url("/src/assets/glass.jpg");
+    background-image: url("src/assets/glass_desktop.jpg");
     min-width: 769px;
   }
-`,p=i.div`
+`,o=p`
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+`,d=p`
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+`,e=i.div`
   position: absolute;
   filter: blur(104.8543701171875px);
-  z-index: 1;
-`,a=i(p)`
+  animation: ${o} 6s infinite, ${d} 10s infinite; // Применяем анимации
+`,s=i(e)`
   width: 257px;
   height: 247px;
 
@@ -106,7 +129,7 @@ import{n as i,P as x,j as t}from"./index-f8f26683.js";const l=i.div`
     top: -132px;
     left: 171px;
   }
-`,d=i(p)`
+`,r=i(e)`
   width: 520px;
   height: 550px;
   top: 20px;
@@ -128,7 +151,7 @@ import{n as i,P as x,j as t}from"./index-f8f26683.js";const l=i.div`
     top: -231px;
     left: -494px;
   }
-`,o=i(p)`
+`,l=i(e)`
   width: 549px;
   height: 543px;
 
@@ -154,4 +177,4 @@ import{n as i,P as x,j as t}from"./index-f8f26683.js";const l=i.div`
     top: 458px;
     left: 1181px;
   }
-`,s=({children:e})=>t.jsxs(n,{children:[t.jsx(a,{}),t.jsx(d,{}),t.jsx(o,{}),e]});s.propTypes={children:x.node.isRequired};export{s as B,h as S,l as W,g as a,m as b};
+`,h=({children:a})=>t.jsxs(x,{children:[t.jsx(s,{}),t.jsx(r,{}),t.jsx(l,{}),a]});h.propTypes={children:n.node.isRequired};export{h as B,c as S,m as W,f as a,w as b};
