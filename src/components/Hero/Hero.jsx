@@ -1,7 +1,13 @@
 import PropTypes from "prop-types";
 import { StyledLogoutBtn } from "../LogoutBtn/LogoutBtn";
 import { useNavigate } from "react-router";
-import { SectionHero, HeroTitle, HeroDescription } from "./Hero.styled";
+import {
+  Section,
+  BcgWrapper,
+  Container,
+  HeroTitle,
+  HeroDescription,
+} from "./Hero.styled";
 
 const HeroSection = ({ title, description, children }) => {
   const navigate = useNavigate();
@@ -9,14 +15,18 @@ const HeroSection = ({ title, description, children }) => {
     navigate("/add");
   };
   return (
-    <SectionHero>
-      {title && <HeroTitle>{title}</HeroTitle>}
-      {description && <HeroDescription>{description}</HeroDescription>}
-      <StyledLogoutBtn type="button" onClick={handleBtnClick}>
-        Add recipe
-      </StyledLogoutBtn>
-      {children}
-    </SectionHero>
+    <Section>
+      <BcgWrapper>
+        <Container>
+          {title && <HeroTitle>{title}</HeroTitle>}
+          {description && <HeroDescription>{description}</HeroDescription>}
+          <StyledLogoutBtn type="button" onClick={handleBtnClick}>
+            Add recipe
+          </StyledLogoutBtn>
+          {children}
+        </Container>
+      </BcgWrapper>
+    </Section>
   );
 };
 
