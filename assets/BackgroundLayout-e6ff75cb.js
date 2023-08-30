@@ -1,4 +1,4 @@
-import{n as i,k as p,P as a,j as t}from"./index-8c8e924e.js";const m=i.div`
+import{n as i,k as p,P as a,j as t}from"./index-a6095c0b.js";const m=i.div`
   width: 375px;
   font-size: 28px;
   display: flex;
@@ -61,8 +61,8 @@ import{n as i,k as p,P as a,j as t}from"./index-8c8e924e.js";const m=i.div`
   gap: 14px;
   z-index: 200;
 `,x=i.div`
-  width: 100%;
-  height: 100vh;
+  /* width: 100%;
+  height: 100vh; */
 
   background-color: #0a0a11;
   background-image: linear-gradient(
@@ -74,17 +74,17 @@ import{n as i,k as p,P as a,j as t}from"./index-8c8e924e.js";const m=i.div`
   position: relative;
   min-width: 375px;
 
-  background-image: url("/glass_mobile.jpg");
+  background-image: url("/public/glass_mobile.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
 
   @media (min-width: 568px) and (max-width: 767px) {
-    background-image: url("/glass_tablet.jpg");
+    background-image: url("/public/glass_tablet.jpg");
     min-width: 568px;
   }
   @media (min-width: 768px) {
-    background-image: url("/glass_desktop.jpg");
+    background-image: url("/public/glass_desktop.jpg");
     min-width: 769px;
   }
 `,o=p`
