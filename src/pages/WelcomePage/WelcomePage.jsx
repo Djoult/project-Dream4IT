@@ -1,5 +1,5 @@
 import {
-  TextWrapper,
+  WelcomePageContainer,
   WelcomeDescription,
   ButtonWrapper,
   SectionTitle,
@@ -11,7 +11,7 @@ import BackgroundLayout from "../../components/BackgroundLayout/BackgroundLayout
 const WelcomePage = () => {
   return (
     <BackgroundLayout>
-      <TextWrapper>
+      <WelcomePageContainer>
         <SectionTitle>Welcome to the app!</SectionTitle>
         <WelcomeDescription>
           This app offers more than just a collection of recipes - it is
@@ -21,7 +21,7 @@ const WelcomePage = () => {
         <ButtonWrapper>
           <AuthNav />
         </ButtonWrapper>
-      </TextWrapper>
+      </WelcomePageContainer>
     </BackgroundLayout>
   );
 };

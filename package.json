@@ -42,5 +42,5 @@
     "sass": "^1.66.1",
     "vite": "^4.4.5"
   },
-  "proxy": "http://localhost:4000"
+  "proxy": "https://drinkmaster-backend.onrender.com"
 }
