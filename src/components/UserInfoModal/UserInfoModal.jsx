@@ -15,11 +15,16 @@ import {
   StyledModalBtn,
   StyledErrorIcon
 } from "./UserInfoModal";
+import { selectUser } from "../../redux/selectors";
+import { useSelector } from "react-redux";
 // kajime7546@wlmycn.com
 
 const UserInfoModal = ({ closeModal }) => {
   const [userName, setUserName] = useState("User name");
   const [isValidUserName, setIsValidUserName] = useState(true);
+
+  const user = useSelector(selectUser)
+  console.log(user)
 
   const handleModalClick = (event) => {
     event.stopPropagation();

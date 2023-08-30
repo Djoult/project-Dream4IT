@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const instance = axios.create({
-  baseURL: "https://drinkmaster-backend.onrender.com/",
+  baseURL: "https://drinkmaster-backend.onrender.com",
 });
 
 export const setToken = (token) => {
