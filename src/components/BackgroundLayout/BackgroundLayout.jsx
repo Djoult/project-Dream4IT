@@ -2,20 +2,19 @@ import PropTypes from "prop-types";
 
 import {
   StartWrapper,
-  // Ellipse,
   Ellipse1,
   Ellipse2,
   Ellipse3,
+  // BackgroundImageWrapper,
 } from "./BackgroundLayout.styled";
 
 const BackgroundLayout = ({ children }) => {
   return (
     <StartWrapper>
-      {/* <Ellipse> */}
+      {/* <BackgroundImageWrapper /> */}
       <Ellipse1 />
       <Ellipse2 />
       <Ellipse3 />
-      {/* </Ellipse> */}
       {children}
     </StartWrapper>
   );

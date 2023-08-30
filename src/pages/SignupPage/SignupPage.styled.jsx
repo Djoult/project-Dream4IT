@@ -7,7 +7,7 @@ export const SignupWrapper = styled.div`
   text-align: center;
   z-index: 1100;
 
-  margin: 0 auto;
+  /* margin: 0 auto; */
   width: 335px;
   max-width: 400px;
 
