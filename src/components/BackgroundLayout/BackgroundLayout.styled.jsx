@@ -1,5 +1,10 @@
 import styled from "@emotion/styled";
+
 import { keyframes } from "@emotion/react";
+
+import GlassImageMobile from "../../assets/glass_mobile.jpg";
+import GlassImageTablet from "../../assets/glass_tablet.jpg";
+import GlassImageDesktop from "../../assets/glass_desktop.jpg";
 
 export const StartWrapper = styled.div`
   width: 100%;
@@ -15,17 +20,18 @@ export const StartWrapper = styled.div`
   position: relative;
   min-width: 375px;
 
-  background-image: url("/src/images/glass/glass_mobile.jpg");
+  background-image: url("${GlassImageMobile}");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
 
   @media (min-width: 568px) and (max-width: 767px) {
-    background-image: url("/src/images/glass/glass_tablet.jpg");
+    background-image: url("${GlassImageTablet}");
     min-width: 568px;
   }
+
   @media (min-width: 768px) {
-    background-image: url("/src/images/glass/glass_desktop.jpg");
+    background-image: url("${GlassImageDesktop}");
     min-width: 769px;
   }
 `;
@@ -51,7 +57,7 @@ const rotateAnimation = keyframes`
 export const Ellipse = styled.div`
   position: absolute;
   filter: blur(104.8543701171875px);
-  animation: ${pulseAnimation} 6s infinite, ${rotateAnimation} 10s infinite; // Применяем анимации
+  animation: ${pulseAnimation} 6s infinite, ${rotateAnimation} 10s infinite;
 `;
 
 export const Ellipse1 = styled(Ellipse)`
