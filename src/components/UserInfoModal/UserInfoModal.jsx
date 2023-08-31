@@ -15,7 +15,7 @@ import {
   StyledModalBtn,
   StyledErrorIcon
 } from "./UserInfoModal";
-import { selectUser } from "../../redux/selectors";
+import { selectUser, selectCurrentUser } from "../../redux/selectors";
 import { useSelector } from "react-redux";
 // kajime7546@wlmycn.com
 
@@ -25,6 +25,8 @@ const UserInfoModal = ({ closeModal }) => {
 
   const user = useSelector(selectUser)
   console.log(user)
+  const currentUser = useSelector(selectCurrentUser)
+  console.log(currentUser)
 
   const handleModalClick = (event) => {
     event.stopPropagation();

@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { colors } from "../../styles/GlobalStyles";
 
 export const StyledUserWrapper = styled.div`
+  margin: 0;
   position: relative;
   display: flex;
   align-items: center;

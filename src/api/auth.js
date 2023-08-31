@@ -5,7 +5,7 @@ export const instance = axios.create({
 });
 
 export const setToken = (token) => {
-  instance.defaults.headers.common["Authorization"] = token;
+  instance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 };
 
 export const callGetApi = async (url) => {
@@ -23,3 +23,8 @@ export const callApi = async (url, payload, method = "POST") => {
   if ("token" in data) setToken(data.token);
   return data;
 };
+
+export const getCurrent = async (url) => {
+  const response = await instance.get(url);
+  return response.data;
+}
