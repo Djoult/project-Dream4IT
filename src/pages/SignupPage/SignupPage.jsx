@@ -38,19 +38,6 @@ export const SignupPage = () => {
       {error && <CustomizedSnackbar severity={"error"} message={error} />}
     </BackgroundLayout>
   );
-  return (
-    <BackgroundLayout>
-      <SignupWrapper>
-        <SectionTitle>Registration</SectionTitle>
-        <SignupForm isLoading={isLoading} />
-        <CustomLink to="/signin">Sign In</CustomLink>
-      </SignupWrapper>
-      {userNeedVerification && (
-        <Modal message={`Please verify your account on ${user.email}`} />
-      )}
-      {error && <CustomizedSnackbar severity={"error"} message={error} />}
-    </BackgroundLayout>
-  );
 };
 
 export default SignupPage;
