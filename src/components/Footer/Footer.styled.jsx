@@ -8,7 +8,7 @@ export const Section = styled.section`
   padding-left: 20px;
   padding-right: 20px;
   background-color: ${colors.mainBgColor};
-  border-top: 2px solid rgba(243, 243, 243, 0.2);
+  border-top: 1px solid rgba(243, 243, 243, 0.2);
 
   @media (min-width: 768px) {
     padding-top: 80px;

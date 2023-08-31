@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   acceptedStyles,
@@ -12,10 +11,9 @@ export const InputMain = ({
   label,
   placeholder,
   type,
-  onChange
+  onChange,
+  error
 }) => {
-  const [error, setError] = useState({});
-
   const inputId = label.replace(/\s+/g, '-').toLowerCase();
 
   const validateEmail = (email) => {
@@ -42,7 +40,6 @@ export const InputMain = ({
       validationError = { isValid: true, message: '' };
     }
 
-    setError(validationError);
     onChange({ value, error: validationError });
   };
 
@@ -83,6 +80,10 @@ InputMain.propTypes = {
   type: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func.isRequired,
+  error: PropTypes.shape({
+    isValid: PropTypes.bool.isRequired,
+    message: PropTypes.string.isRequired
+  }).isRequired
 };
 
 InputMain.defaultProps = {
@@ -90,5 +91,5 @@ InputMain.defaultProps = {
   label: '',
   placeholder: '',
   type: 'text',
-  name: '',
+  name: ''
 };

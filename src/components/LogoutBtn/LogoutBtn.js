@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { colors } from "../../styles/GlobalStyles";
+import { TransitionMain } from "../../styles/shared";
 
 export const StyledLogoutBtn = styled.button`
   padding: 12px 45px;
@@ -12,6 +13,7 @@ export const StyledLogoutBtn = styled.button`
   color: ${colors.mainBgColor};
   border: none;
   border-radius: 20px;
+  transition: ${TransitionMain('color', 'background-color')};
 
   &:hover,
   &:focus {
