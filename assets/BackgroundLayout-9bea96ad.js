@@ -1,4 +1,4 @@
-import{n as t,k as p,P as n,j as i}from"./index-7972dcca.js";const w=t.div`
+import{n as t,k as p,P as n,j as i}from"./index-24779243.js";const w=t.div`
   width: 375px;
   font-size: 28px;
   display: flex;
