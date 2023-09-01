@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { singInThunk, signUpThunk } from "./thunks";
+import { singInThunk, signUpThunk, getCurrentThunk } from "./thunks";
 
 const initialState = {
   user: {},
@@ -7,6 +7,7 @@ const initialState = {
   isLoading: false,
   userNeedVerification: false,
   error: "",
+  currentUser: null,
 };
 const handleSignInFulfilled = (state, { payload }) => {
   state.isLoading = false;
@@ -18,6 +19,11 @@ const handleSignUpFulfilled = (state, { payload }) => {
   state.isLoading = false;
   state.userNeedVerification = payload.needVerification;
   state.user = { email: payload.email, name: payload.name };
+};
+
+const handleGetCurrentFulfilled = (state, { payload }) => {
+  state.isLoading = false;
+  state.currentUser = payload.name;
 };
 
 const handlePending = (state) => {
@@ -38,6 +44,7 @@ const authSlice = createSlice({
     builder
       .addCase(singInThunk.fulfilled, handleSignInFulfilled)
       .addCase(signUpThunk.fulfilled, handleSignUpFulfilled)
+      .addCase(getCurrentThunk.fulfilled, handleGetCurrentFulfilled)
       .addMatcher((action) => {
         return action.type.endsWith("/pending");
       }, handlePending)

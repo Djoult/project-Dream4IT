@@ -4,6 +4,7 @@ import { colors } from "../../styles/GlobalStyles";
 export const StyledDropDownWrapper = styled.div`
   position: absolute;
   top: 130%;
+  right: 0%;
   display: flex;
   flex-direction: column;
   gap: 38px;
