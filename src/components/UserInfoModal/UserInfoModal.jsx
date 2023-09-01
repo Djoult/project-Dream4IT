@@ -15,15 +15,14 @@ import {
   StyledModalInput,
   StyledModalLabel,
   StyledModalBtn,
-  StyledErrorIcon
+  StyledErrorIcon,
 } from "./UserInfoModal";
 // kajime7546@wlmycn.com
 
 const UserInfoModal = ({ closeModal }) => {
-  const [userName, setUserName] = useState("User name");
-  const [isValidUserName, setIsValidUserName] = useState(true);
   const currentUser = useSelector(selectCurrentUser);
-
+  const [userName, setUserName] = useState(currentUser);
+  const [isValidUserName, setIsValidUserName] = useState(true);
 
   const handleModalClick = (event) => {
     event.stopPropagation();
@@ -67,7 +66,7 @@ const UserInfoModal = ({ closeModal }) => {
               id="name"
               type="text"
               name="name"
-              defaultValue={currentUser}
+              defaultValue={userName}
               onChange={handleChange}
             />
             {isValidUserName ? (
