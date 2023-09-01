@@ -9,7 +9,6 @@ export const singInThunk = createAsyncThunk(
 
       await dispatch(getCurrentThunk())
 
-
       return data;
 
     } catch (error) {

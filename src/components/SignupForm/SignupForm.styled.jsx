@@ -11,7 +11,7 @@ export const TextInput = styled.input`
   height: 54px;
 
   border-radius: 200px;
-  border: 1px solid #f3f3f380;
+  border: 1px solid rgba(243, 243, 243, 0.2);
 
   color: #f3f3f3;
   background-color: transparent;
@@ -23,12 +23,14 @@ export const TextInput = styled.input`
   transition: border-color 0.3s;
 
   border-color: ${({ error, correct }) =>
-    error ? "red" : correct ? "green" : "initial"};
+    error ? "red" : correct ? "green" : "rgba(243, 243, 243, 0.5)"};
 
   &:focus,
   &:hover {
     &::placeholder {
       color: #f3f3f3;
+      border: 1px solid rgba(243, 243, 243, 0.5);
+      opacity: 0.8;
     }
   }
 `;
@@ -39,7 +41,7 @@ export const SignBtn = styled.button`
   justify-content: center;
 
   color: #161f37;
-  font-family: Manrope;
+
   font-size: 16px;
 
   font-weight: 600;
@@ -85,7 +87,7 @@ export const NotifyEmail = styled.div`
   font-size: 12px;
   line-height: 14px;
   position: absolute;
-  top: 94px;
+  top: 89px;
   right: 58px;
   color: #da1414;
 `;
@@ -94,7 +96,7 @@ export const NotifyPassword = styled.div`
   font-size: 12px;
   line-height: 14px;
   position: absolute;
-  top: 205px;
+  top: 196px;
   right: 55px;
   color: #da1414;
 `;
@@ -112,7 +114,7 @@ export const NotifyPassSignin = styled.div`
   font-size: 12px;
   line-height: 14px;
   position: absolute;
-  top: 134px;
+  top: 128px;
   right: 56px;
   color: #da1414;
 `;
