@@ -1,29 +1,29 @@
-import{n as t,k as p,P as n,j as i}from"./index-24779243.js";const w=t.div`
-  width: 375px;
-  font-size: 28px;
+import{n as t,k as p,P as n,j as i}from"./index-0c1289e5.js";const w=t.div`
+  min-width: 335px;
+
   display: flex;
-  align-items: center;
   flex-direction: column;
+  box-sizing: content-box;
 
   padding: 304px 28px;
 
   @media (min-width: 568px) {
     align-items: baseline;
-    width: 470px;
     padding: 400px 234px 400px 64px;
+    max-width: 400px;
   }
 
   @media (min-width: 768px) {
-    width: 485px;
-    padding: 273px 855px 376px 100px;
+    padding: 273px 855px 273px 100px;
+    max-width: 400px;
   }
 `,b=t.h2`
   color: #fafafa;
 
-  align-items: center;
   text-align: center;
 
-  font-family: Manrope;
+  white-space: nowrap;
+
   font-size: 28px;
   font-weight: 600;
   line-height: 44px;
@@ -31,38 +31,46 @@ import{n as t,k as p,P as n,j as i}from"./index-24779243.js";const w=t.div`
 
   @media (min-width: 568px) {
     text-align: left;
-    width: 393px;
     font-size: 40px;
   }
 `,u=t.p`
   text-align: center;
   color: #fafafa;
 
-  font-family: Manrope;
   font-size: 14px;
   line-height: 24px;
   letter-spacing: -0.36px;
 
   margin-top: 14px;
-
   margin-bottom: 40px;
 
   @media (min-width: 568px) {
+    width: 432px;
+
     text-align: left;
     font-size: 18px;
   }
 
   @media (min-width: 768px) {
+    width: 437px;
+
     text-align: left;
     font-size: 18px;
   }
 `,k=t.div`
+  width: 337px;
+  justify-content: center;
   display: flex;
+
   gap: 14px;
-  z-index: 200;
-`,o="/project-Dream4IT/assets/glass_mobile-ded0c6cb.jpg",x="/project-Dream4IT/assets/glass_tablet-ab31dca5.jpg",s="/project-Dream4IT/assets/glass_desktop-1423dc64.jpg",d=t.div`
-  width: 100%;
-  height: 100%;
+
+  @media (min-width: 568px) {
+    justify-content: start;
+  }
+`,o="/project-Dream4IT/assets/glass_mobile-ded0c6cb.jpg",x="/project-Dream4IT/assets/glass_tablet-ab31dca5.jpg",s="/project-Dream4IT/assets/glass_desktop-a0e36413.jpg",d=t.div`
+  min-width: 375px;
+
+  height: 100vh;
 
   background-color: #0a0a11;
   background-image: linear-gradient(
@@ -72,21 +80,18 @@ import{n as t,k as p,P as n,j as i}from"./index-24779243.js";const w=t.div`
   );
   overflow: hidden;
   position: relative;
-  min-width: 375px;
 
   background-image: url("${o}");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
 
-  @media (min-width: 568px) and (max-width: 767px) {
+  @media (min-width: 769px) {
     background-image: url("${x}");
-    min-width: 568px;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1439px) {
     background-image: url("${s}");
-    min-width: 769px;
   }
 `,r=p`
   0%, 100% {
@@ -104,8 +109,10 @@ import{n as t,k as p,P as n,j as i}from"./index-24779243.js";const w=t.div`
   }
 `,e=t.div`
   position: absolute;
+
   filter: blur(104.8543701171875px);
-  animation: ${r} 6s infinite, ${l} 10s infinite;
+
+  animation: ${r} 6s infinite, ${l} 10s infinite; // Применяем анимации
 `,g=t(e)`
   width: 257px;
   height: 247px;
@@ -130,7 +137,7 @@ import{n as t,k as p,P as n,j as i}from"./index-24779243.js";const w=t.div`
     top: -132px;
     left: 171px;
   }
-`,m=t(e)`
+`,h=t(e)`
   width: 520px;
   height: 550px;
   top: 20px;
@@ -152,7 +159,7 @@ import{n as t,k as p,P as n,j as i}from"./index-24779243.js";const w=t.div`
     top: -231px;
     left: -494px;
   }
-`,h=t(e)`
+`,m=t(e)`
   width: 549px;
   height: 543px;
 
@@ -178,4 +185,4 @@ import{n as t,k as p,P as n,j as i}from"./index-24779243.js";const w=t.div`
     top: 458px;
     left: 1181px;
   }
-`,c=({children:a})=>i.jsxs(d,{children:[i.jsx(g,{}),i.jsx(m,{}),i.jsx(h,{}),a]});c.propTypes={children:n.node.isRequired};export{c as B,b as S,w as W,u as a,k as b};
+`,c=({children:a})=>i.jsxs(d,{children:[i.jsx(g,{}),i.jsx(h,{}),i.jsx(m,{}),a]});c.propTypes={children:n.node.isRequired};export{c as B,b as S,w as W,u as a,k as b};
