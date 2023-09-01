@@ -71,6 +71,7 @@ export const StyledAddPhotoBtn = styled.button`
   border-radius: 50%;
   border: none;
   cursor: pointer;
+  transition: ${TransitionMain('background-color')};
 
   &:hover,
   &:focus {

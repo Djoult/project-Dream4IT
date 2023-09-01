@@ -8,7 +8,7 @@ export const StyledUserWrapper = styled.div`
   align-items: center;
   cursor: pointer;
 
-  @media screen and (max-width: 1199px) {
+  @media screen and (max-width: 1439px) {
     margin-left: auto;
   }
 `;

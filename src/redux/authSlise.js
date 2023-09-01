@@ -23,8 +23,8 @@ const handleSignUpFulfilled = (state, { payload }) => {
 
 const handleGetCurrentFulfilled = (state, { payload }) => {
   state.isLoading = false;
-  state.currentUser = payload;
-}
+  state.currentUser = payload.name;
+};
 
 const handlePending = (state) => {
   state.isLoading = true;

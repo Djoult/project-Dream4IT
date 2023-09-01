@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../redux/selectors";
 import PropTypes from "prop-types";
 import defaultUserLogo from "../../images/userLogo/userLogo.png";
 import { xCross, plus, edit, error } from "../../images/index";
@@ -15,18 +17,13 @@ import {
   StyledModalBtn,
   StyledErrorIcon
 } from "./UserInfoModal";
-import { selectUser, selectCurrentUser } from "../../redux/selectors";
-import { useSelector } from "react-redux";
 // kajime7546@wlmycn.com
 
 const UserInfoModal = ({ closeModal }) => {
   const [userName, setUserName] = useState("User name");
   const [isValidUserName, setIsValidUserName] = useState(true);
+  const currentUser = useSelector(selectCurrentUser);
 
-  const user = useSelector(selectUser)
-  console.log(user)
-  const currentUser = useSelector(selectCurrentUser)
-  console.log(currentUser)
 
   const handleModalClick = (event) => {
     event.stopPropagation();
@@ -70,7 +67,7 @@ const UserInfoModal = ({ closeModal }) => {
               id="name"
               type="text"
               name="name"
-              defaultValue={userName}
+              defaultValue={currentUser}
               onChange={handleChange}
             />
             {isValidUserName ? (
