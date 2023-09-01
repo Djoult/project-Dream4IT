@@ -7,8 +7,9 @@ import GlassImageTablet from "../../assets/glass_tablet.jpg";
 import GlassImageDesktop from "../../assets/glass_desktop.jpg";
 
 export const StartWrapper = styled.div`
-  width: 100%;
-  height: 100%;
+  min-width: 375px;
+
+  height: 100vh;
 
   background-color: #0a0a11;
   background-image: linear-gradient(
@@ -18,21 +19,18 @@ export const StartWrapper = styled.div`
   );
   overflow: hidden;
   position: relative;
-  min-width: 375px;
 
   background-image: url("${GlassImageMobile}");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
 
-  @media (min-width: 568px) and (max-width: 767px) {
+  @media (min-width: 769px) {
     background-image: url("${GlassImageTablet}");
-    min-width: 568px;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1439px) {
     background-image: url("${GlassImageDesktop}");
-    min-width: 769px;
   }
 `;
 
@@ -56,8 +54,10 @@ const rotateAnimation = keyframes`
 
 export const Ellipse = styled.div`
   position: absolute;
+
   filter: blur(104.8543701171875px);
-  animation: ${pulseAnimation} 6s infinite, ${rotateAnimation} 10s infinite;
+
+  animation: ${pulseAnimation} 6s infinite, ${rotateAnimation} 10s infinite; // Применяем анимации
 `;
 
 export const Ellipse1 = styled(Ellipse)`
