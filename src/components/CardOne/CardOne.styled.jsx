@@ -4,15 +4,16 @@ export const Wrapper = styled.div``;
 
 export const Img = styled.img`
   width: 335px;
-  height: 360px;
+  height: auto;
 
   @media screen and (min-width: 768px) {
-    width: 342px;
+    max-width: 342px;
+    
   }
 
   @media screen and (min-width: 1440px) {
     width: 400px;
-    height: 400px;
+    ${'' /* height: 400px; */}
   }
 `;
 export const Ingredients = styled.p`
@@ -46,4 +47,5 @@ export const ListInfo = styled.ul`
   margin-top: 14px;
   display: flex;
   justify-content: space-between;
+  width: 335px;
 `;
