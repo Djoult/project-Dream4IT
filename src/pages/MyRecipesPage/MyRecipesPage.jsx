@@ -4,13 +4,16 @@ import EllipsesLayout from "../../components/EllipsesLayout/EllipsesLayout";
 
 import ListCardsTwo from "../../components/ListCardsTwo/ListCardsTwo";
 import styled from "@emotion/styled";
-import getAllCocktails from "./loadAPI";
 
+import { useDispatch, useSelector} from 'react-redux';
+import { fetchMyCocktails } from "../../redux/Cocktails/myCocktails-operations";
+import  { getMyCocktails }  from "../../redux/selectors";
+import {getCocktails} from "../../redux/Cocktails/loadAPI"
 // import { selectFilter, selectContacts } from 'redux/selectors';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { deleteContact } from 'redux/operations';
 
-import items from "../../data/DB/cocktails6.json";
+// import items from "../../data/DB/cocktails6.json";
 
 const Page = styled.div`
   position: relative;
@@ -28,24 +31,41 @@ export const Container = styled.div`
   }
 `;
 
-const MyRecipesPage = () => {
-  const myCocktails = items;
+const MyRecipesPage = () => { 
+  
+const myCocktails = useSelector(getMyCocktails);
+// const myCocktails = useSelector(store => store.myCocktails.items);
 
-  const [cocktails, setCocktails] = useState([]);
-  const [loading, setLoading] = useState(true);
+console.log(myCocktails);
+
+console.log(2);
+
+const dispatch = useDispatch();
+
+  
+  // const myCocktails = items;  
+  // getCocktails()
+  // 
+
+  // const [myCocktails, setMyCocktails] = useState([]);
+  // const [loading, setLoading] = useState(true);
+
+  // useEffect(() => {
+  //   const getMyCocktails = async () => {
+  //     try {
+  //       // setLoading(true);
+  //       const myCocktailsData = await fetchMyCocktails();
+  //       setMyCocktails(myCocktailsData);
+  //       // setLoading(false);
+  //     } catch ({response}) {
+  //       console.log(response.data.message);
+  //     }
+  //   };
+  //   getMyCocktails();
+  // }, []);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const cocktailsData = await getAllCocktails();
-        setCocktails(cocktailsData);
-        setLoading(false);
-      } catch (e) {
-        console.log(e);
-      }
-    };
-    fetchData();
+     dispatch(fetchMyCocktails())
   }, []);
 
   return (

@@ -5,10 +5,10 @@ const Navigation = () => {
   return (
     <StyledNav>
       <StyledNavLink to="/">Home</StyledNavLink>
-      <StyledNavLink to="/drinks">Drinks</StyledNavLink>
+      <StyledNavLink to="/drinks/1">Drinks</StyledNavLink>
       <StyledNavLink to="/add">Add recipe</StyledNavLink>
       <StyledNavLink to="/my">My recipes</StyledNavLink>
-      <StyledNavLink to="/favorite">Favorites</StyledNavLink>
+      <StyledNavLink to="/favorite/1">Favorites</StyledNavLink>
     </StyledNav>
   );
 };

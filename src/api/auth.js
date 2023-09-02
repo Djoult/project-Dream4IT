@@ -5,7 +5,7 @@ export const instance = axios.create({
 });
 
 export const setToken = (token) => {
-  instance.defaults.headers.common["Authorization"] = token;
+  instance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 };
 
 export const callGetApi = async (url) => {

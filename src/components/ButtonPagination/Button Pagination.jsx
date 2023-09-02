@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 import { ReactComponent as ArrowRight } from "../../images/arrowRight.svg";
 import { ReactComponent as ArrowLeft } from "../../images/arrowLeft.svg";
 // import { ReactComponent as Ellipse } from "../../images/ellipse.svg";
@@ -49,15 +50,19 @@ const ButtonArrow = styled.button`
 // z-index: 1;
 // `;
 
+
 const ButtonPagination = ({
   prevPage,
   totalPages,
   nextPage,
   page,
   setPage,
+  // namePage
 }) => {
+  
   return (
     <Wrapper>
+      
       <ButtonArrow onClick={prevPage}>
         <ArrowLeft
           style={{
@@ -68,14 +73,17 @@ const ButtonPagination = ({
         />
       </ButtonArrow>
       {[...Array(totalPages).keys()].map((el) => (
+        <li  key={el}>
+        <Link to={`/favorite/${el+1}` } >
         <Btn
-          onClick={() => setPage(el + 1)}
-          key={el}
+          onClick={() => setPage(el + 1)}          
           active={`${page === el + 1 ? "active" : ""}`}
         >
           {/* <Svg><Ellipse /></Svg> */}
           <Number>{el + 1}</Number>
         </Btn>
+        </Link>
+        </li>
       ))}
       <ButtonArrow onClick={nextPage}>
         <ArrowRight
