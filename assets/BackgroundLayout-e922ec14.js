@@ -1,4 +1,4 @@
-import{n as t,k as p,P as n,j as i}from"./index-8c64b990.js";const w=t.div`
+import{n as t,k as p,P as n,j as i}from"./index-34bc8a5f.js";const w=t.div`
   min-width: 335px;
 
   display: flex;
@@ -86,7 +86,7 @@ import{n as t,k as p,P as n,j as i}from"./index-8c64b990.js";const w=t.div`
   background-size: contain;
   background-position: right;
 
-  @media (min-width: 769px) {
+  @media (min-width: 768px) {
     background-image: url("${x}");
   }
 
