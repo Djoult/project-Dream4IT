@@ -48,6 +48,7 @@ max-width: 335px;
   background: transparent;
   color: #f3f3f3;
   outline: none;
+  z-index:999;
   @media only screen and (min-width: 768px) {
     width: 265px;
     padding: 15px;
