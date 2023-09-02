@@ -1,9 +1,9 @@
 import CardOne from '../CardOne/CardOne';
-import items from "../../data/DB/cocktails.json";
 import styled from "@emotion/styled";
 import UsePagination from '../../hooks/usePagination';
 import ButtonPagination from "../ButtonPagination/Button Pagination";
 import { ContainerBtnPagination } from '../ListCardsTwo/ListCardsTwo.styled';
+import PropTypes from "prop-types";
 
 const List = styled.ul`
   margin: 0 auto 80px auto;
@@ -19,8 +19,7 @@ const List = styled.ul`
   }
 `;
 
-const ListCardsOnePagination = () => {
-  // const elements = items.map(item => <CardOne key={item._id.$oid} {...item} />);
+const ListCardsOnePagination = ({ items }) => {
   
   // Пагінація
    const {
@@ -50,5 +49,13 @@ const ListCardsOnePagination = () => {
   </>
   )
 };
-
+ListCardsOnePagination.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.shape({
+    _id: PropTypes.shape({
+      $oid: PropTypes.string.isRequired,
+    }).isRequired,
+    drink: PropTypes.string.isRequired,
+    drinkThumb: PropTypes.string.isRequired,
+  })).isRequired,
+};
 export default ListCardsOnePagination;
