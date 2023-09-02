@@ -4,6 +4,7 @@ export const FormWrapper = styled.form`
   display: flex;
   position: relative;
   flex-direction: column;
+
   margin-top: 28px;
 `;
 
@@ -11,26 +12,31 @@ export const TextInput = styled.input`
   height: 54px;
 
   border-radius: 200px;
-  border: 1px solid rgba(243, 243, 243, 0.2);
+  border: 1px solid
+    ${({ error, correct }) =>
+      error ? "red" : correct ? "green" : "rgba(243, 243, 243, 0.2)"};
 
   color: #f3f3f3;
   background-color: transparent;
-
   outline: none;
-
   padding-left: 24px;
 
   transition: border-color 0.3s;
 
-  border-color: ${({ error, correct }) =>
-    error ? "red" : correct ? "green" : "rgba(243, 243, 243, 0.5)"};
+  &::placeholder {
+    color: rgba(243, 243, 243, 0.2);
+  }
 
   &:focus,
   &:hover {
+    border-color: rgba(
+      243,
+      243,
+      243,
+      0.5
+    ); /* Устанавливаем цвет бордера в активном состоянии */
     &::placeholder {
-      color: #f3f3f3;
-      border: 1px solid rgba(243, 243, 243, 0.5);
-      opacity: 0.8;
+      color: rgba(243, 243, 243, 0.5);
     }
   }
 `;
@@ -41,7 +47,7 @@ export const SignBtn = styled.button`
   justify-content: center;
 
   color: #161f37;
-
+  font-family: Manrope;
   font-size: 16px;
 
   font-weight: 600;
@@ -79,42 +85,55 @@ export const StyledInputWrapper = styled.div`
 
 export const Icon = styled.img`
   position: absolute;
-  top: 16px;
+
+  top: 15px;
   right: 19px;
 `;
 
 export const NotifyEmail = styled.div`
   font-size: 12px;
   line-height: 14px;
+
   position: absolute;
-  top: 89px;
+
+  top: 88px;
   right: 58px;
+
   color: #da1414;
 `;
 
 export const NotifyPassword = styled.div`
   font-size: 12px;
   line-height: 14px;
+
   position: absolute;
+
   top: 196px;
   right: 55px;
+
   color: #da1414;
 `;
 
 export const NotifyEmailSignin = styled.div`
   font-size: 12px;
   line-height: 14px;
+
   position: absolute;
-  top: 22px;
+
+  top: 20px;
   right: 58px;
+
   color: #da1414;
 `;
 
 export const NotifyPassSignin = styled.div`
   font-size: 12px;
   line-height: 14px;
+
   position: absolute;
+
   top: 128px;
   right: 56px;
+
   color: #da1414;
 `;

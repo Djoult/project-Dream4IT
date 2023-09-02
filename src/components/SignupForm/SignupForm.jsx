@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
+import PropTypes from "prop-types";
+
 import { useFormik } from "formik";
 import { getSignupValidationSchema } from "./validationSchemas";
 
@@ -35,7 +37,7 @@ export const SignupForm = ({ isLoading }) => {
   };
 
   const handleFormSubmit = async (values, { resetForm }) => {
-    console.log('handleFormSubmit');
+    console.log("handleFormSubmit");
     setIsEmailValid(false);
     setIsPasswordValid(false);
     resetForm();
@@ -63,8 +65,7 @@ export const SignupForm = ({ isLoading }) => {
             : ""
         }
         style={{ zIndex: 100 }}
-        onSubmit={formik.handleSubmit}
-      >
+        onSubmit={formik.handleSubmit}>
         <TextInput
           disabled={isLoading}
           style={{ marginBottom: "14px" }}
@@ -135,12 +136,13 @@ export const SignupForm = ({ isLoading }) => {
       <SignBtn
         type="submit"
         disabled={!isEmailValid || !isPasswordValid || isLoading}
-        onClick={() => handleFormSubmit(formik.values, formik)}
-      >
+        onClick={() => handleFormSubmit(formik.values, formik)}>
         Sign Up {isLoading && <CircularProgress size={20} />}
       </SignBtn>
     </>
   );
 };
 
-export default SignupForm;
+SignupForm.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+};
