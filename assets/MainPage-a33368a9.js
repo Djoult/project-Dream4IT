@@ -1,4 +1,4 @@
-import{n as i,i as a,P as n,l as x,j as e,S as l}from"./index-34473b7a.js";const t="/project-Dream4IT/assets/hero-desktop-5baff696.jpg",c=i.section`
+import{n as i,o as a,P as n,p as x,j as e,S as l}from"./index-26d02038.js";const t="/project-Dream4IT/assets/hero-desktop-5baff696.jpg",c=i.section`
   background-color: ${a.mainBgColor};
   outline: 1px solid yellow;
   min-height: 100%;
