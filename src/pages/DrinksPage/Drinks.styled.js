@@ -14,12 +14,12 @@ export const Page = styled.div`
 `;
 
 export const Container = styled.div`
-  padding: 80px 0 40px 20px;
+  padding: 80px 20px 40px 20px;
   @media screen and (min-width: 768px) {
-    padding: 140px 0 60px 32px;
+    padding: 140px 32px 60px 32px;
   }
   @media screen and (min-width: 1200px) {
-    padding: 158px 0 62px 110px;
+    padding: 158px 110px 62px 110px;
   }
 `;
 
@@ -27,13 +27,19 @@ export const FilterContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 14px;
-  margin-right: 20px;
+  ${'' /* margin: 20px 40px; */}
   margin-top: 40px;
+  margin-bottom: 40px;
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     gap: 8px;
-    margin-left: 0;
+    margin-top: 60px;
+    ${'' /* margin: 60px 32px 30px 32px; */}
+  }
+  @media only screen and (min-width: 768px) {
+    margin-top: 80px;
+    ${'' /* margin: 80px 100px 40px 100px; */}
   }
 `;
 
