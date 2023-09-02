@@ -11,6 +11,8 @@ const SubscribeForm = () => {
   const [isLoading, setLoading] = useState(false); // стан для відображення лоадера
 const [emailError, setEmailError] = useState({ isValid: true, message: '' });//стан для збереження помилок 
 
+
+const baseURL = "https://drinkmaster-backend.onrender.com"
   // Функція для відправки форми підписки
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +20,8 @@ const [emailError, setEmailError] = useState({ isValid: true, message: '' });//�
     try {
       setLoading(true); // Встановити стан "завантаження" на true
       setStatus("LOADING"); // Встановити статус на "LOADING", показати, що відправка у процесі
-      const response = await axios.post("/api/subscriptions/subscribe", { email }); // Замініть на вашу адресу API підписки
+      const response = await axios.post(`${baseURL}/api/subscriptions/subscribe`, { email }); // Замініть на вашу адресу API підписки
+
       if (response.status === 200) {
         setStatus("SUCCESS"); // Якщо статус відповіді 200, то підписка вдалася
         setSubscribed(true); // Встановити стан "підписаний" в true

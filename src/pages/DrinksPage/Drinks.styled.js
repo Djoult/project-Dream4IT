@@ -38,7 +38,8 @@ export const FilterContainer = styled.div`
 `;
 
 export const InputElem = styled.input`
-  width: 100%;
+max-width: 335px;
+  ${'' /* width: 100%; */}
   padding: 18px 24px;
   /* padding-left: 24px; */
   border-radius: 200px;
