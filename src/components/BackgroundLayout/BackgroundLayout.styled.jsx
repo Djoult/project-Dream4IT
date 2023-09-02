@@ -25,7 +25,7 @@ export const StartWrapper = styled.div`
   background-size: contain;
   background-position: right;
 
-  @media (min-width: 769px) {
+  @media (min-width: 768px) {
     background-image: url("${GlassImageTablet}");
   }
 
