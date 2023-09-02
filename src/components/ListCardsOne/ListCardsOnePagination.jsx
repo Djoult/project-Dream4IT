@@ -51,9 +51,7 @@ const ListCardsOnePagination = ({ items }) => {
 };
 ListCardsOnePagination.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
-    _id: PropTypes.shape({
-      $oid: PropTypes.string.isRequired,
-    }).isRequired,
+    _id:  PropTypes.string.isRequired,
     drink: PropTypes.string.isRequired,
     drinkThumb: PropTypes.string.isRequired,
   })).isRequired,
