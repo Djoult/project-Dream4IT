@@ -60,7 +60,14 @@ const ListCardsTwo = ({ items }) => {
       <List>{elements}</List>
       {/* Пагінація кнопки */}
 <ContainerBtnPagination>
-      <ButtonPagination prevPage={prevPage} totalPages={totalPages} nextPage={nextPage} page={page} setPage={setPage} />
+      <ButtonPagination 
+      prevPage={prevPage} 
+      totalPages={totalPages} 
+      nextPage={nextPage} 
+      page={page} 
+      setPage={setPage} 
+      pageType="favorite"
+      />
       </ContainerBtnPagination>
     </>
   );

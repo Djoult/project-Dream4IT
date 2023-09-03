@@ -1,7 +1,7 @@
 import CardOne from '../CardOne/CardOne';
 import styled from "@emotion/styled";
 import UsePagination from '../../hooks/usePagination';
-import ButtonPagination from "../ButtonPagination/Button Pagination";
+import ButtonPagination from "../ButtonPagination/Button Pagination.jsx";
 import { ContainerBtnPagination } from '../ListCardsTwo/ListCardsTwo.styled';
 import PropTypes from "prop-types";
 
@@ -44,14 +44,21 @@ const ListCardsOnePagination = ({ items }) => {
     <List>{elements}</List>
     {/* Пагінація кнопки */}
 <ContainerBtnPagination>
-      <ButtonPagination prevPage={prevPage} totalPages={totalPages} nextPage={nextPage} page={page} setPage={setPage} />
+      <ButtonPagination 
+      prevPage={prevPage} 
+      totalPages={totalPages} 
+      nextPage={nextPage} 
+      page={page} 
+      setPage={setPage} 
+      pageType="drinks"
+      />
       </ContainerBtnPagination>
   </>
   )
 };
 ListCardsOnePagination.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
-    _id:  PropTypes.string.isRequired,
+    _id:  PropTypes.object.isRequired,
     drink: PropTypes.string.isRequired,
     drinkThumb: PropTypes.string.isRequired,
   })).isRequired,
