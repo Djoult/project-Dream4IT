@@ -44,7 +44,7 @@ const UserLogo = () => {
   return (
     <StyledUserWrapper onClick={handleToggle} ref={userLogoRef}>
       <StyledUserIcon src={defaultUserLogo} alt="User photo" />
-      <StyledUserDescr>{currentUser}</StyledUserDescr>
+      <StyledUserDescr>{currentUser.name}</StyledUserDescr>
       {isOpen && <UserLogoModal />}
     </StyledUserWrapper>
   );
