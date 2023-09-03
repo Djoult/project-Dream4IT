@@ -6,14 +6,14 @@ import ListCardsTwo from "../../components/ListCardsTwo/ListCardsTwo";
 import styled from "@emotion/styled";
 
 import { useDispatch, useSelector} from 'react-redux';
-import { fetchMyCocktails } from "../../redux/Cocktails/myCocktails-operations";
+// import { fetchMyCocktails } from "../../redux/Cocktails/myCocktails-operations";
 import  { getMyCocktails }  from "../../redux/selectors";
 import {getCocktails} from "../../redux/Cocktails/loadAPI"
 // import { selectFilter, selectContacts } from 'redux/selectors';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { deleteContact } from 'redux/operations';
 
-// import items from "../../data/DB/cocktails6.json";
+import items from "../../data/DB/cocktails6.json";
 
 const Page = styled.div`
   position: relative;
@@ -36,10 +36,7 @@ const MyRecipesPage = () => {
 const myCocktails = useSelector(getMyCocktails);
 // const myCocktails = useSelector(store => store.myCocktails.items);
 
-console.log(myCocktails);
-
-console.log(2);
-
+// console.log(myCocktails);
 const dispatch = useDispatch();
 
   
@@ -64,9 +61,9 @@ const dispatch = useDispatch();
   //   getMyCocktails();
   // }, []);
 
-  useEffect(() => {
-     dispatch(fetchMyCocktails())
-  }, []);
+  // useEffect(() => {
+  //    dispatch(fetchMyCocktails())
+  // }, []);
 
   return (
     <>
