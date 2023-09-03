@@ -1,4 +1,4 @@
-import{n as t,k as p,P as n,j as i}from"./index-d920aa47.js";const w=t.div`
+import{n as t,k as p,P as n,j as i}from"./index-dbe15efa.js";const w=t.div`
   min-width: 335px;
 
   display: flex;
@@ -67,7 +67,7 @@ import{n as t,k as p,P as n,j as i}from"./index-d920aa47.js";const w=t.div`
   @media (min-width: 568px) {
     justify-content: start;
   }
-`,o="/project-Dream4IT/assets/glass_mobile-ded0c6cb.jpg",x="/project-Dream4IT/assets/glass_tablet-ab31dca5.jpg",s="/project-Dream4IT/assets/glass_desktop-a0e36413.jpg",d=t.div`
+`,o="/assets/glass_mobile-ded0c6cb.jpg",x="/assets/glass_tablet-ab31dca5.jpg",s="/assets/glass_desktop-a0e36413.jpg",d=t.div`
   min-width: 375px;
 
   height: 100vh;

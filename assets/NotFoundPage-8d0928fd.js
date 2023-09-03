@@ -1,16 +1,16 @@
-import{n,j as t}from"./index-d920aa47.js";import"./TitlePage-fc156ff3.js";import{E as o}from"./EllipsesLayout-ef9e8413.js";const e="/project-Dream4IT/assets/notfound_mobile-4017e95d.png",i=n.div`
+import{n as t,j as n}from"./index-dbe15efa.js";import"./TitlePage-e30e7323.js";import{E as o}from"./EllipsesLayout-2d5f91fe.js";const i="/assets/notfound_mobile-4017e95d.png",e=t.div`
     position: relative;
     max-width: 465px;
     display: flex;
     margin: 0 auto;
     justify-content: center;
 
-`,s=n.div`
+`,s=t.div`
 display: flex;
 justify-content: center;
 position: relative;
 
-`,r=n.span`
+`,a=t.span`
 position: absolute;
 top: 25%;
 /* left: 39%; */
@@ -21,7 +21,7 @@ font-size: 150px;
 font-style: normal;
 font-weight: 600;
 line-height: 0.82; /* 82% */
-`,a=n.span`
+`,r=t.span`
 position: absolute;
 top: 25%;
 /* right: 39%; */
@@ -32,11 +32,11 @@ font-size: 150px;
 font-style: normal;
 font-weight: 600;
 line-height: 0.82; /* 82% */
-`,p=()=>t.jsx(i,{children:t.jsxs(s,{children:[t.jsx(r,{children:"4"}),t.jsx("img",{src:e}),t.jsx(a,{children:"4"})]})}),d=n.div`
+`,p=()=>n.jsx(e,{children:n.jsxs(s,{children:[n.jsx(a,{children:"4"}),n.jsx("img",{src:i}),n.jsx(r,{children:"4"})]})}),d=t.div`
   position: relative;
   background: #0a0a11;
   margin: 0 auto;
-`,l=n.div`
+`,l=t.div`
   padding: 80px 0 40px 20px;
   @media screen and (min-width: 768px) {
     padding: 140px 0 60px 32px;
@@ -44,4 +44,4 @@ line-height: 0.82; /* 82% */
   @media screen and (min-width: 1440px) {
     padding: 158px 0 62px 110px;
   }
-`,m=()=>t.jsxs(d,{children:[t.jsx(o,{}),t.jsx(l,{children:t.jsx(p,{})})]});export{l as Container,m as default};
+`,m=()=>n.jsxs(d,{children:[n.jsx(o,{}),n.jsx(l,{children:n.jsx(p,{})})]});export{l as Container,m as default};
