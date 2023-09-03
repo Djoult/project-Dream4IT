@@ -1,7 +1,12 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { selectCurrentUser } from "../../redux/selectors";
+
+import { useState } from "react";
+
 import PropTypes from "prop-types";
+
+import { useDispatch, useSelector, useSelector } from "react-redux";
+
+import { selectCurrentUser } from "../../redux/selectors";
+
 import defaultUserLogo from "../../images/userLogo/userLogo.png";
 import { xCross, plus, edit, error } from "../../images/index";
 import {
