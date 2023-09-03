@@ -28,7 +28,7 @@ const ListCardsTwo = ({ items }) => {
     setPage,
     totalPages,
   } = UsePagination({
-    contentPerPage: 9,
+    contentPerPage: 8,
     count: items.length,
   });
   // 
