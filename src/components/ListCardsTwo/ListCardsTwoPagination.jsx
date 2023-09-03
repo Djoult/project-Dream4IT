@@ -15,9 +15,10 @@ import ButtonPagination from "../ButtonPagination/Button Pagination"
 
 
 const ListCardsTwo = ({ items }) => {
-  const [cocktails, setCocktails] = useState(items);
-  // const { cocktails } = useSelector(state => state.cocktails);
 
+  const [cocktails, setCocktails] = useState([]);
+  // const { cocktails } = useSelector(state => state.cocktails);
+ 
   // Пагінація
   const {
     firstContentIndex,
@@ -60,7 +61,7 @@ const ListCardsTwo = ({ items }) => {
       <List>{elements}</List>
       {/* Пагінація кнопки */}
 <ContainerBtnPagination>
-      <ButtonPagination prevPage={prevPage} totalPages={totalPages} nextPage={nextPage} page={page} setPage={setPage} />
+      <ButtonPagination namePage='favorite' prevPage={prevPage} totalPages={totalPages} nextPage={nextPage} page={page} setPage={setPage} />
       </ContainerBtnPagination>
     </>
   );

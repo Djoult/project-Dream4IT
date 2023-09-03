@@ -34,7 +34,7 @@ const FavoritePage = () => {
 
   useEffect(() => {
     instance
-      .get('api/recipes/search?limit=80')
+      .get('api/recipes/favorite')
       .then(res => {
         const data = res.data;
         console.log(data.hits);
