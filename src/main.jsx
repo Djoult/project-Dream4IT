@@ -17,7 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-        <BrowserRouter basename="/">
+        <BrowserRouter basename="/project-Dream4IT">
           <Global styles={GlobalStyles} />
           <App />
         </BrowserRouter>
