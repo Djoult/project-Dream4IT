@@ -1,4 +1,4 @@
-import{n as t,l as x,P as o,m,j as e,S as h,r as d,o as f}from"./index-7ea3d0c8.js";import{E as w}from"./EllipsesLayout-ae08f5b5.js";const c="/project-Dream4IT/assets/hero-desktop-5baff696.jpg",b=t.section`
+import{n as t,l as x,P as o,m,j as e,S as h,r as d,o as f}from"./index-14bd18e7.js";import{E as w}from"./EllipsesLayout-169d0600.js";const c="/project-Dream4IT/assets/hero-desktop-5baff696.jpg",b=t.section`
   background-color: ${x.mainBgColor};
   outline: 1px solid yellow;
   min-height: 100%;
