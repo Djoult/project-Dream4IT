@@ -1,4 +1,4 @@
-import{n as i,j as e}from"./index-e3acd78f.js";const r=i.section`
+import{n as i,j as e}from"./index-0de1265b.js";const r=i.section`
   padding-top: 40px;
   padding-bottom: 20px;
   padding-left: 20px;
