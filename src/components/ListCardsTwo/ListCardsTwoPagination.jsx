@@ -51,7 +51,7 @@ const ListCardsTwo = ({ items }) => {
     // };
   };
 
-  const elements = cocktails.slice(firstContentIndex, lastContentIndex).map((item) => (
+  const elements = items.slice(firstContentIndex, lastContentIndex).map((item) => (
     <CardTwo key={item._id} {...item} onDelete={deleteCocktail} />
   ));
 

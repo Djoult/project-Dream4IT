@@ -5,8 +5,9 @@ import CardTwo from "../CardTwo/CardTwo";
 import { List } from "./ListCardsTwo.styled";
 
 const ListCardsTwo = ({ items }) => {
-  const [cocktails, setCocktails] = useState(items);  
-
+  console.log( items);
+  // const [cocktails, setCocktails] = useState(items);  
+  // console.log( cocktails);
   const deleteCocktail = (id) => {
     const updateArray = cocktails.filter(
       (cocktail) => cocktail._id !== id
@@ -21,7 +22,7 @@ const ListCardsTwo = ({ items }) => {
     // };
   };
 
-  const elements = cocktails.map((item) => (
+  const elements = items.map((item) => (
     <CardTwo key={item._id} {...item} onDelete={deleteCocktail} />
   ));
 

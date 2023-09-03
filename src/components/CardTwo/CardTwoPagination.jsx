@@ -15,8 +15,7 @@ import {
 } from "./CardTwo.styled";
 
 const CardTwoPagination = ({ _id, drink, instructions, drinkThumb, onDelete }) => {
-  const id = _id.$oid;
-
+ 
   return (
     <Wrapper>
       <Img src={drinkThumb} />
@@ -31,7 +30,7 @@ const CardTwoPagination = ({ _id, drink, instructions, drinkThumb, onDelete }) =
         <Link style={{ textDecoration: "none" }} to={`/recipe/${_id}`}>
           <ButtonSee>See recipe</ButtonSee>
         </Link>
-        <ButtonTrash onClick={() => onDelete(id)}>
+        <ButtonTrash onClick={() => onDelete(_id)}>
           <TrashBin style={{ width: "24px", height: "24px" }} />
         </ButtonTrash>
       </ListBtn>
@@ -41,7 +40,7 @@ const CardTwoPagination = ({ _id, drink, instructions, drinkThumb, onDelete }) =
 
 export default CardTwoPagination;
 
-CardTwo.propTypes = {
+CardTwoPagination.propTypes = {
   // _id: PropTypes.string,
   drink: PropTypes.string,
   instructions: PropTypes.string,
