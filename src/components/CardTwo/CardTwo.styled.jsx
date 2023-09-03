@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   flex-basis: 335px;
-
+  
   @media screen and (max-width: 767px) {
     &:not(:last-child) {
       margin-bottom: 40px;
