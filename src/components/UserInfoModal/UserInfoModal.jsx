@@ -1,14 +1,13 @@
+import { useState } from 'react';
 
-import { useState } from "react";
+import PropTypes from 'prop-types';
 
-import PropTypes from "prop-types";
+import { useDispatch, useSelector } from 'react-redux';
 
-import { useDispatch, useSelector, useSelector } from "react-redux";
+import { selectCurrentUser } from '../../redux/selectors';
 
-import { selectCurrentUser } from "../../redux/selectors";
-
-import defaultUserLogo from "../../images/userLogo/userLogo.png";
-import { xCross, plus, edit, error } from "../../images/index";
+import defaultUserLogo from '../../images/userLogo/userLogo.png';
+import { xCross, plus, edit, error } from '../../images/index';
 import {
   StyledBackdrop,
   StyledModal,
@@ -22,11 +21,11 @@ import {
   StyledModalBtn,
   StyledErrorIcon,
   StyledInpup,
-} from "./UserInfoModal";
+} from './UserInfoModal';
 // kajime7546@wlmycn.com
 
 // import { setHeaders } from "../../api/auth";
-import { updateUserThunk } from "../../redux/thunks";
+import { updateUserThunk } from '../../redux/thunks';
 
 const UserInfoModal = ({ closeModal }) => {
   const user = useSelector(selectCurrentUser);
@@ -36,7 +35,7 @@ const UserInfoModal = ({ closeModal }) => {
   const [filePreview, seFilePreview] = useState();
   const dispatch = useDispatch();
 
-  const handleFileChange = (e) => {
+  const handleFileChange = e => {
     if (e.target.files) {
       const file = e.target.files[0];
       setFile(file);
@@ -44,25 +43,25 @@ const UserInfoModal = ({ closeModal }) => {
     }
   };
 
-  const handleModalClick = (event) => {
+  const handleModalClick = event => {
     event.stopPropagation();
   };
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     const { value } = event.currentTarget;
 
     setUserName(value);
 
-    document.getElementById("name").classList.remove("invalid__input");
+    document.getElementById('name').classList.remove('invalid__input');
 
     setIsValidUserName(true);
   };
 
-  const handleSubmitForm = (event) => {
+  const handleSubmitForm = event => {
     event.preventDefault();
 
-    if (userName === "") {
-      document.getElementById("name").classList.add("invalid__input");
+    if (userName === '') {
+      document.getElementById('name').classList.add('invalid__input');
 
       setIsValidUserName(false);
 
@@ -74,16 +73,16 @@ const UserInfoModal = ({ closeModal }) => {
     }
 
     const formData = new FormData();
-    formData.append("file", file);
+    formData.append('file', file);
 
     // setHeaders(file);
     dispatch(
       updateUserThunk({
         body: formData,
         headers: {
-          "Content-Type": "multipart/form-data",
-          "x-rapidapi-host": "file-upload8.p.rapidapi.com",
-          "x-rapidapi-key": "your-rapidapi-key-here",
+          'Content-Type': 'multipart/form-data',
+          'x-rapidapi-host': 'file-upload8.p.rapidapi.com',
+          'x-rapidapi-key': 'your-rapidapi-key-here',
           // "Content-Length": `${file.size}`,
         },
       })
@@ -95,10 +94,17 @@ const UserInfoModal = ({ closeModal }) => {
       <StyledModal onClick={handleModalClick}>
         <StyledIconClose src={xCross} alt="icon close" onClick={closeModal} />
         <StyledModalForm onSubmit={handleSubmitForm}>
-          <StyledUserLogo src={filePreview || `http://localhost:4000/${user.avatarUrl}` || defaultUserLogo} alt="User photo" />
+          <StyledUserLogo
+            src={
+              filePreview ||
+              `http://localhost:4000/${user.avatarUrl}` ||
+              defaultUserLogo
+            }
+            alt="User photo"
+          />
           <StyledAddPhotoBtn>
             <label htmlFor="file-input">
-              {" "}
+              {' '}
               <img src={plus} alt="icon plus" />
             </label>
             <StyledInpup
