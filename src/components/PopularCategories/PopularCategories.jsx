@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { callGetApi, instance } from '../../api/auth';
+import { setToken, instance } from '../../api/auth';
+import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '../../redux/selectors';
 import css from './PopularCategories.module.scss';
 
 const PopularCategories = ({ categoryDrink }) => {
   const [drinksInCategory, setDrinksInCategory] = useState([]);
   const [cardsPerRow, setCardsPerRow] = useState(3);
-
+  const token = useSelector(state => state.auth.token);
   useEffect(() => {
+    setToken(token);
     instance
       .get('api/recipes/main-page', {
         params: { category: categoryDrink.toLowerCase() },
