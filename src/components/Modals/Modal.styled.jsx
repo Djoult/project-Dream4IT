@@ -24,4 +24,4 @@ export const StyledCloseButton = styled.button`
   &:focus {
     border: 2px solid rgba(64, 112, 205, 0.5);
     background-color: #161f37;
-`;
+  }`;
