@@ -31,7 +31,7 @@ export const Container = styled.div`
   }
 `;
 
-const MyRecipesPage = (props) => { 
+const MyRecipesPage = () => { 
   const [myCocktails, setMyCocktails] = useState([]);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const MyRecipesPage = (props) => {
 
     };
     fetchData();
-  }, [props]);
+  }, []);
  
 // const myCocktails = items;  
 
