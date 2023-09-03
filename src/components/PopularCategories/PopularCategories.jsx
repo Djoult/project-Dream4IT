@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { instance } from "../../api/auth";
-import css from "./PopularCategories.module.scss";
+import React, { useState, useEffect } from 'react';
+import { callGetApi, instance } from '../../api/auth';
+import css from './PopularCategories.module.scss';
 
 const PopularCategories = ({ categoryDrink }) => {
   const [drinksInCategory, setDrinksInCategory] = useState([]);
@@ -8,14 +8,15 @@ const PopularCategories = ({ categoryDrink }) => {
 
   useEffect(() => {
     instance
-      .get("/recipes/main-page")
-      .then((res) => {
-        const data = res.data;
-        const drinks = data[categoryDrink];
-        setDrinksInCategory(drinks);
+      .get('api/recipes/main-page', {
+        params: { category: categoryDrink.toLowerCase() },
       })
-      .catch((error) => {
-        console.error("Error fetching drinks:", error);
+      .then(res => {
+        const data = res.data;
+        setDrinksInCategory(data[0].hits);
+      })
+      .catch(error => {
+        console.error('Error fetching drinks:', error);
       });
   }, [categoryDrink]);
 
@@ -32,10 +33,10 @@ const PopularCategories = ({ categoryDrink }) => {
 
     updateCardsPerRow();
 
-    window.addEventListener("resize", updateCardsPerRow);
+    window.addEventListener('resize', updateCardsPerRow);
 
     return () => {
-      window.removeEventListener("resize", updateCardsPerRow);
+      window.removeEventListener('resize', updateCardsPerRow);
     };
   }, []);
 
@@ -43,7 +44,7 @@ const PopularCategories = ({ categoryDrink }) => {
     <div>
       <h2 className={css.nameCategory}>{categoryDrink}</h2>
       <ul className={css.cocktailList}>
-        {drinksInCategory.slice(0, cardsPerRow).map((drink) => (
+        {drinksInCategory.slice(0, cardsPerRow).map(drink => (
           <li key={drink.drink}>
             <div className={css.imgContainer}>
               <img
