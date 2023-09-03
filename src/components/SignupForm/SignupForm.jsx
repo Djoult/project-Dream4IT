@@ -37,7 +37,6 @@ export const SignupForm = ({ isLoading }) => {
   };
 
   const handleFormSubmit = async (values, { resetForm }) => {
-    console.log("handleFormSubmit");
     setIsEmailValid(false);
     setIsPasswordValid(false);
     resetForm();

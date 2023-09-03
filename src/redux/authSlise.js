@@ -1,55 +1,51 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { singInThunk, signUpThunk, getCurrentThunk } from "./thunks";
+import { createSlice } from '@reduxjs/toolkit';
+import { singInThunk, signUpThunk } from './thunks';
 
 const initialState = {
-  user: {},
-  token: "",
+  token: '',
   isLoading: false,
   userNeedVerification: false,
-  error: "",
+  error: '',
   currentUser: null,
 };
 const handleSignInFulfilled = (state, { payload }) => {
   state.isLoading = false;
   state.token = payload.token;
-  state.user = payload.user;
 };
 
 const handleSignUpFulfilled = (state, { payload }) => {
+  console.log(payload);
   state.isLoading = false;
   state.userNeedVerification = payload.needVerification;
-  state.user = { email: payload.email, name: payload.name };
+  state.currentUser = { email: payload.email };
 };
 
-const handleGetCurrentFulfilled = (state, { payload }) => {
-  state.isLoading = false;
-  state.currentUser = payload.name;
-};
-
-const handlePending = (state) => {
+const handlePending = state => {
   state.isLoading = true;
-  state.error = "";
+  state.error = '';
 };
 
-const handleRejected = (state, { payload }) => {
+const handleRejected = (state, action) => {
+  const { payload } = action;
+
+  console.log(action);
   state.isLoading = false;
   state.error = payload;
-  state.token = "";
+  state.token = '';
 };
 
 const authSlice = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState: initialState,
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
       .addCase(singInThunk.fulfilled, handleSignInFulfilled)
       .addCase(signUpThunk.fulfilled, handleSignUpFulfilled)
-      .addCase(getCurrentThunk.fulfilled, handleGetCurrentFulfilled)
-      .addMatcher((action) => {
-        return action.type.endsWith("/pending");
+      .addMatcher(action => {
+        return action.type.endsWith('/pending-auth');
       }, handlePending)
-      .addMatcher((action) => {
-        return action.type.endsWith("/rejected");
+      .addMatcher(action => {
+        return action.type.endsWith('/rejected-auth');
       }, handleRejected);
   },
 });

@@ -1,39 +1,42 @@
 import styled from "@emotion/styled";
 import downArrow from './down-arrow-svgrepo-com.svg';
-
+import loop from './loop-svgrepo-com.svg'
 
 export const InputWrapper = styled.div`
     display: flex;
     max-width: 335px;
 `
-
 export const Page = styled.div`
   position: relative;
   background: #0a0a11;
   margin: 0 auto;
 `;
-
 export const Container = styled.div`
-  padding: 80px 0 40px 20px;
+  padding: 80px 20px 40px 20px;
   @media screen and (min-width: 768px) {
-    padding: 140px 0 60px 32px;
+    padding: 140px 32px 60px 32px;
   }
   @media screen and (min-width: 1200px) {
-    padding: 158px 0 62px 110px;
+    padding: 158px 110px 62px 110px;
   }
 `;
-
 export const FilterContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 14px;
-  margin-right: 20px;
+
   margin-top: 40px;
+  margin-bottom: 40px;
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     gap: 8px;
-    margin-left: 0;
+    margin-top: 60px;
+
+  }
+  @media only screen and (min-width: 768px) {
+    margin-top: 80px;
+
   }
 `;
 
@@ -55,6 +58,7 @@ max-width: 335px;
   
  :focus{
       border: 1px solid rgba(243, 243, 243, .5);
+     
     }
   ::placeholder{
         color: #f3f3f3;
@@ -64,6 +68,24 @@ max-width: 335px;
     font-size: 17px;
   }
     }
+    :focus::placeholder {
+    color: transparent; 
+  }
+
+  ::before {
+    content: "";
+    background-image: url(${loop}); 
+    background-repeat: no-repeat;
+    background-position: left center; 
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 15px; 
+    width: 16px;
+    height: 16px;
+    z-index: 10; 
+  }
+
 `;
 
 export const Select = styled.select`

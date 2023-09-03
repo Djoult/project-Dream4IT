@@ -1,8 +1,9 @@
+
 import { useState } from "react";
 
 import PropTypes from "prop-types";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector, useSelector } from "react-redux";
 
 import { selectCurrentUser } from "../../redux/selectors";
 
@@ -20,13 +21,28 @@ import {
   StyledModalLabel,
   StyledModalBtn,
   StyledErrorIcon,
+  StyledInpup,
 } from "./UserInfoModal";
 // kajime7546@wlmycn.com
 
+// import { setHeaders } from "../../api/auth";
+import { updateUserThunk } from "../../redux/thunks";
+
 const UserInfoModal = ({ closeModal }) => {
-  const currentUser = useSelector(selectCurrentUser);
-  const [userName, setUserName] = useState(currentUser);
+  const user = useSelector(selectCurrentUser);
+  const [userName, setUserName] = useState(user.name);
   const [isValidUserName, setIsValidUserName] = useState(true);
+  const [file, setFile] = useState();
+  const [filePreview, seFilePreview] = useState();
+  const dispatch = useDispatch();
+
+  const handleFileChange = (e) => {
+    if (e.target.files) {
+      const file = e.target.files[0];
+      setFile(file);
+      seFilePreview(URL.createObjectURL(file));
+    }
+  };
 
   const handleModalClick = (event) => {
     event.stopPropagation();
@@ -53,7 +69,25 @@ const UserInfoModal = ({ closeModal }) => {
       return;
     }
 
-    console.log(userName);
+    if (!file) {
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    // setHeaders(file);
+    dispatch(
+      updateUserThunk({
+        body: formData,
+        headers: {
+          "Content-Type": "multipart/form-data",
+          "x-rapidapi-host": "file-upload8.p.rapidapi.com",
+          "x-rapidapi-key": "your-rapidapi-key-here",
+          // "Content-Length": `${file.size}`,
+        },
+      })
+    );
   };
 
   return (
@@ -61,9 +95,19 @@ const UserInfoModal = ({ closeModal }) => {
       <StyledModal onClick={handleModalClick}>
         <StyledIconClose src={xCross} alt="icon close" onClick={closeModal} />
         <StyledModalForm onSubmit={handleSubmitForm}>
-          <StyledUserLogo src={defaultUserLogo} alt="User photo" />
+          <StyledUserLogo src={filePreview || `http://localhost:4000/${user.avatarUrl}` || defaultUserLogo} alt="User photo" />
           <StyledAddPhotoBtn>
-            <img src={plus} alt="icon plus" />
+            <label htmlFor="file-input">
+              {" "}
+              <img src={plus} alt="icon plus" />
+            </label>
+            <StyledInpup
+              id="file-input"
+              type="file"
+              name="file"
+              accept="image/*"
+              onChange={handleFileChange}
+            ></StyledInpup>
           </StyledAddPhotoBtn>
           <StyledModalLabel>
             <StyledModalInput

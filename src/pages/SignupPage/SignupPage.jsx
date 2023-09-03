@@ -19,7 +19,7 @@ export const SignupPage = () => {
       return {
         userNeedVerification: selectUserNeedVerification(state),
         isLoading: selectIsLoading(state),
-        user: state.auth.user,
+        user: state.auth.currentUser,
         error: state.auth.error,
       };
     }

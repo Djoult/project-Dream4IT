@@ -18,9 +18,9 @@ const baseURL = "https://drinkmaster-backend.onrender.com"
     e.preventDefault();
 
     try {
-      setLoading(true); // Встановити стан "завантаження" на true
-      setStatus("LOADING"); // Встановити статус на "LOADING", показати, що відправка у процесі
-      const response = await axios.post(`${baseURL}/api/subscriptions/subscribe`, { email }); // Замініть на вашу адресу API підписки
+      setLoading(true); //  стан "завантаження" на true
+      setStatus("LOADING"); //відправка у процесі
+      const response = await axios.post(`${baseURL}/api/subscriptions/subscribe`, { email }); 
 
       if (response.status === 200) {
         setStatus("SUCCESS"); // Якщо статус відповіді 200, то підписка вдалася

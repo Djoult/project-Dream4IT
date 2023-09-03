@@ -56,7 +56,7 @@ export const StyledUserLogo = styled.img`
   }
 `;
 
-export const StyledAddPhotoBtn = styled.button`
+export const StyledAddPhotoBtn = styled.div`
   position: absolute;
   display: flex;
   align-items: center;
@@ -85,6 +85,10 @@ export const StyledAddPhotoBtn = styled.button`
     width: 32px;
     height: 32px;
     transform: translateX(-50%);
+  }
+`;
+export const StyledInpup = styled.input`
+  display: none;
   }
 `;
 
