@@ -4,16 +4,12 @@ import CardTwo from "../CardTwo/CardTwo";
 
 import { List } from "./ListCardsTwo.styled";
 
-
-// import { useDispatch, useSelector } from 'react-redux';
-// import { deleteCardTwo } from 'redux/operations';
-
 const ListCardsTwo = ({ items }) => {
-  const [cocktails, setCocktails] = useState(items ?? []);
+  const [cocktails, setCocktails] = useState(items);  
 
   const deleteCocktail = (id) => {
     const updateArray = cocktails.filter(
-      (cocktail) => cocktail._id.$oid !== id
+      (cocktail) => cocktail._id !== id
     );
     setCocktails(updateArray);
     // 3
@@ -26,9 +22,10 @@ const ListCardsTwo = ({ items }) => {
   };
 
   const elements = cocktails.map((item) => (
-    <CardTwo key={item._id.$oid} {...item} onDelete={deleteCocktail} />
+    <CardTwo key={item._id} {...item} onDelete={deleteCocktail} />
   ));
 
+  
   return (
     <>
       <List>{elements}</List> 

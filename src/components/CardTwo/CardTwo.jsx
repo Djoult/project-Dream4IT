@@ -15,7 +15,6 @@ import {
 } from "./CardTwo.styled";
 
 const CardTwo = ({ _id, drink, instructions, drinkThumb, onDelete }) => {
-  const id = _id.$oid;
 
   return (
     <Wrapper>
@@ -31,7 +30,7 @@ const CardTwo = ({ _id, drink, instructions, drinkThumb, onDelete }) => {
         <Link style={{ textDecoration: "none" }} to={`/recipe/${_id}`}>
           <ButtonSee>See recipe</ButtonSee>
         </Link>
-        <ButtonTrash onClick={() => onDelete(id)}>
+        <ButtonTrash onClick={() => onDelete(_id)}>
           <TrashBin style={{ width: "24px", height: "24px" }} />
         </ButtonTrash>
       </ListBtn>
