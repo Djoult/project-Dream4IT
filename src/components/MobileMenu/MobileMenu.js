@@ -5,6 +5,7 @@ export const StyledMenuIcon = styled.img`
   margin-left: 14px;
   width: 32px;
   height: 32px;
+  cursor: pointer;
 
   &:hover,
   &:focus {
