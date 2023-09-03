@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
-import { colors } from "../../styles/GlobalStyles";
-import { TransitionMain } from "../../styles/shared";
+import styled from '@emotion/styled';
+import { colors } from '../../styles/GlobalStyles';
+import { TransitionMain } from '../../styles/shared';
 
 export const StyledBackdrop = styled.div`
   position: fixed;
@@ -89,7 +89,6 @@ export const StyledAddPhotoBtn = styled.div`
 `;
 export const StyledInpup = styled.input`
   display: none;
-  }
 `;
 
 export const StyledModalLabel = styled.label`
