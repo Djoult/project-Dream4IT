@@ -57,7 +57,7 @@ const ButtonPagination = ({
   nextPage,
   page,
   setPage,
-  namePage
+  // namePage
 }) => {
   
   return (
@@ -74,7 +74,7 @@ const ButtonPagination = ({
       </ButtonArrow>
       {[...Array(totalPages).keys()].map((el) => (
         <li  key={el}>
-        <Link to={`/${namePage}/${el+1}` } >
+        <Link to={`/favorite/${el+1}` } >
         <Btn
           onClick={() => setPage(el + 1)}          
           active={`${page === el + 1 ? "active" : ""}`}
