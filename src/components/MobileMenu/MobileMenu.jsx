@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import Navigation from "../Navigation/Navigation";
-import { mobileMenu, xCross } from "../../images/index";
-import { StyledMenuIcon, StyledMenuWrapper } from "./MobileMenu";
+import { /* React, */ useState } from 'react';
+import Navigation from '../Navigation/Navigation';
+import { mobileMenu, xCross } from '../../images/index';
+import { StyledMenuIcon, StyledMenuWrapper } from './MobileMenu';
 
 const MobileMenu = () => {
   const [isShowMenu, setIsShowMenu] = useState(false);

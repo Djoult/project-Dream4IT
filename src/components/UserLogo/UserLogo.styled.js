@@ -2,12 +2,13 @@ import styled from "@emotion/styled";
 import { colors } from "../../styles/GlobalStyles";
 
 export const StyledUserWrapper = styled.div`
+  margin: 0;
   position: relative;
   display: flex;
   align-items: center;
   cursor: pointer;
 
-  @media screen and (max-width: 1199px) {
+  @media screen and (max-width: 1439px) {
     margin-left: auto;
   }
 `;

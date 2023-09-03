@@ -56,7 +56,7 @@ export const StyledUserLogo = styled.img`
   }
 `;
 
-export const StyledAddPhotoBtn = styled.button`
+export const StyledAddPhotoBtn = styled.div`
   position: absolute;
   display: flex;
   align-items: center;
@@ -71,6 +71,7 @@ export const StyledAddPhotoBtn = styled.button`
   border-radius: 50%;
   border: none;
   cursor: pointer;
+  transition: ${TransitionMain('background-color')};
 
   &:hover,
   &:focus {
@@ -86,6 +87,10 @@ export const StyledAddPhotoBtn = styled.button`
     transform: translateX(-50%);
   }
 `;
+export const StyledInpup = styled.input`
+  display: none;
+  }
+`;
 
 export const StyledModalLabel = styled.label`
   position: relative;
@@ -94,7 +99,7 @@ export const StyledModalLabel = styled.label`
 export const StyledModalInput = styled.input`
   padding: 17px 24px;
   margin-bottom: 18px;
-  width: 235px;
+  width: 285px;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.3;
@@ -113,7 +118,7 @@ export const StyledModalInput = styled.input`
   @media screen and (min-width: 768px) {
     padding: 14px 18px 15px 24px;
     margin-bottom: 25px;
-    width: 356px;
+    width: 400px;
     font-size: 17px;
     line-height: 1.5;
   }

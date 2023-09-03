@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../redux/selectors";
 import defaultUserLogo from "../../images/userLogo/userLogo.png";
 import UserLogoModal from "../UserLogoModal/UserLogoModal.jsx";
 import {
@@ -10,6 +12,9 @@ import {
 const UserLogo = () => {
   const [isOpen, setIsOpen] = useState(false);
   const userLogoRef = useRef(null);
+  const currentUser = useSelector(selectCurrentUser);
+
+
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -39,7 +44,7 @@ const UserLogo = () => {
   return (
     <StyledUserWrapper onClick={handleToggle} ref={userLogoRef}>
       <StyledUserIcon src={defaultUserLogo} alt="User photo" />
-      <StyledUserDescr>User name</StyledUserDescr>
+      <StyledUserDescr>{currentUser.name}</StyledUserDescr>
       {isOpen && <UserLogoModal />}
     </StyledUserWrapper>
   );
