@@ -1,4 +1,4 @@
-import{n as p}from"./index-b9954134.js";const n=p.ul`
+import{n as p}from"./index-2b8d515f.js";const n=p.ul`
   padding: 0 20px 80px 20px;
   max-width: 1440px;
 
