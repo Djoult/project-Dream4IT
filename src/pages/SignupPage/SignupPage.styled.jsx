@@ -1,15 +1,13 @@
 import styled from "@emotion/styled";
 
 export const SignupWrapper = styled.div`
+  min-width: 335px;
+
   display: flex;
   flex-direction: column;
+  box-sizing: content-box;
 
   text-align: center;
-  z-index: 1100;
-
-  margin: 0 auto;
-  width: 335px;
-  max-width: 400px;
 
   padding: 240px 20px 210px 20px;
 
@@ -19,7 +17,8 @@ export const SignupWrapper = styled.div`
   }
 
   @media (min-width: 768px) {
-    padding: 204px 940px 172px 100px;
+    padding: 204px 940px 174px 100px;
     width: 400px;
+    text-align: center;
   }
 `;

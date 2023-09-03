@@ -1,29 +1,63 @@
 import styled from "@emotion/styled";
 
+import { keyframes } from "@emotion/react";
+
+import GlassImageMobile from "../../assets/glass_mobile.jpg";
+import GlassImageTablet from "../../assets/glass_tablet.jpg";
+import GlassImageDesktop from "../../assets/glass_desktop.jpg";
+
 export const StartWrapper = styled.div`
+  min-width: 375px;
+
+  height: 100vh;
+
   background-color: #0a0a11;
+  background-image: linear-gradient(
+    to right,
+    rgba(47, 48, 58, 0.4),
+    rgba(47, 48, 58, 0.4)
+  );
   overflow: hidden;
   position: relative;
-  min-width: 375px;
-  background-image: url("/src/assets/glass_mobile.jpg");
+
+  background-image: url("${GlassImageMobile}");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
 
-  @media (min-width: 568px) and (max-width: 767px) {
-    background-image: url("/src/assets/glass_tablet.jpg");
-    min-width: 568px;
-  }
   @media (min-width: 768px) {
-    background-image: url("/src/assets/glass.jpg");
-    min-width: 769px;
+    background-image: url("${GlassImageTablet}");
+  }
+
+  @media (min-width: 1439px) {
+    background-image: url("${GlassImageDesktop}");
+  }
+`;
+
+const pulseAnimation = keyframes`
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+`;
+
+const rotateAnimation = keyframes`
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(360deg);
   }
 `;
 
 export const Ellipse = styled.div`
   position: absolute;
+
   filter: blur(104.8543701171875px);
-  z-index: 1;
+
+  animation: ${pulseAnimation} 6s infinite, ${rotateAnimation} 10s infinite; // Применяем анимации
 `;
 
 export const Ellipse1 = styled(Ellipse)`

@@ -19,25 +19,12 @@ export const SignupPage = () => {
       return {
         userNeedVerification: selectUserNeedVerification(state),
         isLoading: selectIsLoading(state),
-        user: state.auth.user,
+        user: state.auth.currentUser,
         error: state.auth.error,
       };
     }
   );
 
-  return (
-    <BackgroundLayout>
-      <SignupWrapper>
-        <SectionTitle>Registration</SectionTitle>
-        <SignupForm isLoading={isLoading} />
-        <CustomLink to="/signin">Sign In</CustomLink>
-      </SignupWrapper>
-      {userNeedVerification && (
-        <Modal message={`Please verify your account on ${user.email}`} />
-      )}
-      {error && <CustomizedSnackbar severity={"error"} message={error} />}
-    </BackgroundLayout>
-  );
   return (
     <BackgroundLayout>
       <SignupWrapper>

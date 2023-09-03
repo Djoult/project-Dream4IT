@@ -22,14 +22,13 @@ export const CustomLink = styled(Link)`
 `;
 
 export const SigninWrapper = styled.div`
+  min-width: 335px;
+
   display: flex;
   flex-direction: column;
+  box-sizing: content-box;
 
   text-align: center;
-  z-index: 1100;
-
-  min-width: 335px;
-  max-width: 400px;
 
   padding: 240px 20px 278px 20px;
 
@@ -39,7 +38,7 @@ export const SigninWrapper = styled.div`
   }
 
   @media (min-width: 768px) {
-    padding: 240px 940px 208px 100px;
+    padding: 240px 940px 206px 100px;
     width: 400px;
   }
 `;
