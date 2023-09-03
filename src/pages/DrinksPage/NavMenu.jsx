@@ -1,49 +1,67 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { FilterContainer, Select } from "./Drinks.styled";
 import Filter from "./Filter";
+import items from '../../data/DB/cocktails.json';
+import PropTypes from "prop-types"; 
 
-export const NavMenu = () => {
-  const [category, setCategory] = useState('all');
-  const [ingredient, setIngredient] = useState('all');
+const NavMenu = ({
+  category,
+  filter,
+  onFilterChange,
+  ingredient,
+  onCategoryChange,
+  onIngredientChange,
+}) => {
+  // const [category, setCategory] = useState('all');
+  // const [ingredient, setIngredient] = useState('all');
+  
+ // Створення масиву унікальних категорій
+ const uniqueCategories = Array.from(
+  new Set(items.map(item => item.category))
+);
+ // Створення масиву унікальних інгредієнтів
+ const uniqueIngredients = Array.from(
+  new Set(items.flatMap(cocktail => cocktail.ingredients.map(ingredient => ingredient.title)))
+);
 
-  const handleCategoryChange = (event) => {
-    setCategory(event.target.value);
-  };
+  // const handleCategoryChange = (event) => {
+  //   setCategory(event.target.value);
+  // };
 
-  const handleIngredientChange = (event) => {
-    setIngredient(event.target.value);
-  };
+  // const handleIngredientChange = (event) => {
+  //   setIngredient(event.target.value);
+  // };
 
-//   const handleSearchInputChange = (event) => {
-    // setSearchText(event.target.value.toLowerCase());
-//   };
-
-  // Тут ви можете додати логіку фільтрації напоїв на основі state (category, ingredient, searchText)
 
   return (
     <FilterContainer>
-      <Filter
-        // type="text"
-        // placeholder="Пошук за назвою"
-        // onChange={handleSearchInputChange}
-        // value={searchText}
-      />
-      <Select onChange={handleCategoryChange} value={category}>
-        <option value="all">Усі категорії</option>
-        <option value="ordinary">Ordinary drink</option>
-        <option value="coctail">Coctail</option>
-        <option value="shake">Shake</option>
-        {/* Додайте інші категорії сюди */}
+      <Filter filter={filter} onFilterChange={onFilterChange} />
+      <Select onChange={onCategoryChange} value={category}>
+        <option value="all">All categories</option>
+        {uniqueCategories.map((uniqueCategory, index) => (
+          <option key={index} value={uniqueCategory}>
+            {uniqueCategory}
+          </option>
+        ))}
       </Select>
-      <Select onChange={handleIngredientChange} value={ingredient}>
-        <option value="all">Усі інгредієнти</option>
-        <option value="light-rum">Light Rum</option>
-        <option value="gin">Gin</option>
-        <option value="vodka">Vodka</option>
-        {/* Додайте інші інгредієнти сюди */}
+      <Select onChange={onIngredientChange} value={ingredient}>
+        <option value="all">All ingredients</option>
+        {uniqueIngredients.map((uniqueCategory, index) => (
+          <option key={index} value={uniqueCategory}>
+            {uniqueCategory}
+          </option>
+        ))}
       </Select>
     </FilterContainer>
   );
 };
-
 export default NavMenu;
+NavMenu.propTypes = {
+  category: PropTypes.string.isRequired, 
+  ingredient: PropTypes.string.isRequired, 
+  onCategoryChange: PropTypes.func.isRequired,
+  onIngredientChange: PropTypes.func.isRequired, 
+  filter: PropTypes.string.isRequired, 
+  onFilterChange: PropTypes.func.isRequired, 
+}
+

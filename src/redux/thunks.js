@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { callApi, callGetApi } from "../api/auth";
 
 export const singInThunk = createAsyncThunk(
-  "auth/singin",
+  "auth/signin",
   async (body, { rejectWithValue, dispatch }) => {
     try {
       const data = await callApi("/api/auth/signin", body);
@@ -15,7 +15,7 @@ export const singInThunk = createAsyncThunk(
 );
 
 export const signUpThunk = createAsyncThunk(
-  "auth/singup",
+  "auth/signup",
   async (body, { rejectWithValue }) => {
     try {
       const data = await callApi("/api/auth/signup", body);
