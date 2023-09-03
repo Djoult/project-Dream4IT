@@ -4,7 +4,7 @@ import { getCurrentUserThunk, updateUserThunk } from "./thunks";
 const initialState = {
   currentUser: {},
   isLoading: false,
-  error: ""
+  error: "",
 };
 
 const handleGetCurrentUserFulfilled = (state, { payload }) => {
@@ -15,7 +15,7 @@ const handleGetCurrentUserFulfilled = (state, { payload }) => {
 const handleUpdateUserFulfilled = (state, { payload }) => {
   state.isLoading = false;
   state.currentUser = payload;
-};  
+};
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -23,7 +23,7 @@ const handlePending = (state) => {
 };
 
 const handleRejected = (state, action) => {
-    const { payload } = action;
+  const { payload } = action;
 
   state.isLoading = false;
   state.error = payload;
