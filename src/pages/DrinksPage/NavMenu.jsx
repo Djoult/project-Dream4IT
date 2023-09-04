@@ -1,8 +1,9 @@
 // import { useState } from "react";
-import { FilterContainer, Select } from "./Drinks.styled";
+import { FilterContainer } from "./Drinks.styled";
 import Filter from "./Filter";
 import items from '../../data/DB/cocktails.json';
 import PropTypes from "prop-types"; 
+import CustomSelectComponent from "../../UI/SelectElement/Select";
 
 const NavMenu = ({
   category,
@@ -25,22 +26,19 @@ const NavMenu = ({
   return (
     <FilterContainer>
       <Filter filter={filter} onFilterChange={onFilterChange} />
-      <Select onChange={onCategoryChange} value={category}>
-        <option value="all">All categories</option>
-        {uniqueCategories.map((uniqueCategory, index) => (
-          <option key={index} value={uniqueCategory}>
-            {uniqueCategory}
-          </option>
-        ))}
-      </Select>
-      <Select onChange={onIngredientChange} value={ingredient}>
-        <option value="all">All ingredients</option>
-        {uniqueIngredients.map((uniqueCategory, index) => (
-          <option key={index} value={uniqueCategory}>
-            {uniqueCategory}
-          </option>
-        ))}
-      </Select>
+        <CustomSelectComponent
+        options={uniqueCategories} // Передаємо список категорій
+        value={category} // Поточна категорія
+        onChange={onCategoryChange} // Функція для обробки змін категорій
+        placeholder="All categories"
+      />
+    
+       <CustomSelectComponent
+        options={uniqueIngredients} // Передаємо список інгредієнтів
+        value={ingredient} // Поточна інгредієнт
+        onChange={onIngredientChange} // Функція для обробки змін інгредієнтів
+        placeholder="All ingredients"
+      />
     </FilterContainer>
   );
 };

@@ -17,12 +17,12 @@ const handleFilterChange = (e) => {
   setFilter(e.target.value);
 };
 
-const handleCategoryChange = (event) => {
-  setCategory(event.target.value);
+const handleCategoryChange = (selectedCategory) => {
+  setCategory(selectedCategory);
 };
-console.log("handleCategoryChange", handleCategoryChange);
-const handleIngredientChange = (event) => {
-  setIngredient(event.target.value);
+
+const handleIngredientChange = (selectedIngredient) => {
+  setIngredient(selectedIngredient);
 };
 //перевіряємо у інпутах фільтри
 const filteredCocktails = items.filter((cocktail) => {
