@@ -12,8 +12,6 @@ const NavMenu = ({
   onCategoryChange,
   onIngredientChange,
 }) => {
-  // const [category, setCategory] = useState('all');
-  // const [ingredient, setIngredient] = useState('all');
   
  // Створення масиву унікальних категорій
  const uniqueCategories = Array.from(
@@ -23,15 +21,6 @@ const NavMenu = ({
  const uniqueIngredients = Array.from(
   new Set(items.flatMap(cocktail => cocktail.ingredients.map(ingredient => ingredient.title)))
 );
-
-  // const handleCategoryChange = (event) => {
-  //   setCategory(event.target.value);
-  // };
-
-  // const handleIngredientChange = (event) => {
-  //   setIngredient(event.target.value);
-  // };
-
 
   return (
     <FilterContainer>
