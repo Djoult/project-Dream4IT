@@ -5,15 +5,15 @@ import EllipsesLayout from "../../components/EllipsesLayout/EllipsesLayout";
 import ListCardsTwo from "../../components/ListCardsTwo/ListCardsTwo";
 import styled from "@emotion/styled";
 
-import { useDispatch, useSelector} from 'react-redux';
-// import { fetchMyCocktails } from "../../redux/Cocktails/myCocktails-operations";
-import  { getMyCocktails }  from "../../redux/selectors";
-import {getCocktails} from "../../redux/Cocktails/loadAPI"
-// import { selectFilter, selectContacts } from 'redux/selectors';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { deleteContact } from 'redux/operations';
 
-import items from "../../data/DB/cocktails6.json";
+import { fetchMyCocktails } from "../../redux/Cocktails/myCocktails-operations";
+import  { getMyCocktails }  from "../../redux/selectors";
+import { useDispatch, useSelector } from 'react-redux';
+
+
+// import items from "../../data/DB/cocktails6.json";
+
+import { callGetApi, instance } from '../../api/auth';
 
 const Page = styled.div`
   position: relative;
@@ -32,38 +32,35 @@ export const Container = styled.div`
 `;
 
 const MyRecipesPage = () => { 
-  
-const myCocktails = useSelector(getMyCocktails);
-// const myCocktails = useSelector(store => store.myCocktails.items);
+  const [myCocktails, setMyCocktails] = useState([]);
 
-// console.log(myCocktails);
-const dispatch = useDispatch();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        await instance.get('api/recipes/search?limit=80')
+      .then(res => {
+        const data = res.data;
+        console.log(data.hits);
+        setMyCocktails(data.hits);
+      })      
+    } catch (error) {
+      console.error('Error fetching', error);}
 
-  
-  // const myCocktails = items;  
-  // getCocktails()
-  // 
+    };
+    fetchData();
+  }, []);
+ 
+// const myCocktails = items;  
 
-  // const [myCocktails, setMyCocktails] = useState([]);
-  // const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   const getMyCocktails = async () => {
-  //     try {
-  //       // setLoading(true);
-  //       const myCocktailsData = await fetchMyCocktails();
-  //       setMyCocktails(myCocktailsData);
-  //       // setLoading(false);
-  //     } catch ({response}) {
-  //       console.log(response.data.message);
-  //     }
-  //   };
-  //   getMyCocktails();
-  // }, []);
-
+// redux
+// const myCocktails = useSelector(getMyCocktails);
+// const dispatch = useDispatch();  
+   
   // useEffect(() => {
   //    dispatch(fetchMyCocktails())
-  // }, []);
+  // }, [dispatch]);
+
+  console.log(`page ${myCocktails}`);
 
   return (
     <>

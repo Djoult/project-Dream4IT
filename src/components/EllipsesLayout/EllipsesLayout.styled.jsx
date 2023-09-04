@@ -100,3 +100,7 @@ export const Ellipse221 = styled.div`
     left: -686px;
   }
 `;
+
+export const Box = styled.div`
+position: relative;
+`

@@ -1,16 +1,17 @@
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import TitlePage from "../../components/TitlePage/TitlePage";
 import EllipsesLayout from "../../components/EllipsesLayout/EllipsesLayout";
 
 import ListCardsTwoPagination from "../../components/ListCardsTwo/ListCardsTwoPagination";
 import styled from "@emotion/styled";
+import { callGetApi, instance } from '../../api/auth';
 // import getAllCocktails from "./loadAPI";
 
 // import { selectFilter, selectContacts } from 'redux/selectors';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { deleteContact } from 'redux/operations';
 
-import items from "../../data/DB/cocktails.json";
+// import items from "../../data/DB/cocktails.json";
 
 const Page = styled.div`
   position: relative;
@@ -28,8 +29,24 @@ export const Container = styled.div`
   }
 `;
 
-const MyRecipesPage = () => {
-  const myCocktails = items;
+const FavoritePage = () => {
+  const [favoriteCocktails, setFavoriteCocktails] = useState([]);
+
+  useEffect(() => {
+    instance
+      .get('api/recipes/favorite')
+      .then(res => {
+        const data = res.data;
+        console.log(data.hits);
+        setFavoriteCocktails(data.hits);
+      })
+      .catch(error => {
+        console.error('Error fetching drinks:', error);
+      });
+  }, []);
+  console.log(`page ${favoriteCocktails}`);
+
+  // const myCocktails = items;
 
   // const [cocktails, setCocktails] = useState([]);
   // const [loading, setLoading] = useState(true);
@@ -55,10 +72,10 @@ const MyRecipesPage = () => {
         <Container>
           <TitlePage titlePage="Favorites" />
         </Container>
-        <ListCardsTwoPagination items={myCocktails} />
+        <ListCardsTwoPagination items={favoriteCocktails} />
       </Page>
     </>
   );
 };
 
-export default MyRecipesPage;
+export default FavoritePage;

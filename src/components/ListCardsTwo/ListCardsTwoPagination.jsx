@@ -15,9 +15,10 @@ import ButtonPagination from "../ButtonPagination/Button Pagination"
 
 
 const ListCardsTwo = ({ items }) => {
-  const [cocktails, setCocktails] = useState(items ?? []);
-  // const { cocktails } = useSelector(state => state.cocktails);
 
+  const [cocktails, setCocktails] = useState([]);
+  // const { cocktails } = useSelector(state => state.cocktails);
+ 
   // Пагінація
   const {
     firstContentIndex,
@@ -35,7 +36,7 @@ const ListCardsTwo = ({ items }) => {
 
   const deleteCocktail = (id) => {
     const updateArray = cocktails.filter(
-      (cocktail) => cocktail._id.$oid !== id
+      (cocktail) => cocktail._id !== id
     );
     setCocktails(updateArray);
     // 3
@@ -51,8 +52,8 @@ const ListCardsTwo = ({ items }) => {
     // };
   };
 
-  const elements = cocktails.slice(firstContentIndex, lastContentIndex).map((item) => (
-    <CardTwo key={item._id.$oid} {...item} onDelete={deleteCocktail} />
+  const elements = items.slice(firstContentIndex, lastContentIndex).map((item) => (
+    <CardTwo key={item._id} {...item} onDelete={deleteCocktail} />
   ));
 
   return (
@@ -60,7 +61,18 @@ const ListCardsTwo = ({ items }) => {
       <List>{elements}</List>
       {/* Пагінація кнопки */}
 <ContainerBtnPagination>
-      <ButtonPagination prevPage={prevPage} totalPages={totalPages} nextPage={nextPage} page={page} setPage={setPage} />
+
+      <ButtonPagination namePage='favorite' prevPage={prevPage} totalPages={totalPages} nextPage={nextPage} page={page} setPage={setPage} />
+
+      <ButtonPagination 
+      prevPage={prevPage} 
+      totalPages={totalPages} 
+      nextPage={nextPage} 
+      page={page} 
+      setPage={setPage} 
+      pageType="favorite"
+      />
+
       </ContainerBtnPagination>
     </>
   );

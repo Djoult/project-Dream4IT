@@ -1,11 +1,7 @@
-import { useState } from 'react';
-
-import PropTypes from 'prop-types';
-
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { selectCurrentUser } from '../../redux/selectors';
-
+import PropTypes from 'prop-types';
 import defaultUserLogo from '../../images/userLogo/userLogo.png';
 import { xCross, plus, edit, error } from '../../images/index';
 import {
@@ -32,14 +28,18 @@ const UserInfoModal = ({ closeModal }) => {
   const [userName, setUserName] = useState(user.name);
   const [isValidUserName, setIsValidUserName] = useState(true);
   const [file, setFile] = useState();
-  const [filePreview, seFilePreview] = useState();
+  const [filePreview, setFilePreview] = useState(null);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    setFilePreview(null);
+  }, [user.avatarUrl]);
 
   const handleFileChange = e => {
     if (e.target.files) {
       const file = e.target.files[0];
       setFile(file);
-      seFilePreview(URL.createObjectURL(file));
+      setFilePreview(URL.createObjectURL(file));
     }
   };
 
@@ -68,12 +68,18 @@ const UserInfoModal = ({ closeModal }) => {
       return;
     }
 
-    if (!file) {
+    if (!file && !userName) {
       return;
     }
-
     const formData = new FormData();
-    formData.append('file', file);
+
+    if (file) {
+      formData.append('file', file);
+    }
+
+    if (userName) {
+      formData.append('json', JSON.stringify({ name: userName }));
+    }
 
     // setHeaders(file);
     dispatch(
@@ -97,7 +103,7 @@ const UserInfoModal = ({ closeModal }) => {
           <StyledUserLogo
             src={
               filePreview ||
-              `http://localhost:4000/${user.avatarUrl}` ||
+              (user.avatarUrl && `http://localhost:4000/${user.avatarUrl}`) ||
               defaultUserLogo
             }
             alt="User photo"

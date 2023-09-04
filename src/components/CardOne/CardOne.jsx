@@ -19,7 +19,7 @@ const CardOne = ({ _id, drink, drinkThumb }) => {
 export default CardOne;
 
 CardOne.propTypes = {
-  // _id: PropTypes.string,
+  _id: PropTypes.object,
   drink: PropTypes.string,
   drinkThumb: PropTypes.string,
 };
