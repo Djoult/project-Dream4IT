@@ -1,4 +1,4 @@
-import{n as o,P as i,j as e,L as A,r as p}from"./index-75dde579.js";import{T}from"./TitlePage-5a158bb4.js";import{E as M}from"./EllipsesLayout-f59894ed.js";import{U as C,B as P}from"./Button Pagination-bae78fb4.js";import{C as D}from"./ListCardsTwo.styled-344c4b4a.js";const I="/project-Dream4IT/assets/down-arrow-svgrepo-com-8dce313c.svg",R="/project-Dream4IT/assets/loop-svgrepo-com-a28bd999.svg";o.div`
+import{n as o,P as i,j as e,L as A,r as p}from"./index-3cecd6a4.js";import{T}from"./TitlePage-9a7623ab.js";import{E as M}from"./EllipsesLayout-08e065fd.js";import{U as C,B as P}from"./Button Pagination-f98880cf.js";import{C as D}from"./ListCardsTwo.styled-2c2febde.js";const R="/react-with-vite/assets/down-arrow-svgrepo-com-8dce313c.svg",I="/react-with-vite/assets/loop-svgrepo-com-a28bd999.svg";o.div`
     display: flex;
     max-width: 335px;
 `;const E=o.div`
@@ -65,7 +65,7 @@ max-width: 335px;
 
   ::before {
     content: "";
-    background-image: url(${R}); 
+    background-image: url(${I}); 
     background-repeat: no-repeat;
     background-position: left center; 
     position: absolute;
@@ -97,7 +97,7 @@ max-width: 335px;
   } 
   ::after {
     content: "";
-    background-image: url(${I});
+    background-image: url(${R});
     background-repeat: no-repeat;
     background-position: right center;
     position: absolute;

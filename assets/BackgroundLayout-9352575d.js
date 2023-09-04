@@ -1,4 +1,4 @@
-import{n as t,k as p,P as n,j as i}from"./index-75dde579.js";const w=t.div`
+import{n as t,k as p,P as n,j as i}from"./index-3cecd6a4.js";const w=t.div`
   min-width: 335px;
 
   display: flex;
@@ -67,7 +67,7 @@ import{n as t,k as p,P as n,j as i}from"./index-75dde579.js";const w=t.div`
   @media (min-width: 568px) {
     justify-content: start;
   }
-`,o="/project-Dream4IT/assets/glass_mobile-ded0c6cb.jpg",x="/project-Dream4IT/assets/glass_tablet-ab31dca5.jpg",s="/project-Dream4IT/assets/glass_desktop-a0e36413.jpg",d=t.div`
+`,o="/react-with-vite/assets/glass_mobile-ded0c6cb.jpg",x="/react-with-vite/assets/glass_tablet-ab31dca5.jpg",s="/react-with-vite/assets/glass_desktop-a0e36413.jpg",d=t.div`
   min-width: 375px;
 
   height: 100vh;
@@ -113,7 +113,7 @@ import{n as t,k as p,P as n,j as i}from"./index-75dde579.js";const w=t.div`
   filter: blur(104.8543701171875px);
 
   animation: ${r} 6s infinite, ${l} 10s infinite; // Применяем анимации
-`,g=t(e)`
+`,h=t(e)`
   width: 257px;
   height: 247px;
 
@@ -137,7 +137,7 @@ import{n as t,k as p,P as n,j as i}from"./index-75dde579.js";const w=t.div`
     top: -132px;
     left: 171px;
   }
-`,h=t(e)`
+`,g=t(e)`
   width: 520px;
   height: 550px;
   top: 20px;
@@ -185,4 +185,4 @@ import{n as t,k as p,P as n,j as i}from"./index-75dde579.js";const w=t.div`
     top: 458px;
     left: 1181px;
   }
-`,c=({children:a})=>i.jsxs(d,{children:[i.jsx(g,{}),i.jsx(h,{}),i.jsx(m,{}),a]});c.propTypes={children:n.node.isRequired};export{c as B,b as S,w as W,u as a,k as b};
+`,c=({children:a})=>i.jsxs(d,{children:[i.jsx(h,{}),i.jsx(g,{}),i.jsx(m,{}),a]});c.propTypes={children:n.node.isRequired};export{c as B,b as S,w as W,u as a,k as b};
