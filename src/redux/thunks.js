@@ -3,7 +3,9 @@ import { callApi, callGetApi } from '../api/auth';
 
 export const singInThunk = createAsyncThunk(
   'auth/signin',
+
   async (body, { rejectWithValue, dispatch }) => {
+
     try {
       const data = await callApi('/api/auth/signin', body);
 
@@ -45,6 +47,19 @@ export const updateUserThunk = createAsyncThunk(
   async ({ body, headers }, { rejectWithValue }) => {
     try {
       const data = await callApi('/api/auth/update', body, 'PATCH', headers);
+
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+export const logOutThunk = createAsyncThunk(
+  'auth/logout',
+  async (_, { rejectWithValue }) => {
+    try {
+      const { data } = await callApi('/api/auth/logout', null, 'POST');
 
       return data;
     } catch (error) {

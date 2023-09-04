@@ -1,6 +1,10 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import { StyledIconClose } from "../UserInfoModal/UserInfoModal";
+import { useDispatch } from 'react-redux';
+
+// import { useNavigate } from 'react-router-dom';
+
+import { StyledIconClose } from '../UserInfoModal/UserInfoModal';
 
 import {
   StyledBackdrop,
@@ -8,12 +12,21 @@ import {
   LogoutModalContainer,
   LogoutTitle,
   LogoutButton,
-} from "./LogoutModal.styled";
+} from './LogoutModal.styled';
 
-import { xCross } from "../../images";
+import { xCross } from '../../images';
+import { logOutThunk } from '../../redux/thunks';
 
 const LogoutModal = ({ closeModal }) => {
+  const dispatch = useDispatch();
+  // const navigate = useNavigate();
+
   const handleLogout = () => {
+    // localStorage.setItem('token', '');
+    localStorage.clear();
+    dispatch(logOutThunk());
+    window.location.reload();
+    // navigate('/');
     closeModal();
   };
 
