@@ -1,4 +1,4 @@
-import{n as e,j as i}from"./index-7b349e7b.js";const t=e.div`
+import{n as e,j as i}from"./index-fc2b84b5.js";const t=e.div`
   position: absolute;
   content: "";
 
@@ -93,4 +93,6 @@ import{n as e,j as i}from"./index-7b349e7b.js";const t=e.div`
     border-radius: 849px;
     left: -686px;
   }
-`,n=()=>i.jsxs(i.Fragment,{children:[i.jsx(d,{}),i.jsx(t,{}),i.jsx(x,{}),i.jsx(p,{})]});export{n as E};
+`,r=e.div`
+position: relative;
+`,o=()=>i.jsxs(r,{children:[i.jsx(d,{}),i.jsx(t,{}),i.jsx(x,{}),i.jsx(p,{})]});export{o as E};

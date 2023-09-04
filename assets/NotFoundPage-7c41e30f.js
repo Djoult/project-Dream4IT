@@ -1,4 +1,4 @@
-import{n,j as t}from"./index-7b349e7b.js";import"./TitlePage-3e1b756e.js";import{E as o}from"./EllipsesLayout-e203b23b.js";const e="/project-Dream4IT/assets/notfound_mobile-4017e95d.png",i=n.div`
+import{n,j as t}from"./index-fc2b84b5.js";import"./TitlePage-980d58c5.js";import{E as o}from"./EllipsesLayout-4ec7b71a.js";const e="/project-Dream4IT/assets/notfound_mobile-4017e95d.png",i=n.div`
     position: relative;
     max-width: 465px;
     display: flex;
