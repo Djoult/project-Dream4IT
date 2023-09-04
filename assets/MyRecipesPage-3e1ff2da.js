@@ -1,4 +1,4 @@
-import{j as e,n,r,p}from"./index-fc2b84b5.js";import{T as d}from"./TitlePage-980d58c5.js";import{E as l}from"./EllipsesLayout-4ec7b71a.js";import{C as x}from"./CardTwo-6398c3dc.js";import{L as m}from"./ListCardsTwo.styled-97f130ca.js";const g=({items:s})=>{console.log(s);const i=t=>{const a=cocktails.filter(c=>c._id!==t);setCocktails(a)},o=s.map(t=>e.jsx(x,{...t,onDelete:i},t._id));return e.jsx(e.Fragment,{children:e.jsx(m,{children:o})})},h=n.div`
+import{j as e,n,r,p}from"./index-75dde579.js";import{T as d}from"./TitlePage-5a158bb4.js";import{E as l}from"./EllipsesLayout-f59894ed.js";import{C as x}from"./CardTwo-d7229fc6.js";import{L as m}from"./ListCardsTwo.styled-344c4b4a.js";const g=({items:s})=>{console.log(s);const i=t=>{const a=cocktails.filter(c=>c._id!==t);setCocktails(a)},o=s.map(t=>e.jsx(x,{...t,onDelete:i},t._id));return e.jsx(e.Fragment,{children:e.jsx(m,{children:o})})},h=n.div`
   position: relative;
   background: #0a0a11;
   margin: 0 auto;
