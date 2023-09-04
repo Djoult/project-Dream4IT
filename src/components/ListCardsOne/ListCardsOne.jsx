@@ -1,5 +1,5 @@
 import CardOne from '../CardOne/CardOne';
-import items from "../../data/DB/cocktails6.json";
+import items from "../../data/DB/cocktails.json";
 import styled from "@emotion/styled";
 
 const List = styled.ul`
@@ -18,7 +18,7 @@ const List = styled.ul`
 
 const ListCardsOne = () => {
   const elements = items.map(item => <CardOne key={item._id.$oid} {...item} />);
-
+console.log(elements)
   return (
     <>
     <List>{elements}</List>

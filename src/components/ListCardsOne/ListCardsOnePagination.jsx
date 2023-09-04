@@ -1,9 +1,12 @@
 import CardOne from '../CardOne/CardOne';
 import styled from "@emotion/styled";
 import UsePagination from '../../hooks/usePagination';
-import ButtonPagination from "../ButtonPagination/Button Pagination";
+import ButtonPagination from "../ButtonPagination/Button Pagination.jsx";
 import { ContainerBtnPagination } from '../ListCardsTwo/ListCardsTwo.styled';
 import PropTypes from "prop-types";
+import { useEffect, useState } from 'react';
+// import useMediaQuery from '@mui/material/useMediaQuery';
+
 
 const List = styled.ul`
   margin: 0 auto 80px auto;
@@ -19,8 +22,27 @@ const List = styled.ul`
   }
 `;
 
-const ListCardsOnePagination = ({ items }) => {
-  
+const ListCardsOnePagination = ({ items }) => { 
+  const viewWidth = 768;
+  const [contentPerPage, setContentPerPage] = useState(9);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= viewWidth) {
+        setContentPerPage(8);
+      } else {
+        setContentPerPage(9);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   // Пагінація
    const {
     firstContentIndex,
@@ -31,7 +53,7 @@ const ListCardsOnePagination = ({ items }) => {
     setPage,
     totalPages,
   } = UsePagination({
-    contentPerPage: 9,
+    contentPerPage,
     count: items.length,
   });
   // 
@@ -44,14 +66,21 @@ const ListCardsOnePagination = ({ items }) => {
     <List>{elements}</List>
     {/* Пагінація кнопки */}
 <ContainerBtnPagination>
-      <ButtonPagination prevPage={prevPage} totalPages={totalPages} nextPage={nextPage} page={page} setPage={setPage} />
+      <ButtonPagination 
+      prevPage={prevPage} 
+      totalPages={totalPages} 
+      nextPage={nextPage} 
+      page={page} 
+      setPage={setPage} 
+      pageType="drinks"
+      />
       </ContainerBtnPagination>
   </>
   )
 };
 ListCardsOnePagination.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
-    _id:  PropTypes.string.isRequired,
+    _id:  PropTypes.object.isRequired,
     drink: PropTypes.string.isRequired,
     drinkThumb: PropTypes.string.isRequired,
   })).isRequired,
