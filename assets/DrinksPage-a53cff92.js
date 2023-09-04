@@ -1,4 +1,4 @@
-import{n as o,P as i,j as e,L as A,r as p}from"./index-3cecd6a4.js";import{T}from"./TitlePage-9a7623ab.js";import{E as M}from"./EllipsesLayout-08e065fd.js";import{U as C,B as P}from"./Button Pagination-f98880cf.js";import{C as D}from"./ListCardsTwo.styled-2c2febde.js";const R="/react-with-vite/assets/down-arrow-svgrepo-com-8dce313c.svg",I="/react-with-vite/assets/loop-svgrepo-com-a28bd999.svg";o.div`
+import{n as o,P as i,j as e,L as A,r as p}from"./index-629be40f.js";import{T}from"./TitlePage-9787b300.js";import{E as M}from"./EllipsesLayout-fba0e3ce.js";import{U as C,B as P}from"./Button Pagination-1d563663.js";import{C as D}from"./ListCardsTwo.styled-39107533.js";const R="/react-with-vite/assets/down-arrow-svgrepo-com-8dce313c.svg",I="/react-with-vite/assets/loop-svgrepo-com-a28bd999.svg";o.div`
     display: flex;
     max-width: 335px;
 `;const E=o.div`

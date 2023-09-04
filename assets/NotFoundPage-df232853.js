@@ -1,4 +1,4 @@
-import{n,j as t}from"./index-3cecd6a4.js";import"./TitlePage-9a7623ab.js";import{E as o}from"./EllipsesLayout-08e065fd.js";const i="/react-with-vite/assets/notfound_mobile-4017e95d.png",e=n.div`
+import{n,j as t}from"./index-629be40f.js";import"./TitlePage-9787b300.js";import{E as o}from"./EllipsesLayout-fba0e3ce.js";const i="/react-with-vite/assets/notfound_mobile-4017e95d.png",e=n.div`
     position: relative;
     max-width: 465px;
     display: flex;

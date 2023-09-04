@@ -1,6 +1,5 @@
-import{n as t,l as x,P as o,m,j as e,S as h,r as d,c as w,o as b,p as C}from"./index-3cecd6a4.js";import{E as j}from"./EllipsesLayout-08e065fd.js";const c="/react-with-vite/assets/hero-desktop-5baff696.jpg",y=t.section`
+import{n as t,l as x,P as o,m,j as e,S as h,r as d,c as w,o as b,p as C}from"./index-629be40f.js";import{E as j}from"./EllipsesLayout-fba0e3ce.js";const c="/react-with-vite/assets/hero-desktop-5baff696.jpg",y=t.section`
   background-color: ${x.mainBgColor};
-  outline: 1px solid yellow;
   min-height: 100%;
   padding-left: 20px;
 

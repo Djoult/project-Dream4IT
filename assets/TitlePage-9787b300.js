@@ -1,4 +1,4 @@
-import{n as t,P as n,j as i}from"./index-3cecd6a4.js";const o=t.h1`
+import{n as t,P as n,j as i}from"./index-629be40f.js";const o=t.h1`
   color: #f3f3f3;
   font-family: Manrope;
   font-size: 32px;
