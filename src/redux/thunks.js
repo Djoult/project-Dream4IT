@@ -3,7 +3,9 @@ import { callApi, callGetApi } from '../api/auth';
 
 export const singInThunk = createAsyncThunk(
   'auth/signin',
-  async (body, { rejectWithValue }) => {
+
+  async (body, { rejectWithValue, dispatch }) => {
+
     try {
       const data = await callApi('/api/auth/signin', body);
 
