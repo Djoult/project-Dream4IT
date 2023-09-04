@@ -1,11 +1,11 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { callApi, callGetApi } from "../api/auth";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { callApi, callGetApi } from '../api/auth';
 
 export const singInThunk = createAsyncThunk(
-  "auth/signin",
-  async (body, { rejectWithValue, dispatch }) => {
+  'auth/signin',
+  async (body, { rejectWithValue }) => {
     try {
-      const data = await callApi("/api/auth/signin", body);
+      const data = await callApi('/api/auth/signin', body);
 
       return data;
     } catch (error) {
@@ -15,10 +15,10 @@ export const singInThunk = createAsyncThunk(
 );
 
 export const signUpThunk = createAsyncThunk(
-  "auth/signup",
+  'auth/signup',
   async (body, { rejectWithValue }) => {
     try {
-      const data = await callApi("/api/auth/signup", body);
+      const data = await callApi('/api/auth/signup', body);
 
       return data;
     } catch (error) {
@@ -28,10 +28,10 @@ export const signUpThunk = createAsyncThunk(
 );
 
 export const getCurrentUserThunk = createAsyncThunk(
-  "auth/profile",
+  'auth/profile',
   async () => {
     try {
-      const data = await callGetApi("/api/auth/current");
+      const data = await callGetApi('/api/auth/current');
 
       return data;
     } catch (error) {
@@ -41,11 +41,24 @@ export const getCurrentUserThunk = createAsyncThunk(
 );
 
 export const updateUserThunk = createAsyncThunk(
-  "auth/update",
-  async ({body, headers}, { rejectWithValue }) => {
+  'auth/update',
+  async ({ body, headers }, { rejectWithValue }) => {
     try {
-      const data = await callApi("/api/auth/update", body, "PATCH", headers);
- 
+      const data = await callApi('/api/auth/update', body, 'PATCH', headers);
+
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+export const logOutThunk = createAsyncThunk(
+  'auth/logout',
+  async (_, { rejectWithValue }) => {
+    try {
+      const { data } = await callApi('/api/auth/logout', null, 'POST');
+
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
