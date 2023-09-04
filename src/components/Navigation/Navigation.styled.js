@@ -9,6 +9,7 @@ export const StyledNav = styled.nav`
   flex-direction: column;
   gap: 16px;
   margin: auto;
+  z-index: 999;
 
   /* desktop screen */
   @media screen and (min-width: 1440px) {

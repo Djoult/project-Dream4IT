@@ -1,10 +1,7 @@
 import styled from '@emotion/styled';
 import { colors } from '../../styles/GlobalStyles';
 import { TransitionMain } from '../../styles/shared';
-import {
-  Ellipse222,
-  Ellipse224,
-} from '../EllipsesLayout/EllipsesLayout.styled';
+import { Ellipse224 } from '../EllipsesLayout/EllipsesLayout.styled';
 
 export const StyledBackdrop = styled.div`
   position: fixed;
@@ -62,6 +59,11 @@ export const StyledIconClose = styled.img`
   top: 18px;
   right: 18px;
   cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: ${colors.hoverColor};
+  }
 `;
 
 export const StyledModalForm = styled.form`
