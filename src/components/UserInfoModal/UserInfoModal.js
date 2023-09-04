@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
 import { colors } from '../../styles/GlobalStyles';
 import { TransitionMain } from '../../styles/shared';
+import {
+  Ellipse222,
+  Ellipse224,
+} from '../EllipsesLayout/EllipsesLayout.styled';
 
 export const StyledBackdrop = styled.div`
   position: fixed;
@@ -19,6 +23,7 @@ export const StyledModal = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 25px 50px;
+  overflow: hidden;
 
   border-radius: 14px;
   background-color: ${colors.mainBgColor};
@@ -26,6 +31,30 @@ export const StyledModal = styled.div`
   @media screen and (min-width: 768px) {
     padding: 50px 50px 75px 50px;
   }
+`;
+
+export const ModalTopEllipse = styled.div`
+  position: absolute;
+  content: '';
+  flex-shrink: 0;
+  bottom: 272px;
+  right: 300px;
+  width: 284px;
+  height: 307px;
+
+  background: rgba(188, 230, 210, 0.4);
+  filter: blur(104.8543701171875px);
+  mix-blend-mode: lighten;
+  border-radius: 284px;
+`;
+
+export const ModalBottomEllipse = styled(Ellipse224)`
+  top: 258px;
+  left: 367px;
+  width: 362px;
+  height: 358px;
+
+  border-radius: 362px;
 `;
 
 export const StyledIconClose = styled.img`
@@ -87,6 +116,11 @@ export const StyledAddPhotoBtn = styled.div`
     transform: translateX(-50%);
   }
 `;
+
+export const StyledIconPlus = styled.img`
+  cursor: pointer;
+`;
+
 export const StyledInpup = styled.input`
   display: none;
 `;

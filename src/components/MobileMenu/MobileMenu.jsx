@@ -8,10 +8,14 @@ const MobileMenu = () => {
 
   const handleMenuOpen = () => {
     setIsShowMenu(true);
+
+    document.body.classList.add('no-scroll');
   };
 
   const handleMenuClose = () => {
     setIsShowMenu(false);
+
+    document.body.classList.remove('no-scroll');
   };
 
   return (
@@ -31,7 +35,7 @@ const MobileMenu = () => {
       )}
       {isShowMenu ? (
         <StyledMenuWrapper>
-          <Navigation closeMobileMenu={handleMenuClose}/>
+          <Navigation closeMobileMenu={handleMenuClose} />
         </StyledMenuWrapper>
       ) : null}
     </div>
