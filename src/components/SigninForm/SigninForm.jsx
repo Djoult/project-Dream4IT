@@ -17,7 +17,7 @@ import {
 } from "../SignupForm/SignupForm.styled";
 
 import { done, eye, eyeOff, error } from "../../images/index";
-import { singInThunk } from "../../redux/thunks";
+import { signInThunk } from "../../redux/thunks";
 import CircularProgress from "@mui/material/CircularProgress";
 
 export const SigninForm = ({ isLoading }) => {
@@ -40,7 +40,7 @@ export const SigninForm = ({ isLoading }) => {
     resetForm();
     setIsEmailValid(false);
     setIsPasswordValid(false);
-    dispatch(singInThunk(values));
+    dispatch(signInThunk(values));
   };
 
   const formik = useFormik({
