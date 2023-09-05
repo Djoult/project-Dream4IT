@@ -1,4 +1,4 @@
-import{n,P as i,j as e,L as T,r as h}from"./index-40d4b8a7.js";import{T as M}from"./TitlePage-0e272dcb.js";import{E as C}from"./EllipsesLayout-e2679e6d.js";import{U as P,B as R}from"./Button Pagination-f0ae7edc.js";import{C as D}from"./ListCardsTwo.styled-2859ac3c.js";const I="/react-with-vite/assets/down-arrow-svgrepo-com-8dce313c.svg",E="/react-with-vite/assets/loop-svgrepo-com-a28bd999.svg";n.div`
+import{n,P as i,j as e,L as T,r as h}from"./index-3f7ec34a.js";import{T as M}from"./TitlePage-df1d86f0.js";import{E as C}from"./EllipsesLayout-aa4661ce.js";import{U as P,B as D}from"./Button Pagination-7a53278c.js";import{C as R}from"./ListCardsTwo.styled-3188edd8.js";const I="/project-Dream4IT/assets/down-arrow-svgrepo-com-8dce313c.svg",E="/project-Dream4IT/assets/loop-svgrepo-com-a28bd999.svg";n.div`
     display: flex;
     max-width: 335px;
 `;const G=n.div`
@@ -319,7 +319,7 @@ Guarnire con una ciliegia al maraschino.`,instructionsRU:"Перемешать �
   @media screen and (min-width: 1440px) {
     gap: 80px 20px;
   }
-`,z=({items:a})=>{const[o,c]=h.useState(9);h.useEffect(()=>{const m=()=>{window.innerWidth<=768?c(8):c(9)};return m(),window.addEventListener("resize",m),()=>{window.removeEventListener("resize",m)}},[]);const{firstContentIndex:t,lastContentIndex:d,nextPage:u,prevPage:r,page:g,setPage:p,totalPages:s}=P({contentPerPage:o,count:a.length}),v=a.slice(t,d).map(m=>e.jsx(f,{...m},m._id.$oid));return e.jsxs(e.Fragment,{children:[e.jsx(W,{children:v}),e.jsx(D,{children:e.jsx(R,{prevPage:r,totalPages:s,nextPage:u,page:g,setPage:p,pageType:"drinks"})})]})};z.propTypes={items:i.arrayOf(i.shape({_id:i.object.isRequired,drink:i.string.isRequired,drinkThumb:i.string.isRequired})).isRequired};const w=({filter:a,onFilterChange:l})=>e.jsx(x,{type:"text",name:"text",placeholder:"Enter the text",value:a,onChange:l});w.propTypes={filter:i.string.isRequired,onFilterChange:i.func.isRequired};const K=n.div`
+`,z=({items:a})=>{const[o,c]=h.useState(9);h.useEffect(()=>{const m=()=>{window.innerWidth<=768?c(8):c(9)};return m(),window.addEventListener("resize",m),()=>{window.removeEventListener("resize",m)}},[]);const{firstContentIndex:t,lastContentIndex:d,nextPage:u,prevPage:r,page:g,setPage:p,totalPages:s}=P({contentPerPage:o,count:a.length}),v=a.slice(t,d).map(m=>e.jsx(f,{...m},m._id.$oid));return e.jsxs(e.Fragment,{children:[e.jsx(W,{children:v}),e.jsx(R,{children:e.jsx(D,{prevPage:r,totalPages:s,nextPage:u,page:g,setPage:p,pageType:"drinks"})})]})};z.propTypes={items:i.arrayOf(i.shape({_id:i.object.isRequired,drink:i.string.isRequired,drinkThumb:i.string.isRequired})).isRequired};const w=({filter:a,onFilterChange:l})=>e.jsx(x,{type:"text",name:"text",placeholder:"Enter the text",value:a,onChange:l});w.propTypes={filter:i.string.isRequired,onFilterChange:i.func.isRequired};const K=n.div`
   position: relative;
   max-width: 335px;
 `,O=n.button`

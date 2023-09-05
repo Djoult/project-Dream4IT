@@ -1,4 +1,4 @@
-import{n,j as t}from"./index-40d4b8a7.js";import"./TitlePage-0e272dcb.js";import{E as o}from"./EllipsesLayout-e2679e6d.js";const i="/react-with-vite/assets/notfound_mobile-4017e95d.png",e=n.div`
+import{n,j as t}from"./index-3f7ec34a.js";import"./TitlePage-df1d86f0.js";import{E as o}from"./EllipsesLayout-aa4661ce.js";const e="/project-Dream4IT/assets/notfound_mobile-4017e95d.png",i=n.div`
     position: relative;
     max-width: 465px;
     display: flex;
@@ -10,7 +10,7 @@ display: flex;
 justify-content: center;
 position: relative;
 
-`,a=n.span`
+`,r=n.span`
 position: absolute;
 top: 25%;
 /* left: 39%; */
@@ -21,7 +21,7 @@ font-size: 150px;
 font-style: normal;
 font-weight: 600;
 line-height: 0.82; /* 82% */
-`,r=n.span`
+`,a=n.span`
 position: absolute;
 top: 25%;
 /* right: 39%; */
@@ -32,7 +32,7 @@ font-size: 150px;
 font-style: normal;
 font-weight: 600;
 line-height: 0.82; /* 82% */
-`,p=()=>t.jsx(e,{children:t.jsxs(s,{children:[t.jsx(a,{children:"4"}),t.jsx("img",{src:i}),t.jsx(r,{children:"4"})]})}),d=n.div`
+`,p=()=>t.jsx(i,{children:t.jsxs(s,{children:[t.jsx(r,{children:"4"}),t.jsx("img",{src:e}),t.jsx(a,{children:"4"})]})}),d=n.div`
   position: relative;
   background: #0a0a11;
   margin: 0 auto;
