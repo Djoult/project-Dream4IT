@@ -4,11 +4,11 @@ import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
   plugins: [react(), svgr()],
+  base: '/project-Dream4IT',
   resolve: {
     alias: {
       src: '/src',
       components: '/src/components',
     },
-  },
-  base: '/react-with-vite/',
+  }
 });
