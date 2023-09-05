@@ -1,6 +1,9 @@
 import styled from "@emotion/styled";
 import TitlePage from "../../components/TitlePage/TitlePage";
 import EllipsesLayout from "../../components/EllipsesLayout/EllipsesLayout";
+import { fetchRecipeById } from "../../api/recipes";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 const Page = styled.div`
   position: relative;
   background: #0a0a11;
@@ -17,6 +20,15 @@ export const Container = styled.div`
   }
 `;
 const RecipePage = () => {
+  const { recipeId } = useParams();
+
+  useEffect(() => {
+    fetchRecipeById(recipeId)
+      .then(data => {
+      console.log(data)
+    })
+  }, [recipeId])
+  
     return (
       <>
         <Page>

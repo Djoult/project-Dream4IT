@@ -10,5 +10,5 @@ export default defineConfig({
       components: '/src/components',
     },
   },
-  base: '/react-with-vite/',
+  base: '/project-Dream4IT',
 });
