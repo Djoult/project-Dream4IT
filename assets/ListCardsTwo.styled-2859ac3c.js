@@ -1,4 +1,4 @@
-import{n as p}from"./index-629be40f.js";const a=p.ul`
+import{n as p}from"./index-40d4b8a7.js";const i=p.ul`
   padding: 0 20px 80px 20px;
   // max-width: 1440px;
 
@@ -13,6 +13,7 @@ import{n as p}from"./index-629be40f.js";const a=p.ul`
   @media screen and (min-width: 1440px) {
     padding: 0 100px 140px 100px;
   }
-`,i=p.div`
+`,a=p.div`
   padding-bottom: 140px;
-`;export{i as C,a as L};
+  cursor: pointer;
+`;export{a as C,i as L};

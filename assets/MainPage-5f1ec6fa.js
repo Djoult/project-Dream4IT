@@ -1,4 +1,4 @@
-import{n as t,l as x,P as o,m,j as e,S as h,r as d,c as w,o as b,p as C}from"./index-629be40f.js";import{E as j}from"./EllipsesLayout-fba0e3ce.js";const c="/react-with-vite/assets/hero-desktop-5baff696.jpg",y=t.section`
+import{n as t,l as x,P as o,m,j as e,S as h,r as d,c as w,o as b,p as C}from"./index-40d4b8a7.js";import{E as j}from"./EllipsesLayout-e2679e6d.js";const c="/react-with-vite/assets/hero-desktop-5baff696.jpg",y=t.section`
   background-color: ${x.mainBgColor};
   min-height: 100%;
   padding-left: 20px;
