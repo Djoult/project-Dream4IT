@@ -17,8 +17,10 @@ import {
   StyledModalBtn,
   StyledErrorIcon,
   StyledInpup,
+  StyledIconPlus,
+  ModalTopEllipse,
+  ModalBottomEllipse,
 } from './UserInfoModal';
-// kajime7546@wlmycn.com
 
 // import { setHeaders } from "../../api/auth";
 import { updateUserThunk } from '../../redux/thunks';
@@ -98,6 +100,7 @@ const UserInfoModal = ({ closeModal }) => {
   return (
     <StyledBackdrop>
       <StyledModal onClick={handleModalClick}>
+        <ModalTopEllipse />
         <StyledIconClose src={xCross} alt="icon close" onClick={closeModal} />
         <StyledModalForm onSubmit={handleSubmitForm}>
           <StyledUserLogo
@@ -111,7 +114,7 @@ const UserInfoModal = ({ closeModal }) => {
           <StyledAddPhotoBtn>
             <label htmlFor="file-input">
               {' '}
-              <img src={plus} alt="icon plus" />
+              <StyledIconPlus src={plus} alt="icon plus" />
             </label>
             <StyledInpup
               id="file-input"
@@ -137,6 +140,7 @@ const UserInfoModal = ({ closeModal }) => {
           </StyledModalLabel>
           <StyledModalBtn type="submit">Save changes</StyledModalBtn>
         </StyledModalForm>
+        <ModalBottomEllipse />
       </StyledModal>
     </StyledBackdrop>
   );

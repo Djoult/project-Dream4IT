@@ -19,4 +19,5 @@ export const List = styled.ul`
 
 export const ContainerBtnPagination = styled.div`
   padding-bottom: 140px;
+  cursor: pointer;
 `;

@@ -47,3 +47,7 @@
   justify-content: space-between;
   position: relative;
 }
+
+.no-scroll {
+  overflow: hidden;
+}
