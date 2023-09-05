@@ -77,7 +77,7 @@ const UserRoutes = () => {
             }
           />
           <Route
-            path="/recipe/own/:recipeId"
+            path="/recipe/:recipeId"
             element={
               <PrivateRoute>
                 <RecipePage />

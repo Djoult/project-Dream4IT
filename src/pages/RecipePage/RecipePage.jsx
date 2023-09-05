@@ -1,9 +1,11 @@
-import styled from "@emotion/styled";
-import TitlePage from "../../components/TitlePage/TitlePage";
-import EllipsesLayout from "../../components/EllipsesLayout/EllipsesLayout";
-import { fetchRecipeById } from "../../api/recipes";
-import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+import styled from '@emotion/styled';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { setToken, instance } from '../../api/auth';
+import EllipsesLayout from '../../components/EllipsesLayout/EllipsesLayout';
+import RecipePageHero from '../../components/RecipePageHero/RecipePageHero.jsx';
+
 const Page = styled.div`
   position: relative;
   background: #0a0a11;
@@ -20,25 +22,38 @@ export const Container = styled.div`
   }
 `;
 const RecipePage = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [resipe, setResipe] = useState(null);
   const { recipeId } = useParams();
+  const token = useSelector(state => state.auth.token);
 
   useEffect(() => {
-    fetchRecipeById(recipeId)
-      .then(data => {
-      console.log(data)
-    })
-  }, [recipeId])
-  
-    return (
-      <>
-        <Page>
+    setToken(token);
+
+    setIsLoading(true);
+
+    instance
+      .get(`/api/recipes/${recipeId}`)
+      .then(res => {
+        console.log(res.data);
+        const data = res.data;
+
+        setResipe(data);
+      })
+      .catch(error => console.log(error.message))
+      .finally(setIsLoading(false));
+  }, [recipeId]);
+
+  return (
+    <>
+      <Page>
         <EllipsesLayout />
         <Container>
-          <TitlePage titlePage="Pornstar Martini" />
+          {resipe !== null && <RecipePageHero resipe={resipe} />}
         </Container>
       </Page>
-      </>
-    );
+    </>
+  );
 };
 
 export default RecipePage;
