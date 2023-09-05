@@ -5,7 +5,7 @@ export const instance = axios.create({
 });
 
 export const fetchRecipeById = async (id) => {
-    const response = await instance.get(`/api/recipes/${id}`);
+    const response = await instance.get(`/api/recipes/own/${id}`);
 
     return response.data;
 }
