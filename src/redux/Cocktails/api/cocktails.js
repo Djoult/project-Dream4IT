@@ -5,9 +5,9 @@ const cocktailsInstans = axios.create({
 }
 );
 export const getMyCocktails = () => {
-    return cocktailsInstans.get("/search?limit=6")
+    return cocktailsInstans.get("/own")
 };
 
 export const getFavorites = () => {
-  return cocktailsInstans.get("/favorite?limit=80")
+  return cocktailsInstans.get("/favorite")
 };
