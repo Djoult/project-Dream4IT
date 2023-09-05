@@ -41,7 +41,7 @@ const UserLogo = () => {
 
   return (
     <StyledUserWrapper onClick={handleToggle} ref={userLogoRef}>
-      <StyledUserIcon src={(currentUser.avatarUrl && `http://localhost:4000/${currentUser.avatarUrl}`) || defaultUserLogo} alt="User photo" />
+      <StyledUserIcon src={(currentUser.avatarUrl && `https://drinkmaster-backend.onrender.com/${currentUser.avatarUrl}`) || defaultUserLogo} alt="User photo" />
       <StyledUserDescr>{currentUser.name}</StyledUserDescr>
       {isOpen && <UserLogoModal />}
     </StyledUserWrapper>
