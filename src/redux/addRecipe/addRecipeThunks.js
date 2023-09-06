@@ -7,6 +7,7 @@ const route = {
   getPopular: 'api/recipes/popular?limit=10',
   getRandom: 'api/recipes/search?samples=10&thumb',
   getGlass: 'api/glass',
+  postRecipe: 'api/recipes/own',
 };
 
 export const fetchIngredients = createAsyncThunk(

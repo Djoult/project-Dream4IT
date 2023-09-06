@@ -2,7 +2,7 @@
 import Select from 'react-select';
 import { TextField } from '../../RecipeDetailsForm/TextField/TextField';
 import { IconClose } from '../../../../../styles/icons';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useAddRecipe } from '../../../../../redux/addRecipe/hooks';
 
@@ -32,17 +32,23 @@ export const IngredientListItem = ({ showRemoveBtn, onRemoveClick }) => {
     pendingAction,
   } = useAddRecipe();
 
-  const handleIngredientSelect = (selected, { removedValues }) => {
-    const [{ label }] = removedValues || '';
-    console.log(label);
+  const handleIngredientChange = (selected, opts) => {
+    const { action, removedValues } = opts;
 
-    if (selected) {
-      setIngredient(selected?.value);
-      setRecipeIngredients({ key: ingredient, value: measure });
-    } else {
-      setIngredient(selected?.value);
-      removeRecipeIngredients({ key: ingredient });
+    if (action === 'clear') {
+      const [{ label: key }] = removedValues;
+      removeRecipeIngredients({ key });
+      setIngredient('');
+    } else if (action === 'select-option') {
+      setRecipeIngredients({ key: selected.value, value: measure });
+      setIngredient(selected.value);
     }
+  };
+
+  const handleMeasureChange = e => {
+    const { value = '' } = e?.target || '';
+    setRecipeIngredients({ key: ingredient, value });
+    setMeasure(value);
   };
 
   const handleError = () => {
@@ -69,7 +75,7 @@ export const IngredientListItem = ({ showRemoveBtn, onRemoveClick }) => {
             styles={customSelectStyles}
             components={customSelectComponents}
             placeholder="Ingredient"
-            onChange={handleIngredientSelect}
+            onChange={handleIngredientChange}
             options={ingredientOptions}
           />
         </Ingredient>
@@ -79,7 +85,7 @@ export const IngredientListItem = ({ showRemoveBtn, onRemoveClick }) => {
             disabled={!ingredient}
             inputOverride={InputStyled}
             placeholder="Measure"
-            onChange={e => setMeasure(e?.target.value)}
+            onChange={handleMeasureChange}
             value={measure}
           />
         </Measure>
