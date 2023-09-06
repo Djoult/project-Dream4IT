@@ -1,4 +1,4 @@
-import{n as i,i as n,p as t,P as o,j as s}from"./index-b825e599.js";const a=i.h1`
+import{n as i,l as n,t,P as o,j as s}from"./index-d495e7a1.js";const a=i.h1`
   font-family: var(--main-font-family);
   font-size: 32px;
   font-weight: 600;

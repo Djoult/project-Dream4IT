@@ -1,4 +1,4 @@
-import{n as e,j as i}from"./index-b825e599.js";import{T as a}from"./TitlePage-c65b9ed8.js";import{E as n}from"./EllipsesLayout-a5027a74.js";const t=e.div`
+import{n as e,j as i}from"./index-d495e7a1.js";import{T as a}from"./TitlePage-67ab1134.js";import{E as n}from"./EllipsesLayout-c14a13fb.js";const t=e.div`
   position: relative;
   background: #0a0a11;
   margin: 0 auto;
