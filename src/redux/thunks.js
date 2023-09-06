@@ -1,11 +1,11 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { callApi, getCurrent } from "../api/auth";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { callApi, getCurrent } from '../api/auth';
 
 export const singInThunk = createAsyncThunk(
-  "auth/signin",
+  'auth/signin',
   async (body, { rejectWithValue, dispatch }) => {
     try {
-      const data = await callApi("/api/auth/signin", body);
+      const data = await callApi('/api/auth/signin', body);
 
       await dispatch(getCurrentThunk());
 
@@ -17,11 +17,11 @@ export const singInThunk = createAsyncThunk(
 );
 
 export const signUpThunk = createAsyncThunk(
-  "auth/signup",
-  async (body, { rejectWithValue, dispatch }) => {
+  'auth/signup',
+  async (body, { rejectWithValue /* , dispatch */ }) => {
     console.log(body);
     try {
-      const data = await callApi("/api/auth/signup", body);
+      const data = await callApi('/api/auth/signup', body);
 
       return data;
     } catch (error) {
@@ -30,9 +30,9 @@ export const signUpThunk = createAsyncThunk(
   }
 );
 
-export const getCurrentThunk = createAsyncThunk("auth/profile", async () => {
+export const getCurrentThunk = createAsyncThunk('auth/profile', async () => {
   try {
-    const data = await getCurrent("/api/auth/current");
+    const data = await getCurrent('/api/auth/current');
 
     return data;
   } catch (error) {

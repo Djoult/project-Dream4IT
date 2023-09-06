@@ -1,30 +1,30 @@
-import axios from "axios";
+import axios from 'axios';
 
 export const instance = axios.create({
-  baseURL: "https://drinkmaster-backend.onrender.com",
+  baseURL: 'https://drinkmaster-backend.onrender.com',
 });
 
-export const setToken = (token) => {
-  instance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+export const setToken = token => {
+  instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 };
 
-export const callGetApi = async (url) => {
+export const callGetApi = async url => {
   const { data } = await instance.get(url);
-  if ("token" in data) setToken(data.token);
+  if ('token' in data) setToken(data.token);
   return data;
 };
 
-export const callApi = async (url, payload, method = "POST") => {
+export const callApi = async (url, payload, method = 'POST') => {
   const { data } = await instance({
     url,
     method,
     data: payload,
   });
-  if ("token" in data) setToken(data.token);
+  if ('token' in data) setToken(data.token);
   return data;
 };
 
-export const getCurrent = async (url) => {
+export const getCurrent = async url => {
   const response = await instance.get(url);
   return response.data;
-}
+};
