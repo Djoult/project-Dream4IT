@@ -1,4 +1,3 @@
-// import "./index.css";
 import 'modern-normalize/modern-normalize.css';
 import { StrictMode } from 'react';
 import { ToastContainer } from 'react-toastify';
@@ -12,8 +11,7 @@ import { store, persistor } from './redux/store.js';
 import { PersistGate } from 'redux-persist/integration/react';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <StrictMode>
-  <>
+  <StrictMode>
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <BrowserRouter basename="/project-Dream4IT">
@@ -22,7 +20,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </BrowserRouter>
       </PersistGate>
     </Provider>
-
     <ToastContainer
       autoClose={1500}
       position="top-center"
@@ -33,6 +30,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         backgroundColor: `rgb(22, 31, 55)`,
       }}
     />
-  </>
-  // </StrictMode>
+  </StrictMode>
 );

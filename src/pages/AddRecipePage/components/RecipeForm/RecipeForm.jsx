@@ -11,11 +11,8 @@ export const RecipeForm = () => {
         <RecipeThumb />
         <RecipeDetails />
       </DetailsWrapper>
-
       <IngredientList />
-
       <RecipePreparation />
-
       <ButtonAdd type="submit">Add</ButtonAdd>
     </Form>
   );

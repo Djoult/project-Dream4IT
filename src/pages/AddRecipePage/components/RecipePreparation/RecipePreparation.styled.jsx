@@ -2,8 +2,6 @@ import styled from '@emotion/styled';
 import { breakpoint as bp } from '../../../../shared';
 import { colors } from '../../../../styles/GlobalStyles';
 
-const colorGray = 'rgba(243, 243, 243, 0.5)';
-
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -29,8 +27,7 @@ export const Description = styled.textarea`
   color: ${colors.textMainColor};
 
   border-radius: 14px;
-  border: 1px solid ${colorGray};
-  /* resize: vertical; */
+  border: 1px solid ${colors.colorGray};
 
   @media screen and (min-width: ${bp.tablet}) {
     font-size: 17px;
@@ -40,6 +37,6 @@ export const Description = styled.textarea`
 
   &::placeholder {
     font-size: inherit;
-    color: ${colorGray};
+    color: ${colors.colorGray};
   }
 `;
