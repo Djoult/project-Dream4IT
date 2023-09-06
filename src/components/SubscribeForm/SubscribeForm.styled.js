@@ -18,6 +18,12 @@ export const Container = styled.div`
     display:none;
   }
 
+  h3{
+    margin-top: 50px;
+    text-align: right;
+    font-size: 24px;
+  }
+
   p {
   font-weight: 400;
   font-size: 14px;
