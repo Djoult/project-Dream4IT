@@ -106,7 +106,7 @@ const UserInfoModal = ({ closeModal }) => {
           <StyledUserLogo
             src={
               filePreview ||
-              (user.avatarUrl && `http://localhost:4000/${user.avatarUrl}`) ||
+              (user.avatarUrl && `https://drinkmaster-backend.onrender.com/${user.avatarUrl}`) ||
               defaultUserLogo
             }
             alt="User photo"

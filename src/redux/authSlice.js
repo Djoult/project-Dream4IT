@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { singInThunk, signUpThunk, logOutThunk } from './thunks';
+import { signInThunk, signUpThunk, logOutThunk } from './thunks';
 
 const initialState = {
   token: '',
@@ -28,13 +28,12 @@ const handleLogoutFulfilled = state => {
 
 const handlePending = state => {
   state.isLoading = true;
+  console.log(12345);
   state.error = '';
 };
 
 const handleRejected = (state, action) => {
   const { payload } = action;
-
-  console.log(action);
   state.isLoading = false;
   state.error = payload;
   state.token = '';
@@ -45,14 +44,20 @@ const authSlice = createSlice({
   initialState: initialState,
   extraReducers: builder => {
     builder
-      .addCase(singInThunk.fulfilled, handleSignInFulfilled)
+      .addCase(signInThunk.fulfilled, handleSignInFulfilled)
       .addCase(signUpThunk.fulfilled, handleSignUpFulfilled)
       .addCase(logOutThunk.fulfilled, handleLogoutFulfilled)
       .addMatcher(action => {
-        return action.type.endsWith('/pending-auth');
+        return (
+          action.type.endsWith('/signin/pending') ||
+          action.type.endsWith('/signup/pending')
+        );
       }, handlePending)
       .addMatcher(action => {
-        return action.type.endsWith('/rejected-auth');
+        return (
+          action.type.endsWith('/signin/rejected') ||
+          action.type.endsWith('/signup/rejected')
+        );
       }, handleRejected);
   },
 });

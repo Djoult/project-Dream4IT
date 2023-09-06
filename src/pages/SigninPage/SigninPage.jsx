@@ -14,7 +14,6 @@ export const SigninPage = () => {
     error: state.auth.error,
     isLoading: selectIsLoading(state),
   }));
-
   return (
     <BackgroundLayout>
       <SigninWrapper>

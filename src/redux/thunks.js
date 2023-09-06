@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { callApi, callGetApi } from '../api/auth';
 
-export const singInThunk = createAsyncThunk(
+export const signInThunk = createAsyncThunk(
   'auth/signin',
 
   async (body, { rejectWithValue, dispatch }) => {
