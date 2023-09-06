@@ -1,4 +1,4 @@
-import{n as i,N as r,j as e}from"./index-e76cc083.js";import{B as n,W as s,S as a,a as t,b as c}from"./BackgroundLayout-ab73be22.js";const p=i.ul`
+import{n as i,N as r,j as e}from"./index-b825e599.js";import{B as n,W as s,S as a,a as t,b as c}from"./BackgroundLayout-f2552eec.js";const p=i.ul`
   display: flex;
   gap: 14px;
   box-sizing: border-box;
