@@ -51,6 +51,7 @@ export const customSelectStyles = {
     return {
       ...base,
       marginRight: '10px',
+      cursor: 'pointer',
     };
   },
 };

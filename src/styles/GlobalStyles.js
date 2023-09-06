@@ -1,4 +1,5 @@
 import 'react-toastify/dist/ReactToastify.css';
+import './fonts.css';
 
 import { css } from '@emotion/react';
 

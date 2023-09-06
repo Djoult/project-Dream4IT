@@ -1,5 +1,6 @@
 import { useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { addRecipesActions } from './addRecipeSlice';
 import * as addRecipeThunk from './addRecipeThunks';
 
 export const useDispatchedActions = actions => {
@@ -23,7 +24,7 @@ export const useDispatchedActions = actions => {
 export const useAddRecipe = () => {
   const addRecipe = useSelector(state => state?.addRecipe);
   const dispatchedThunks = useDispatchedActions(addRecipeThunk);
-  const dispatchedActions = useDispatchedActions(addRecipeThunk);
+  const dispatchedActions = useDispatchedActions(addRecipesActions);
 
   return {
     // все что в initialState будет доступно как отдельные стейты
