@@ -1,4 +1,4 @@
-import{P as p,j as e,n as x,r as d,c as h,o as g,p as l}from"./index-29574934.js";import{T as y}from"./TitlePage-c66efe77.js";import{E as f}from"./EllipsesLayout-f04a781d.js";import{C as u}from"./CardTwo-32633186.js";import{L as j}from"./ListCardsTwo.styled-7afeefca.js";const m=({items:r,onDel:o})=>{const n=async s=>{await o(s)},i=r.map(s=>e.jsx(u,{...s,onDelete:n},s._id));return e.jsx(e.Fragment,{children:e.jsx(j,{children:i})})};m.propTypes={items:p.array,onDel:p.func};const w=x.div`
+import{P as p,j as e,n as x,r as d,c as h,o as g,p as l}from"./index-cab73fca.js";import{T as y}from"./TitlePage-e4529212.js";import{E as f}from"./EllipsesLayout-bbfe191a.js";import{C as u}from"./CardTwo-d0324c45.js";import{L as j}from"./ListCardsTwo.styled-040f7a70.js";const m=({items:r,onDel:o})=>{const n=async s=>{await o(s)},i=r.map(s=>e.jsx(u,{...s,onDelete:n},s._id));return e.jsx(e.Fragment,{children:e.jsx(j,{children:i})})};m.propTypes={items:p.array,onDel:p.func};const w=x.div`
   position: relative;
   background: #0a0a11;
   margin: 0 auto;
