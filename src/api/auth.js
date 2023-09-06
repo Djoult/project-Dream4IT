@@ -1,20 +1,20 @@
-import axios from "axios";
+import axios from 'axios';
 
 export const instance = axios.create({
-  baseURL: "https://drinkmaster-backend.onrender.com",
+  baseURL: 'https://drinkmaster-backend.onrender.com',
 });
 
-export const setToken = (token) => {
-  instance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+export const setToken = token => {
+  instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 };
 // export const setHeaders = (file) => {
 //   instance.defaults.headers.common["content-type"] = file.type;
 //   instance.defaults.headers.common["content-length"] = `${file.size}`;
 // };
 
-export const callGetApi = async (url) => {
+export const callGetApi = async url => {
   const { data } = await instance.get(url);
-  if ("token" in data) setToken(data.token);
+  if ('token' in data) setToken(data.token);
   return data;
 };
 
@@ -25,7 +25,7 @@ export const callApi = async (url, payload, method = "POST", headers = {}) => {
     data: payload,
     headers,
   });
-  if ("token" in data) setToken(data.token);
+  if ('token' in data) setToken(data.token);
   return data;
 };
 
@@ -33,3 +33,4 @@ export const callApi = async (url, payload, method = "POST", headers = {}) => {
 //   const response = await instance.get(url);
 //   return response.data;
 // };
+
