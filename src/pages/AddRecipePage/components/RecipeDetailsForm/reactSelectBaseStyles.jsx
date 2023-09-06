@@ -7,7 +7,6 @@ const mediaQuery = {
 
 export const customSelectComponents = {
   IndicatorSeparator: () => null,
-  //   DropdownIndicator: () => null,
 };
 
 const fontParams = {
@@ -101,6 +100,13 @@ export const customSelectStyles = {
     return {
       ...base,
       color: colors.textMainColor,
+    };
+  },
+
+  indicatorsContainer: base => {
+    return {
+      ...base,
+      cursor: 'pointer',
     };
   },
 };

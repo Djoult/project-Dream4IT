@@ -1,12 +1,12 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/display-name */
 import { forwardRef } from 'react';
 import { func, string, number, oneOfType, object } from 'prop-types';
 import { IconClose } from '../../../../../styles/icons';
 import { ClearBtn, InputWrapper, Input, Field } from './TextField.styled';
 
-// eslint-disable-next-line react/display-name
 export const TextField = forwardRef(
   (
-    // eslint-disable-next-line react/prop-types
     {
       value,
       type,
@@ -17,7 +17,6 @@ export const TextField = forwardRef(
     },
     ref /* after props */
   ) => {
-    // eslint-disable-next-line no-unused-vars
     const InputComp = InputStyled || Input;
     return (
       <Field disabled={disabled}>
@@ -31,7 +30,10 @@ export const TextField = forwardRef(
           />
 
           {value && (
-            <ClearBtn type="button" onClick={() => onChange(null)}>
+            <ClearBtn
+              type="button"
+              onClick={() => onChange({ target: { value: '' } })}
+            >
               <IconClose size="80%" />
             </ClearBtn>
           )}

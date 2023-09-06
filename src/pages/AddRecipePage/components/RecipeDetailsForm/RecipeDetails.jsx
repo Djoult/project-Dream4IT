@@ -11,10 +11,16 @@ import {
 } from './reactSelectBaseStyles';
 
 export const RecipeDetails = () => {
-  const [drink, setDrink] = useState();
-  const [about, setAbout] = useState();
-  const { category, glass, fetchGlass, fetchCategory, error, pendingAction } =
-    useAddRecipe();
+  const {
+    setRecipe,
+    recipe,
+    category,
+    glass,
+    fetchGlass,
+    fetchCategory,
+    error,
+    pendingAction,
+  } = useAddRecipe();
 
   const handleError = () => {
     toast.error(error.message);
@@ -27,7 +33,11 @@ export const RecipeDetails = () => {
     label: title,
     value: title,
   }));
-  const glassOptions = glass.map(title => ({ label: title, value: title }));
+
+  const glassOptions = glass.map(title => ({
+    label: title,
+    value: title,
+  }));
 
   return (
     <Fields>
@@ -35,35 +45,35 @@ export const RecipeDetails = () => {
 
       <TextField
         placeholder="Enter item title"
-        onChange={e => setDrink(e?.target.value ?? '')}
-        value={drink}
+        onChange={e => setRecipe({ key: 'drink', value: e?.target.value })}
+        value={recipe.drink}
       />
 
       <TextField
         placeholder="Enter about recipe"
-        onChange={e => setAbout(e?.target.value ?? '')}
-        value={about}
+        onChange={e => setRecipe({ key: 'about', value: e?.target.value })}
+        value={recipe.about}
       />
 
       <Select
         isClearable
         isLoading={isCategoryLoading}
-        onMenuOpen={!category.length && fetchCategory}
+        onMenuOpen={fetchCategory}
         styles={customSelectStyles}
         components={customSelectComponents}
         placeholder="Category"
-        //onChange={itm => setCategory(itm?.value)}
+        onChange={itm => setRecipe({ key: 'category', value: itm?.value })}
         options={categoryOptions}
       />
 
       <Select
         isClearable
         isLoading={isGlassLoading}
-        onMenuOpen={!glass.length && fetchGlass}
+        onMenuOpen={fetchGlass}
         styles={customSelectStyles}
         components={customSelectComponents}
         placeholder="Glass"
-        //onChange={itm => setGlass(itm?.value)}
+        onChange={itm => setRecipe({ key: 'glass', value: itm?.value })}
         options={glassOptions}
       />
     </Fields>
