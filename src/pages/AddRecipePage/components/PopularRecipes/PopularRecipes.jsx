@@ -32,6 +32,7 @@ export const PopularRecipes = ({ count }) => {
   const items = popular.length ? popular : random;
   const title = popular.length ? 'Popular' : 'Random';
   const len = fitIntoRange(count, 4, 6, 4);
+  const isLoading = /popular|random/i.test(pendingAction);
 
   return (
     <Wrapper>
@@ -39,7 +40,7 @@ export const PopularRecipes = ({ count }) => {
 
       <SubtitleSec>
         {`${title} recipes `}
-        {pendingAction && <CircularProgress size={20} />}
+        {isLoading && <CircularProgress size={20} />}
       </SubtitleSec>
       <List>
         {items.slice(0, len).map((itm, idx) => (

@@ -31,6 +31,9 @@ export const customSelectStyles = {
       },
       backgroundColor: 'transparent',
       boxShadow: 'none',
+      transitionDuration: 'var(--transition-duration)',
+      transitionTimingFunction: 'var(--transition-func)',
+      transitionProperty: 'border-color',
     };
   },
 

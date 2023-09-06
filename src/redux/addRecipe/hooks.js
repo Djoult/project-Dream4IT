@@ -2,10 +2,6 @@ import { useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as addRecipeThunk from './addRecipeThunks';
 
-//
-// helper
-//
-
 export const useDispatchedActions = actions => {
   const dispatch = useDispatch();
   const actionsRef = useRef(actions);
@@ -24,14 +20,8 @@ export const useDispatchedActions = actions => {
   }, [dispatch]);
 };
 
-//
-// hooks
-//
-
-const selectAddRecipe = state => state?.addRecipe;
-
 export const useAddRecipe = () => {
-  const addRecipe = useSelector(selectAddRecipe);
+  const addRecipe = useSelector(state => state?.addRecipe);
   const dispatchedThunks = useDispatchedActions(addRecipeThunk);
   const dispatchedActions = useDispatchedActions(addRecipeThunk);
 
