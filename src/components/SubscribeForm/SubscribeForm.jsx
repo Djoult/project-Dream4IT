@@ -22,12 +22,10 @@ const SubscribeForm = () => {
       setLoading(true);
       setStatus("LOADING");
       const response = await axios.post(`${baseURL}/api/subscriptions/subscribe/email`, { email });
-
       if (response.status === 200) {
         setStatus("SUCCESS");
       } else {
         setStatus("ERROR");
-
       }
     } catch (error) {
       setStatus("ERROR");
