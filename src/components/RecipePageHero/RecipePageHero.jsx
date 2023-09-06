@@ -1,25 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TitlePage from '../../components/TitlePage/TitlePage';
+import { StyledGlass, StyledAbout, StyledFavoriteBtn, StyledRecipeHeroImg, StyledWrapper } from './RecipePageHero';
 
-const RecipePageHero = ({ resipe }) => {
-  const { drink, glass, instructions, drinkThumb } = resipe; //about
+const RecipePageHero = ({ recipe }) => {
+  const { drink, glass, instructions, drinkThumb } = recipe; //about
 
   return (
-    <>
+    <StyledWrapper>
       <div>
-        <p>{glass}</p>
+        <StyledGlass>{glass}</StyledGlass>
         <TitlePage titlePage={drink} />
-        {instructions !== undefined ? <p>{instructions}</p> : null}
-        <button type="button">Add to favorite recipe</button>
+        {instructions !== undefined ? <StyledAbout>{instructions}</StyledAbout> : null}
+        <StyledFavoriteBtn type="button">Add to favorite recipe</StyledFavoriteBtn>
       </div>
-      <img src={drinkThumb} alt="Cocktail photo" />
-    </>
+      <StyledRecipeHeroImg src={drinkThumb} alt="Cocktail photo" />
+    </StyledWrapper>
   );
 };
+
+export default RecipePageHero;
 
 RecipePageHero.propTypes = {
   resipe: PropTypes.object,
 };
-
-export default RecipePageHero;

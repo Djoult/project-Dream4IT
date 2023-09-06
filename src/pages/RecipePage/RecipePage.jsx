@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { setToken, instance } from '../../api/auth';
 import EllipsesLayout from '../../components/EllipsesLayout/EllipsesLayout';
 import RecipePageHero from '../../components/RecipePageHero/RecipePageHero.jsx';
+import RecipeInngredientsList from '../../components/RecipeInngredientsList/RecipeInngredientsList.jsx';
 
 const Page = styled.div`
   position: relative;
@@ -13,17 +14,17 @@ const Page = styled.div`
 `;
 
 export const Container = styled.div`
-  padding: 80px 0 40px 20px;
+  padding: 80px 20px 40px 20px;
   @media screen and (min-width: 768px) {
-    padding: 140px 0 60px 32px;
+    padding: 140px 32px 60px 32px;
   }
   @media screen and (min-width: 1440px) {
-    padding: 158px 0 62px 110px;
+    padding: 158px 100px 62px 100px;
   }
 `;
 const RecipePage = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [resipe, setResipe] = useState(null);
+  const [recipe, setResipe] = useState(null);
   const { recipeId } = useParams();
   const token = useSelector(state => state.auth.token);
 
@@ -49,7 +50,12 @@ const RecipePage = () => {
       <Page>
         <EllipsesLayout />
         <Container>
-          {resipe !== null && <RecipePageHero resipe={resipe} />}
+          {recipe !== null && (
+            <>
+              <RecipePageHero recipe={recipe} />
+              <RecipeInngredientsList recipe={recipe} />
+            </>
+          )}
         </Container>
       </Page>
     </>
