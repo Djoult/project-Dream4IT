@@ -1,8 +1,8 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const Ellipse223 = styled.div`
   position: absolute;
-  content: "";
+  content: '';
 
   background: rgba(188, 230, 210, 0.4);
   filter: blur(104.8543701171875px);
@@ -32,7 +32,7 @@ export const Ellipse223 = styled.div`
 
 export const Ellipse222 = styled.div`
   position: absolute;
-  content: "";
+  content: '';
   flex-shrink: 0;
   background: rgba(188, 230, 210, 0.4);
   filter: blur(104.8543701171875px);
@@ -48,7 +48,7 @@ export const Ellipse222 = styled.div`
 `;
 export const Ellipse224 = styled.div`
   position: absolute;
-  content: "";
+  content: '';
   width: 549px;
   flex-shrink: 0;
   height: 543px;
@@ -75,7 +75,7 @@ export const Ellipse224 = styled.div`
 `;
 export const Ellipse221 = styled.div`
   position: absolute;
-  content: "";
+  content: '';
   width: 520px;
   height: 550px;
   flex-shrink: 0;
@@ -102,5 +102,6 @@ export const Ellipse221 = styled.div`
 `;
 
 export const Box = styled.div`
-position: relative;
-`
+  position: relative;
+  pointer-events: none;
+`;
