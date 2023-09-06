@@ -56,14 +56,15 @@ const initialState = {
 
   // reducers
   recipe: {
-    drink: null,
-    about: null,
-    category: null,
-    glass: null,
-    // хеш {title: measure}, чтобы не дублировались при добавлении
+    drink: '',
+    about: '',
+    category: '',
+    glass: '',
+    // хеш {title: measure},
+    // чтобы не дублировались при добавлении
     // Учтен будет самый последний
     ingredients: {},
-    instructions: null,
+    instructions: '',
   },
   pendingAction: null,
   error: null,
@@ -74,8 +75,16 @@ const addRecipeSlice = createSlice({
   initialState,
 
   reducers: {
-    setDrink: (state, { payload: drink }) => {
-      state.recipe.drink = drink;
+    setRecipe: (state, { payload: { key, value } }) => {
+      state.recipe[key] = value;
+    },
+
+    setRecipeIngredients: (state, { payload: { key, value } }) => {
+      state.recipe.ingredients[key] = value;
+    },
+
+    removeRecipeIngredients: (state, { payload: { key } }) => {
+      delete state.recipe.ingredients[key];
     },
   },
 

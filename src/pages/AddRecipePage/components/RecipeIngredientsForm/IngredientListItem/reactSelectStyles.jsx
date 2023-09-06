@@ -31,6 +31,9 @@ export const customSelectStyles = {
       },
       backgroundColor: 'transparent',
       boxShadow: 'none',
+      transitionDuration: 'var(--transition-duration)',
+      transitionTimingFunction: 'var(--transition-func)',
+      transitionProperty: 'border-color',
     };
   },
 
@@ -48,6 +51,7 @@ export const customSelectStyles = {
     return {
       ...base,
       marginRight: '10px',
+      cursor: 'pointer',
     };
   },
 };

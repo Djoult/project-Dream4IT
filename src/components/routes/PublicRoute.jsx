@@ -9,7 +9,7 @@ const PublicRoute = ({ children }) => {
   });
 
   const location = useLocation();
-  console.log(isAuth);
+
   return !isAuth ? children : <Navigate to={location.state ?? '/'} />;
 };
 

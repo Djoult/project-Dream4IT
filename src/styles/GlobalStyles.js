@@ -1,4 +1,5 @@
 import 'react-toastify/dist/ReactToastify.css';
+import './fonts.css';
 
 import { css } from '@emotion/react';
 
@@ -22,11 +23,14 @@ export const colors = {
   dropDownListBgColor: '#161F37',
   hoverColor: '#161F37',
   mainBgColor: '#0A0A11',
+  buttonHoverColor: '#434D67',
 };
 
 export const GlobalStyles = css`
   :root {
     --main-font-family: 'Manrope', sans-serif;
+    --transition-duration: 250ms;
+    --transition-func: ease;
   }
 
   html {

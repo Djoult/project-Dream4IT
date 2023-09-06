@@ -11,14 +11,33 @@ import {
 } from './reactSelectBaseStyles';
 
 export const RecipeDetails = () => {
-  const [drink, setDrink] = useState();
-  const [about, setAbout] = useState();
-  const { category, glass, fetchGlass, fetchCategory, error, pendingAction } =
-    useAddRecipe();
+  const {
+    setRecipe,
+    recipe,
+    category,
+    glass,
+    fetchGlass,
+    fetchCategory,
+    error,
+    pendingAction,
+  } = useAddRecipe();
 
   const handleError = () => {
     toast.error(error.message);
   };
+
+  const isCategoryLoading = /category/i.test(pendingAction);
+  const isGlassLoading = /glass/i.test(pendingAction);
+
+  const categoryOptions = category.map(title => ({
+    label: title,
+    value: title,
+  }));
+
+  const glassOptions = glass.map(title => ({
+    label: title,
+    value: title,
+  }));
 
   return (
     <Fields>
@@ -26,34 +45,36 @@ export const RecipeDetails = () => {
 
       <TextField
         placeholder="Enter item title"
-        onChange={e => setDrink(e?.target.value ?? '')}
-        value={drink}
+        onChange={e => setRecipe({ key: 'drink', value: e?.target.value })}
+        value={recipe.drink}
       />
 
       <TextField
         placeholder="Enter about recipe"
-        onChange={e => setAbout(e?.target.value ?? '')}
-        value={about}
+        onChange={e => setRecipe({ key: 'about', value: e?.target.value })}
+        value={recipe.about}
       />
 
       <Select
-        isLoading={/category/i.test(pendingAction)}
-        onMenuOpen={!category.length && fetchCategory}
+        isClearable
+        isLoading={isCategoryLoading}
+        onMenuOpen={fetchCategory}
         styles={customSelectStyles}
         components={customSelectComponents}
         placeholder="Category"
-        //onChange={({ label }) => setCategory(label)}
-        options={category.map(title => ({ label: title }))}
+        onChange={itm => setRecipe({ key: 'category', value: itm?.value })}
+        options={categoryOptions}
       />
 
       <Select
-        isLoading={/glass/i.test(pendingAction)}
-        onMenuOpen={!glass.length && fetchGlass}
+        isClearable
+        isLoading={isGlassLoading}
+        onMenuOpen={fetchGlass}
         styles={customSelectStyles}
         components={customSelectComponents}
         placeholder="Glass"
-        //onChange={({ label }) => setGlass(label)}
-        options={glass.map(title => ({ label: title }))}
+        onChange={itm => setRecipe({ key: 'glass', value: itm?.value })}
+        options={glassOptions}
       />
     </Fields>
   );
