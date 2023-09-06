@@ -61,7 +61,7 @@ const UserRoutes = () => {
             }
           />
           <Route
-            path="/drinks"
+            path="/drinks/:page"
             element={
               <PrivateRoute>
                 <DrinksPage />
@@ -91,15 +91,15 @@ const UserRoutes = () => {
                 <MyRecipesPage />
               </PrivateRoute>
             }
-          />
-          <Route
-            path="/favorite"
+          />         
+           <Route
+            path="/favorite/:page"
             element={
               <PrivateRoute>
                 <FavoritePage />
               </PrivateRoute>
             }
-          />
+          /> 
           <Route
             path="/terms"
             element={

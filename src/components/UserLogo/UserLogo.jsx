@@ -14,8 +14,6 @@ const UserLogo = () => {
   const userLogoRef = useRef(null);
   const currentUser = useSelector(selectCurrentUser);
 
-
-
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
@@ -43,8 +41,8 @@ const UserLogo = () => {
 
   return (
     <StyledUserWrapper onClick={handleToggle} ref={userLogoRef}>
-      <StyledUserIcon src={defaultUserLogo} alt="User photo" />
-      <StyledUserDescr>{currentUser}</StyledUserDescr>
+      <StyledUserIcon src={(currentUser.avatarUrl && `https://drinkmaster-backend.onrender.com/${currentUser.avatarUrl}`) || defaultUserLogo} alt="User photo" />
+      <StyledUserDescr>{currentUser.name}</StyledUserDescr>
       {isOpen && <UserLogoModal />}
     </StyledUserWrapper>
   );

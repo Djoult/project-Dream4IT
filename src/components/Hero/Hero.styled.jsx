@@ -4,7 +4,6 @@ import bcgDesktop from "../../assets/hero-desktop.jpg";
 
 export const Section = styled.section`
   background-color: ${colors.mainBgColor};
-  outline: 1px solid yellow;
   min-height: 100%;
   padding-left: 20px;
 

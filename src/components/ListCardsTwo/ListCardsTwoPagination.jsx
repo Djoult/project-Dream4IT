@@ -1,24 +1,31 @@
-import { useState, 
-    // useEffect 
-} from "react";
+import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import CardTwo from '../CardTwo/CardTwo';
 
-import CardTwo from "../CardTwo/CardTwo";
-
-import { List, ContainerBtnPagination } from "./ListCardsTwo.styled";
-// import { useDispatch} from 'react-redux';
+import { List, ContainerBtnPagination } from './ListCardsTwo.styled';
 import UsePagination from '../../hooks/usePagination';
-import ButtonPagination from "../ButtonPagination/Button Pagination"
+import ButtonPagination from '../ButtonPagination/Button Pagination';
 
 // import { useDispatch, useSelector } from 'react-redux';
 // import { deleteCardTwo } from 'redux/operations';
 
+const ListCardsTwoPagination = ({ items, onDel }) => {
+  const [contentPerPage, setContentPerPage] = useState(9);
 
+  useEffect(() => {
+    const changeNumberItems = () => {
+      if (window.innerWidth > 1440) {
+        setContentPerPage(9);
+      } else setContentPerPage(8);
+    };
+    changeNumberItems();
 
-const ListCardsTwo = ({ items }) => {
-  const [cocktails, setCocktails] = useState(items ?? []);
-  // const { cocktails } = useSelector(state => state.cocktails);
+    window.addEventListener('resize', changeNumberItems);
+    return () => {
+      window.removeEventListener('resize', changeNumberItems);
+    };
+  }, []);
 
-  // Пагінація
   const {
     firstContentIndex,
     lastContentIndex,
@@ -28,42 +35,48 @@ const ListCardsTwo = ({ items }) => {
     setPage,
     totalPages,
   } = UsePagination({
-    contentPerPage: 9,
+    contentPerPage,
     count: items.length,
   });
-  // 
 
-  const deleteCocktail = (id) => {
-    const updateArray = cocktails.filter(
-      (cocktail) => cocktail._id.$oid !== id
-    );
-    setCocktails(updateArray);
-    // 3
-    // const updateArray = contacts.filter(contact => contact.id !== id);
-    // dispatch(contactsAction(updateArray));
-    // 4
-    //( import { deleteContact } from 'redux/operations';
-          // $pull. Поле users - це масив, з якого видаляємо значення
-          //result = await Recipe.findbyIdAndUpdate(recipe._id, { $pull: {users: userId } });
-
-    // const deleteContacts = id => {
-    //   dispatch(deleteContact(id));
-    // };
+  const deleteCocktail = async id => {
+    await onDel(id);
   };
+  // 3
+  // const updateArray = contacts.filter(contact => contact.id !== id);
+  // dispatch(contactsAction(updateArray));
+  // 4
+  // const deleteContacts = id => {
+  //   dispatch(deleteContact(id));
+  // };
 
-  const elements = cocktails.slice(firstContentIndex, lastContentIndex).map((item) => (
-    <CardTwo key={item._id.$oid} {...item} onDelete={deleteCocktail} />
-  ));
+  const elements = items
+    .slice(firstContentIndex, lastContentIndex)
+    .map(item => (
+      <CardTwo key={item._id} {...item} onDelete={deleteCocktail} />
+    ));
 
   return (
-    <>     
+    <>
       <List>{elements}</List>
       {/* Пагінація кнопки */}
-<ContainerBtnPagination>
-      <ButtonPagination prevPage={prevPage} totalPages={totalPages} nextPage={nextPage} page={page} setPage={setPage} />
+      <ContainerBtnPagination>
+        <ButtonPagination
+          prevPage={prevPage}
+          totalPages={totalPages}
+          nextPage={nextPage}
+          page={page}
+          setPage={setPage}
+          pageType="favorite"
+        />
       </ContainerBtnPagination>
     </>
   );
 };
 
-export default ListCardsTwo;
+export default ListCardsTwoPagination;
+
+ListCardsTwoPagination.propTypes = {
+  items: PropTypes.array,
+  onDel: PropTypes.func,
+};
