@@ -6,8 +6,8 @@ import { colors } from './GlobalStyles';
 export const TransitionMain = (...props) => {
   return css`
     transition-property: ${props.join(',')};
-    transition-duration: 250ms;
-    transition-timing-function: ease;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-func);
   `;
 };
 
@@ -107,7 +107,7 @@ export const ButtonPrimary = styled(ButtonBase)`
   &:hover,
   &:focus-visible {
     color: ${colors.textMainColor};
-    background-color: ${colors.buttonDarkBgColor};
+    background-color: ${colors.buttonHoverColor};
   }
 `;
 

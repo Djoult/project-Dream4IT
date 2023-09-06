@@ -20,6 +20,15 @@ export const RecipeDetails = () => {
     toast.error(error.message);
   };
 
+  const isCategoryLoading = /category/i.test(pendingAction);
+  const isGlassLoading = /glass/i.test(pendingAction);
+
+  const categoryOptions = category.map(title => ({
+    label: title,
+    value: title,
+  }));
+  const glassOptions = glass.map(title => ({ label: title, value: title }));
+
   return (
     <Fields>
       {error && handleError()}
@@ -37,23 +46,25 @@ export const RecipeDetails = () => {
       />
 
       <Select
-        isLoading={/category/i.test(pendingAction)}
+        isClearable
+        isLoading={isCategoryLoading}
         onMenuOpen={!category.length && fetchCategory}
         styles={customSelectStyles}
         components={customSelectComponents}
         placeholder="Category"
-        //onChange={({ label }) => setCategory(label)}
-        options={category.map(title => ({ label: title }))}
+        //onChange={itm => setCategory(itm?.value)}
+        options={categoryOptions}
       />
 
       <Select
-        isLoading={/glass/i.test(pendingAction)}
+        isClearable
+        isLoading={isGlassLoading}
         onMenuOpen={!glass.length && fetchGlass}
         styles={customSelectStyles}
         components={customSelectComponents}
         placeholder="Glass"
-        //onChange={({ label }) => setGlass(label)}
-        options={glass.map(title => ({ label: title }))}
+        //onChange={itm => setGlass(itm?.value)}
+        options={glassOptions}
       />
     </Fields>
   );

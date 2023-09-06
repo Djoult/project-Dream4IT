@@ -30,6 +30,12 @@ export const IngredientListItem = ({ showRemoveBtn, onRemoveClick }) => {
     toast.error(error.message);
   };
 
+  const isLoading = /ingredients/i.test(pendingAction);
+  const ingredientOptions = ingredients.map(({ title }) => ({
+    label: title,
+    value: title,
+  }));
+
   return (
     <Row>
       {error && handleError()}
@@ -38,13 +44,14 @@ export const IngredientListItem = ({ showRemoveBtn, onRemoveClick }) => {
         <Ingredient>
           <Select
             // TODO: покажет лоадер для всех добавленных полей
-            isLoading={pendingAction}
+            isClearable
+            isLoading={isLoading}
             onMenuOpen={!ingredients.length && fetchIngredients}
             styles={customSelectStyles}
             components={customSelectComponents}
             placeholder="Ingredient"
-            onChange={({ label }) => setIngredient(label)}
-            options={ingredients.map(({ title }) => ({ label: title }))}
+            onChange={itm => setIngredient(itm?.value)}
+            options={ingredientOptions}
           />
         </Ingredient>
 

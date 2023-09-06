@@ -65,6 +65,13 @@ export const Browse = styled.label`
   & input[type='file'] {
     display: none;
   }
+
+  /* ${TransitionMain('filter')};
+
+  &:hover,
+  &:focus-visible {
+    filter: brightness(0.9);
+  } */
 `;
 
 export const Caption = styled.span`
