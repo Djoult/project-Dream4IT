@@ -2,7 +2,6 @@ import { colors } from '../../../../../styles/GlobalStyles';
 import { breakpoint as bp } from '../../../../../shared';
 import { customSelectStyles as selectStyles } from '../../RecipeDetailsForm/reactSelectBaseStyles';
 
-const colorGray = 'rgba(243, 243, 243, 0.5)';
 const mediaQuery = {
   tablet: `@media screen and (min-width: ${bp.tablet})`,
 };
@@ -26,7 +25,7 @@ export const customSelectStyles = {
       letterSpacing: '-0.32px',
       color: colors.textMainColor,
       borderRadius: '200px',
-      border: `1px solid ${colorGray}`,
+      border: `1px solid ${colors.grayColor}`,
       ':hover': {
         borderColor: colors.textMainColor,
       },

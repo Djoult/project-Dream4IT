@@ -15,7 +15,7 @@ export const RecipeThumb = () => {
 
   const handleBrowseClick = e => {
     if (!file) return;
-    // чтобы не сработал input:file
+    // чтобы не сработал input:file при удалении
     e.preventDefault();
     setFile(null);
   };
