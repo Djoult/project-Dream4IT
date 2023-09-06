@@ -41,7 +41,7 @@ const CardTwo = ({ _id, drink, instructions, drinkThumb, onDelete }) => {
 export default CardTwo;
 
 CardTwo.propTypes = {
-  // _id: PropTypes.string,
+  _id: PropTypes.string,
   drink: PropTypes.string,
   instructions: PropTypes.string,
   drinkThumb: PropTypes.string,
