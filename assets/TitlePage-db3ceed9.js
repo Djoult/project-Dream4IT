@@ -1,4 +1,4 @@
-import{n as i,l as n,t,P as o,j as s}from"./index-d495e7a1.js";const a=i.h1`
+import{n as i,l as n,t,P as o,j as s}from"./index-d96dd00d.js";const a=i.h1`
   font-family: var(--main-font-family);
   font-size: 32px;
   font-weight: 600;
@@ -6,7 +6,6 @@ import{n as i,l as n,t,P as o,j as s}from"./index-d495e7a1.js";const a=i.h1`
   color: ${n.textMainColor};
 
   @media screen and (min-width: ${t.tablet}) {
-    margin-bottom: 60px;
     font-size: 56px;
   }
   @media screen and (min-width: ${t.desktop}) {
