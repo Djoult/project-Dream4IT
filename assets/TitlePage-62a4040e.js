@@ -1,4 +1,4 @@
-import{n as t,P as n,j as i}from"./index-cab73fca.js";const o=t.h1`
+import{n as t,P as n,j as i}from"./index-2bcd1831.js";const o=t.h1`
   color: #f3f3f3;
   font-family: Manrope;
   font-size: 32px;
@@ -10,6 +10,4 @@ import{n as t,P as n,j as i}from"./index-cab73fca.js";const o=t.h1`
     font-size: 56px;
     line-height: 60px;
   }
-
- 
 `,s=({titlePage:e})=>i.jsx(o,{children:e});s.propTypes={titlePage:n.string};export{s as T};

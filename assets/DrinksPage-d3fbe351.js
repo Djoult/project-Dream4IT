@@ -1,4 +1,4 @@
-import{n,P as i,j as e,L as T,r as h}from"./index-cab73fca.js";import{T as M}from"./TitlePage-e4529212.js";import{E as C}from"./EllipsesLayout-bbfe191a.js";import{U as P,B as D}from"./Button Pagination-cfefe1bf.js";import{C as R}from"./ListCardsTwo.styled-040f7a70.js";const I="/project-Dream4IT/assets/down-arrow-svgrepo-com-8dce313c.svg",E="/project-Dream4IT/assets/loop-svgrepo-com-a28bd999.svg";n.div`
+import{n,P as i,j as e,L as T,r as h}from"./index-2bcd1831.js";import{T as M}from"./TitlePage-62a4040e.js";import{E as C}from"./EllipsesLayout-43f88a27.js";import{U as P,B as D}from"./Button Pagination-fcd900d5.js";import{C as R}from"./ListCardsTwo.styled-fb5d3e86.js";const I="/project-Dream4IT/assets/down-arrow-svgrepo-com-8dce313c.svg",E="/project-Dream4IT/assets/loop-svgrepo-com-a28bd999.svg";n.div`
     display: flex;
     max-width: 335px;
 `;const G=n.div`
