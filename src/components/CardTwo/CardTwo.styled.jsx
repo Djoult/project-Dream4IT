@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
 `;
 export const Text = styled.p`
   color: #f3f3f3;
-  font-family: Manrope;
+  font-family: inherit;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -59,6 +59,7 @@ export const Img = styled.img`
   background-position: center top;
   background-size: cover;
   height: 360px;
+  border-radius: 8px;
 
   @media screen and (min-width: 1440px) {
     height: 400px;
@@ -71,7 +72,7 @@ export const Info = styled.div`
 
 export const Ingredients = styled.p`
   color: rgba(243, 243, 243, 0.5);
-  font-family: Manrope;
+  font-family: inherit;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -83,7 +84,7 @@ export const Ingredients = styled.p`
 `;
 export const Title = styled.h2`
   color: #f3f3f3;
-  font-family: Manrope;
+  font-family: inherit;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -105,7 +106,7 @@ export const ButtonSee = styled.p`
   border-radius: 42px;
   background: #161f37;
   color: #f3f3f3;
-  font-family: Manrope;
+  font-family: inherit;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -137,4 +138,19 @@ export const ButtonTrash = styled.div`
   &:focus {
     background: #434d67;
   }
+`;
+
+export const Box = styled.div`
+background-position: center top;
+background-size: cover;
+height: 360px;
+justify-content: space-around;
+  align-items: center;
+  display: flex;
+  border-radius: 8px;
+  background: rgba(22, 31, 55, 0.5);
+
+@media screen and (min-width: 1440px) {
+  height: 400px;
+}
 `;

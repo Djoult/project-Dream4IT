@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 export const List = styled.ul`
+  z-index: 2;
   padding: 0 20px 80px 20px;
   // max-width: 1440px;
 

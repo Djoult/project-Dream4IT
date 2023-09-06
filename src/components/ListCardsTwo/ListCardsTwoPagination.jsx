@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import CardTwo from '../CardTwo/CardTwo';
+import CardTwoPagination from '../CardTwo/CardTwoPagination';
 
 import { List, ContainerBtnPagination } from './ListCardsTwo.styled';
 import UsePagination from '../../hooks/usePagination';
@@ -53,7 +53,7 @@ const ListCardsTwoPagination = ({ items, onDel }) => {
   const elements = items
     .slice(firstContentIndex, lastContentIndex)
     .map(item => (
-      <CardTwo key={item._id} {...item} onDelete={deleteCocktail} />
+      <CardTwoPagination key={item._id} {...item} onDelete={deleteCocktail} />
     ));
 
   return (

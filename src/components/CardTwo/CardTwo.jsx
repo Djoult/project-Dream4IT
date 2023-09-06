@@ -12,13 +12,17 @@ import {
   ListBtn,
   ButtonSee,
   ButtonTrash,
+  Box
 } from "./CardTwo.styled";
+import { ReactComponent as GreyPlugL } from '../../images/greyPlug/greyPlugL.svg';
 
 const CardTwo = ({ _id, drink, instructions, drinkThumb, onDelete }) => {
 
+  const propsImg =Object.values({drinkThumb})[0];
+  
   return (
     <Wrapper>
-      <Img src={drinkThumb} />
+      { (!propsImg || propsImg === '') ? <Box><GreyPlugL /></Box> : <Img src={drinkThumb} /> } 
       <Info>
         <Title>{drink}</Title>
         <Ingredients>Ingredients</Ingredients>
@@ -45,4 +49,5 @@ CardTwo.propTypes = {
   drink: PropTypes.string,
   instructions: PropTypes.string,
   drinkThumb: PropTypes.string,
+  onDelete: PropTypes.func,
 };

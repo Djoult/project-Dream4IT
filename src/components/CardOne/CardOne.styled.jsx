@@ -5,6 +5,7 @@ export const Wrapper = styled.div``;
 export const Img = styled.img`
   width: 335px;
   height: auto;
+  border-radius: 8px;
 
   @media screen and (min-width: 768px) {
     max-width: 342px;
@@ -18,7 +19,7 @@ export const Img = styled.img`
 `;
 export const Ingredients = styled.p`
   color: rgba(243, 243, 243, 0.5);
-  font-family: Manrope;
+  font-family: inherit;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -30,7 +31,7 @@ export const Ingredients = styled.p`
 `;
 export const Title = styled.h2`
   color: #f3f3f3;
-  font-family: Manrope;
+  font-family: inherit;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;

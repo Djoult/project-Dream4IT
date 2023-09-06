@@ -45,7 +45,10 @@
   margin-top: 0;
   position: relative;
   justify-content: space-around;
+  align-items: center;
   position: relative;
+  display: flex;
+  padding-bottom: 0;
 }
 
 .no-scroll {
