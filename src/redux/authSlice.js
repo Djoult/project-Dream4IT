@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { signInThunk, signUpThunk, logOutThunk } from './thunks';
 
+export const SET_TOKEN = 'SET_TOKEN';
+
 const initialState = {
   token: '',
   isLoading: false,
@@ -8,6 +10,11 @@ const initialState = {
   error: '',
   currentUser: null,
 };
+
+const handleSetToken = (state, {payload}) => {
+  state.token = payload.token;
+}
+
 const handleSignInFulfilled = (state, { payload }) => {
   state.isLoading = false;
   state.token = payload.token;
@@ -44,6 +51,7 @@ const authSlice = createSlice({
   initialState: initialState,
   extraReducers: builder => {
     builder
+      .addCase(SET_TOKEN, handleSetToken)
       .addCase(signInThunk.fulfilled, handleSignInFulfilled)
       .addCase(signUpThunk.fulfilled, handleSignUpFulfilled)
       .addCase(logOutThunk.fulfilled, handleLogoutFulfilled)
