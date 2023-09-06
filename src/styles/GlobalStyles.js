@@ -1,29 +1,36 @@
-import { css } from "@emotion/react";
+import 'react-toastify/dist/ReactToastify.css';
+import './fonts.css';
+
+import { css } from '@emotion/react';
 
 export const colors = {
-  textMainColor: "#F3F3F3",
-  iconsColor: "#F3F3F333",
-  buttonLightBgColor: "#F3F3F3",
-  buttonLightBgTextColor: "#161F37",
-  buttonDarkBgColor: "#161F37",
-  buttonDarkBgTextColor: "#F3F3F3",
-  inputNormalStateTextColor: "#F3F3F380",
-  inputAccentStateTextColor: "#F3F3F3",
-  inputBorderNormalStateColor: "#F3F3F333",
-  inputBorderAccentStateColor: "#F3F3F380",
-  inputBorderErrorStateColor: "#DA141480",
-  inputErrorStateColor: "#DA1414",
-  inputBorderCorrectStateColor: "#3CBC8180",
-  inputCorrectStateColor: "#3CBC81",
-  paginationAccentColor: "#4070CD",
-  dropDownListBgColor: "#161F37",
-  hoverColor: "#161F37",
-  mainBgColor: "#0A0A11",
+  grayColor: 'rgba(243, 243, 243, 0.5)',
+  textMainColor: '#F3F3F3',
+  iconsColor: '#F3F3F333',
+  buttonLightBgColor: '#F3F3F3',
+  buttonLightBgTextColor: '#161F37',
+  buttonDarkBgColor: '#161F37',
+  buttonDarkBgTextColor: '#F3F3F3',
+  inputNormalStateTextColor: '#F3F3F380',
+  inputAccentStateTextColor: '#F3F3F3',
+  inputBorderNormalStateColor: '#F3F3F333',
+  inputBorderAccentStateColor: '#F3F3F380',
+  inputBorderErrorStateColor: '#DA141480',
+  inputErrorStateColor: '#DA1414',
+  inputBorderCorrectStateColor: '#3CBC8180',
+  inputCorrectStateColor: '#3CBC81',
+  paginationAccentColor: '#4070CD',
+  dropDownListBgColor: '#161F37',
+  hoverColor: '#161F37',
+  mainBgColor: '#0A0A11',
+  buttonHoverColor: '#434D67',
 };
 
 export const GlobalStyles = css`
   :root {
-    --main-font-family: "Manrope", sans-serif;
+    --main-font-family: 'Manrope', sans-serif;
+    --transition-duration: 250ms;
+    --transition-func: ease;
   }
 
   html {
@@ -33,6 +40,7 @@ export const GlobalStyles = css`
   body {
     color: var(--primary-black-text-color);
     font-family: var(--main-font-family);
+    background-color: ${colors.mainBgColor};
   }
 
   div,

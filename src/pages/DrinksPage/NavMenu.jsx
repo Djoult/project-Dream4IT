@@ -13,7 +13,7 @@ const NavMenu = ({
   onCategoryChange,
   onIngredientChange,
 }) => {
-  
+ 
  // Створення масиву унікальних категорій
  const uniqueCategories = Array.from(
   new Set(items.map(item => item.category))

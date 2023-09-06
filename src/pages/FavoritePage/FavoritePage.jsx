@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
-import TitlePage from "../../components/TitlePage/TitlePage";
-import EllipsesLayout from "../../components/EllipsesLayout/EllipsesLayout";
-
-import ListCardsTwoPagination from "../../components/ListCardsTwo/ListCardsTwoPagination";
-import styled from "@emotion/styled";
-import { callGetApi, instance } from '../../api/auth';
+import { useState, useEffect } from 'react';
+import TitlePage from '../../components/TitlePage/TitlePage';
+import EllipsesLayout from '../../components/EllipsesLayout/EllipsesLayout';
+import ListCardsTwoPagination from '../../components/ListCardsTwo/ListCardsTwoPagination';
+import { setToken, instance } from '../../api/auth';
+import { Container, Page } from './FavoritePage.styled'
+import { useDispatch, useSelector } from 'react-redux';
 // import getAllCocktails from "./loadAPI";
 
 // import { selectFilter, selectContacts } from 'redux/selectors';
@@ -13,39 +13,47 @@ import { callGetApi, instance } from '../../api/auth';
 
 // import items from "../../data/DB/cocktails.json";
 
-const Page = styled.div`
-  position: relative;
-  background: #0a0a11;
-  margin: 0 auto;
-`;
-
-export const Container = styled.div`
-  padding: 80px 0 40px 20px;
-  @media screen and (min-width: 768px) {
-    padding: 140px 0 60px 32px;
-  }
-  @media screen and (min-width: 1440px) {
-    padding: 158px 0 62px 110px;
-  }
-`;
-
 const FavoritePage = () => {
   const [favoriteCocktails, setFavoriteCocktails] = useState([]);
+  const token = useSelector(state => state.auth.token);
 
   useEffect(() => {
-    instance
-      .get('api/recipes/favorite')
+    setToken(token);
+    const fetchData = async () => {
+    try {
+      await instance.get('api/recipes/favorite')
       .then(res => {
         const data = res.data;
-        console.log(data.hits);
         setFavoriteCocktails(data.hits);
-      })
-      .catch(error => {
-        console.error('Error fetching drinks:', error);
       });
-  }, []);
-  console.log(`page ${favoriteCocktails}`);
+    } catch (error) {
+      console.error('Error fetching coctails', error);
+    }
+  };
+  fetchData();
+}, [token]);
 
+const delCoctailsData = async id => {
+  try {
+    await instance.patch(`api/recipes/favorite/${id}`);
+  } catch (error) {
+    console.error('Error deleting', error);
+  }
+};
+
+const deleteCoctails = id => {
+  delCoctailsData(id);
+
+  const updateArray = favoriteCocktails.filter(cocktail => cocktail._id !== id);
+  setFavoriteCocktails(updateArray);
+  // 3
+  // const updateArray = contacts.filter(contact => contact.id !== id);
+  // dispatch(contactsAction(updateArray));
+  // 4
+  // const deleteContacts = id => {
+  //   dispatch(deleteContact(id));
+  // };
+};
   // const myCocktails = items;
 
   // const [cocktails, setCocktails] = useState([]);
@@ -72,7 +80,7 @@ const FavoritePage = () => {
         <Container>
           <TitlePage titlePage="Favorites" />
         </Container>
-        <ListCardsTwoPagination items={favoriteCocktails} />
+        <ListCardsTwoPagination items={favoriteCocktails} onDel={deleteCoctails} />
       </Page>
     </>
   );
