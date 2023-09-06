@@ -83,7 +83,7 @@ const addRecipeSlice = createSlice({
       state.recipe.ingredients[key] = value;
     },
 
-    removeRecipeIngredients: (state, { payload: key }) => {
+    removeRecipeIngredients: (state, { payload: { key } }) => {
       delete state.recipe.ingredients[key];
     },
   },
