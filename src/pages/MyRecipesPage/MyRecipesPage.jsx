@@ -56,7 +56,7 @@ const MyRecipesPage = () => {
     //   dispatch(deleteContact(id));
     // };
   };
-  console.log(myCocktails.length === 0);
+ 
   return (
     <> 
       <Page>

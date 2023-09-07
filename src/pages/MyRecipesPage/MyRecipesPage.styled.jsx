@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const Page = styled.div`
   position: relative;
-  background: #0a0a11;
+  // background: #0a0a11;
 `;
 
 export const Container404 = styled.div`

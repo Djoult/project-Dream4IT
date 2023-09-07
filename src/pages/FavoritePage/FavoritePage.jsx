@@ -16,15 +16,18 @@ import items from "../../data/DB/cocktails.json";
 
 const FavoritePage = () => {
   const [favoriteCocktails, setFavoriteCocktails] = useState([]);
+  const [loading, setLoading] = useState(false);
   const token = useSelector(state => state.auth.token);
 
   useEffect(() => {
     setToken(token);
     const fetchData = async () => {
       try {
+        setLoading(true);
         await instance.get('api/recipes/favorite').then(res => {
           const data = res.data;
           setFavoriteCocktails(data.hits);
+          setLoading(false);
         });
       } catch (error) {
         console.error('Error fetching coctails', error);
@@ -56,30 +59,13 @@ const FavoritePage = () => {
     //   dispatch(deleteContact(id));
     // };
   };
-  // const myCocktails = items;
-
-  // const [cocktails, setCocktails] = useState([]);
-  // const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       setLoading(true);
-  //       const cocktailsData = await getAllCocktails();
-  //       setCocktails(cocktailsData);
-  //       setLoading(false);
-  //     } catch (e) {
-  //       console.log(e);
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
-
+  
   return (
     <>
       <Page>
         <EllipsesLayout />
-        {favoriteCocktails.length !== 0 ? (
+
+        { favoriteCocktails.length !== 0 ? (
           <>
             <Container>
               <TitlePage titlePage="Favorites" />
