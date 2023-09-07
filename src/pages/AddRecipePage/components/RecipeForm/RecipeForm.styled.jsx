@@ -19,5 +19,15 @@ export const DetailsWrapper = styled.div`
 `;
 
 export const AddButton = styled(ButtonPrimary)`
+  display: flex;
+  height: 54px;
+  width: 118px;
+`;
+
+export const Submit = styled.div`
+  display: flex;
+  align-items: center;
   margin-top: 20px;
+  gap: 10px;
+  height: max-content;
 `;

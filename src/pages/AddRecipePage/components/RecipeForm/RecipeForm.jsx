@@ -1,24 +1,23 @@
 import { RecipeThumb } from '../RecipeThumb/RecipeThumb';
 import { RecipeDetails } from '../RecipeDetailsForm/RecipeDetails';
-import { DetailsWrapper, Form, AddButton } from './RecipeForm.styled';
+import { DetailsWrapper, Form, AddButton, Submit } from './RecipeForm.styled';
 import { IngredientList } from '../RecipeIngredientsForm/IngredientList/IngredientList';
 import { RecipePreparation } from '../RecipePreparation/RecipePreparation';
 import { useEffect, useRef, useState } from 'react';
 import debounce from 'lodash.debounce';
 import { useAddRecipe } from '../../../../redux/addRecipe/hooks';
 import { toast } from 'react-toastify';
-import { instance, setToken } from '../../../../api/auth';
-import { useSelector } from 'react-redux';
-import { isStr } from '../../../../heplers';
+import { isArray } from '../../../../heplers';
+import { BeatLoader } from 'react-spinners';
 
 const INGREDIENTS_MIN = 2;
-const ERR_INGREDIENTS_MISSING = `You must specify at least ${INGREDIENTS_MIN} ingredients`;
+const ERR_INGREDIENTS_MISSING = `You must select at least ${INGREDIENTS_MIN} ingredients`;
 
 export const RecipeForm = () => {
-  const { recipe, error, addRecipeToDatabaseAsync } = useAddRecipe();
+  const { recipe, error, setError, pendingAction, addRecipeToDatabaseAsync } =
+    useAddRecipe();
   const [thumbFile, setThumbFile] = useState(null);
   const [wasSubmitted, setWasSubmitted] = useState(false);
-  const token = useSelector(state => state.auth.token);
   const formRef = useRef(null);
 
   // Если поле с невалидным значением за пределами вьюпорта -
@@ -40,8 +39,6 @@ export const RecipeForm = () => {
     return () => document.removeEventListener('scroll', handler);
   }, [wasSubmitted]);
 
-  //
-  //
   const handleFormSubmit = e => {
     e.preventDefault();
 
@@ -59,44 +56,46 @@ export const RecipeForm = () => {
 
     // формируем form-data
     const formData = new FormData();
-    const obj = {
+    Object.entries({
       ...recipe,
       ingredients,
       drinkThumb: thumbFile,
-    };
+    }).forEach(([name, value]) => {
+      // другие объекты не отправляем
+      if (isArray(value)) value = JSON.stringify(value);
 
-    Object.entries(obj).forEach(([name, value]) => {
-      if (!isStr(value) || value !== 'drinkThumb') {
-        value = JSON.stringify(value);
-      }
       formData.append(name, value);
     });
 
-    setToken(token);
-    instance.post('api/recipes/own', formData).then(toast.success('ssss'));
-
-    // TODO: лоадинг на кнопку добавить
-    // Ресет всех инпутов добавить
+    addRecipeToDatabaseAsync(formData).then(() =>
+      toast.success('Successfully')
+    );
   };
 
-  // const handleError = () => {
-  //   toast.error(error.request.responseText);
-  // };
+  const handleError = () => {
+    toast.error(error.details);
+    setError(null);
+  };
 
   return (
-    <>
-      {/* {error && handleError()} */}
-      <Form ref={formRef} onSubmit={handleFormSubmit}>
-        <DetailsWrapper>
-          <RecipeThumb onChange={setThumbFile} />
-          <RecipeDetails />
-        </DetailsWrapper>
-        <IngredientList />
-        <RecipePreparation />
+    <Form ref={formRef} onSubmit={handleFormSubmit}>
+      {error && handleError()}
+
+      <DetailsWrapper>
+        <RecipeThumb onChange={setThumbFile} />
+        <RecipeDetails />
+      </DetailsWrapper>
+      <IngredientList />
+      <RecipePreparation />
+
+      <Submit>
         <AddButton type="submit" onClick={() => setWasSubmitted(true)}>
-          Add
+          <span>Add</span>
         </AddButton>
-      </Form>
-    </>
+        {/todatabase/i.test(pendingAction) && (
+          <BeatLoader size={10} color="#BCE6D2" />
+        )}
+      </Submit>
+    </Form>
   );
 };

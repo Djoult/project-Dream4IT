@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { setToken, instance as axios } from '../../api/auth';
 
-// axios.defaults.baseURL = 'http://localhost:3000/';
+// axios.defaults.baseURL = 'http://localhost:3000';
 
 const route = {
   getIngredients: 'api/recipes/ingredient-list?limit=200',
@@ -25,7 +25,7 @@ export const fetchIngredients = createAsyncThunk(
       const { data } = await axios.get(route.getIngredients);
       return data.hits;
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       return rejectWithValue(error?.message);
     }
   },
@@ -52,7 +52,7 @@ export const fetchCategory = createAsyncThunk(
       const { data } = await axios.get(route.getCategory);
       return data;
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       return rejectWithValue(error?.message);
     }
   },
@@ -79,7 +79,7 @@ export const fetchGlass = createAsyncThunk(
       const { data } = await axios.get(route.getGlass);
       return data;
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       return rejectWithValue(error?.message);
     }
   },
@@ -97,7 +97,6 @@ export const fetchPopular = createAsyncThunk(
     try {
       const state = getState();
 
-      // подтягиваем из ЛС
       const persisted = state.popular;
       if (persisted?.length) return persisted;
 
@@ -105,7 +104,7 @@ export const fetchPopular = createAsyncThunk(
       const { data } = await axios.get(route.getPopular);
       return data.hits;
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       return rejectWithValue(error?.message);
     }
   },
@@ -124,11 +123,10 @@ export const fetchRandom = createAsyncThunk(
       const state = getState();
       setToken(state.auth.token);
 
-      // в ЛС не сохраянем - всегда тянем новые
       const { data } = await axios.get(route.getRandom);
       return data.hits;
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       return rejectWithValue(error?.message);
     }
   }
@@ -145,6 +143,7 @@ export const addRecipeToDatabase = createAsyncThunk(
       return data;
     } catch (error) {
       console.log(error);
+      error.details = JSON.parse(error.request.responseText).message;
       return rejectWithValue(error);
     }
   }

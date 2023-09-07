@@ -11,7 +11,8 @@ import { store, persistor } from './redux/store.js';
 import { PersistGate } from 'redux-persist/integration/react';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  // <StrictMode>
+  <>
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <BrowserRouter basename="/project-Dream4IT">
@@ -21,14 +22,15 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </PersistGate>
     </Provider>
     <ToastContainer
-      autoClose={1500}
+      autoClose={2000}
       position="top-center"
       progressStyle={{ height: '1px' }}
-      // hideProgressBar={true}
+      hideProgressBar={true}
       theme="dark"
       toastStyle={{
         backgroundColor: `rgb(22, 31, 55)`,
       }}
     />
-  </StrictMode>
+  </>
+  // </StrictMode>
 );
