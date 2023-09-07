@@ -5,6 +5,7 @@ import { css } from '@emotion/react';
 
 export const colors = {
   grayColor: 'rgba(243, 243, 243, 0.5)',
+  successColor: '#BCE6D2',
   textMainColor: '#F3F3F3',
   iconsColor: '#F3F3F333',
   buttonLightBgColor: '#F3F3F3',

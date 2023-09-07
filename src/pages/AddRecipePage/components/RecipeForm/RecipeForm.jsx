@@ -4,14 +4,16 @@ import { DetailsWrapper, Form, AddButton, Submit } from './RecipeForm.styled';
 import { IngredientList } from '../RecipeIngredientsForm/IngredientList/IngredientList';
 import { RecipePreparation } from '../RecipePreparation/RecipePreparation';
 import { useEffect, useRef, useState } from 'react';
-import debounce from 'lodash.debounce';
 import { useAddRecipe } from '../../../../redux/addRecipe/hooks';
+import debounce from 'lodash.debounce';
 import { toast } from 'react-toastify';
 import { isArray } from '../../../../heplers';
 import { BeatLoader } from 'react-spinners';
+import { colors } from '../../../../styles/GlobalStyles';
 
 const INGREDIENTS_MIN = 2;
 const ERR_INGREDIENTS_MISSING = `You must select at least ${INGREDIENTS_MIN} ingredients`;
+const MSG_SUCCESS_ADDED = 'Recipe added successfully';
 
 export const RecipeForm = () => {
   const { recipe, error, setError, pendingAction, addRecipeToDatabaseAsync } =
@@ -61,14 +63,13 @@ export const RecipeForm = () => {
       ingredients,
       drinkThumb: thumbFile,
     }).forEach(([name, value]) => {
-      // другие объекты не отправляем
+      // другие объекты мы не отправляем - конвертим только массив
       if (isArray(value)) value = JSON.stringify(value);
-
       formData.append(name, value);
     });
 
     addRecipeToDatabaseAsync(formData).then(() =>
-      toast.success('Successfully')
+      toast.success(MSG_SUCCESS_ADDED)
     );
   };
 
@@ -76,6 +77,8 @@ export const RecipeForm = () => {
     toast.error(error.details);
     setError(null);
   };
+
+  const isLoading = /todatabase/i.test(pendingAction);
 
   return (
     <Form ref={formRef} onSubmit={handleFormSubmit}>
@@ -92,9 +95,7 @@ export const RecipeForm = () => {
         <AddButton type="submit" onClick={() => setWasSubmitted(true)}>
           <span>Add</span>
         </AddButton>
-        {/todatabase/i.test(pendingAction) && (
-          <BeatLoader size={10} color="#BCE6D2" />
-        )}
+        {isLoading && <BeatLoader size={10} color={colors.successColor} />}
       </Submit>
     </Form>
   );
