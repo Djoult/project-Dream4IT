@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { setToken, instance as axios } from '../../api/auth';
 
-axios.defaults.baseURL = 'http://localhost:3000';
+// axios.defaults.baseURL = 'http://localhost:3000';
 
 const route = {
   getIngredients: 'api/recipes/ingredient-list?limit=200',
@@ -141,13 +141,7 @@ export const addRecipeToDatabase = createAsyncThunk(
       const state = getState();
       setToken(state.auth.token);
 
-      const { data } = await axios({
-        method: 'post',
-        url: route.postRecipe,
-        data: formData,
-        headers: { 'Content-Type': 'multipart/form-data;' },
-      });
-
+      const { data } = await axios.post(route.postRecipe, formData);
       console.log(data);
       return data;
     } catch (error) {
