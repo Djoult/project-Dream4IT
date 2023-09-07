@@ -16,11 +16,11 @@ const ERR_INGREDIENTS_MISSING = `You must select at least ${INGREDIENTS_MIN} ing
 const MSG_SUCCESS_ADDED = 'Recipe added successfully';
 
 export const RecipeForm = () => {
+  const { recipe, error, setError, pendingAction, addRecipeToDatabaseAsync } =
+    useAddRecipe();
   const [thumbFile, setThumbFile] = useState(null);
   const [wasSubmitted, setWasSubmitted] = useState(false);
   const formRef = useRef(null);
-  const { recipe, error, setError, pendingAction, addRecipeToDatabaseAsync } =
-    useAddRecipe();
 
   // Если поле с невалидным значением за пределами вьюпорта -
   // произойдет автоскроллинг к нему и будет скрыто сообщение валидации
@@ -68,9 +68,9 @@ export const RecipeForm = () => {
       formData.append(name, value);
     });
 
-    addRecipeToDatabaseAsync(formData).then(() => {
-      toast.success(MSG_SUCCESS_ADDED);
-    });
+    // addRecipeToDatabaseAsync(formData).then(() => {
+    //   toast.success(MSG_SUCCESS_ADDED);
+    // });
   };
 
   const handleError = () => {

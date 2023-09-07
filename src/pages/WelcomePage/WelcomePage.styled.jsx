@@ -66,7 +66,7 @@ export const WelcomeDescription = styled.p`
 `;
 
 export const ButtonWrapper = styled.div`
-  width: 400px;
+  width: 337px;
   justify-content: center;
   display: flex;
 

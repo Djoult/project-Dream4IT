@@ -3,6 +3,16 @@ import { setToken, instance as axios } from '../../api/auth';
 
 // axios.defaults.baseURL = 'http://localhost:3000';
 
+// костыль
+const getPersisted = (key, root = 'addRecipe') => {
+  try {
+    const persistedData = JSON.parse(localStorage.getItem(`persist:${root}`));
+    return JSON.parse(persistedData[key]);
+  } catch {
+    return null;
+  }
+};
+
 const route = {
   getIngredients: 'api/recipes/ingredient-list?limit=200',
   getCategory: 'api/recipes/category-list',
@@ -18,7 +28,9 @@ export const fetchIngredients = createAsyncThunk(
     try {
       const state = getState();
 
-      const persisted = state.ingredients;
+      // const persisted = state.ingredients;
+      // if (persisted.length) return persisted;
+      const persisted = getPersisted('ingredients');
       if (persisted.length) return persisted;
 
       setToken(state.auth.token);
@@ -45,7 +57,9 @@ export const fetchCategory = createAsyncThunk(
     try {
       const state = getState();
 
-      const persisted = state.category;
+      // const persisted = state.category;
+      // if (persisted.length) return persisted;
+      const persisted = getPersisted('category');
       if (persisted.length) return persisted;
 
       setToken(state.auth.token);
@@ -70,9 +84,9 @@ export const fetchGlass = createAsyncThunk(
     try {
       const state = getState();
 
-      // TODO: надо обновлять, например, раз в сутки
-      // или как - то еще динамичнее
-      const persisted = state.glass;
+      // const persisted = state.glass;
+      // if (persisted.length) return persisted;
+      const persisted = getPersisted('glass');
       if (persisted.length) return persisted;
 
       setToken(state.auth.token);
@@ -97,8 +111,12 @@ export const fetchPopular = createAsyncThunk(
     try {
       const state = getState();
 
-      const persisted = state.popular;
-      if (persisted?.length) return persisted;
+      // TODO: надо обновлять, например, раз в сутки
+      // или как - то еще динамичнее
+      // const persisted = state.popular;
+      // if (persisted?.length) return persisted;
+      const persisted = getPersisted('popular');
+      if (persisted.length) return persisted;
 
       setToken(state.auth.token);
       const { data } = await axios.get(route.getPopular);
