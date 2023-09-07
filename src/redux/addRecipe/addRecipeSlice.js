@@ -20,6 +20,7 @@ export const fetchPopularFullfilled = (state, { payload: popular }) => {
 export const fetchRandomFullfilled = (state, { payload: random }) => {
   state.random = random;
 };
+// export const addRecipeToDatabaseFullfilled = (state, { payload }) => {};
 
 //
 // common
@@ -106,6 +107,10 @@ const addRecipeSlice = createSlice({
       .addCase(thunk.fetchGlass.fulfilled, fetchGlassFullfilled)
       .addCase(thunk.fetchPopular.fulfilled, fetchPopularFullfilled)
       .addCase(thunk.fetchRandom.fulfilled, fetchRandomFullfilled)
+      // .addCase(
+      //   thunk.addRecipeToDatabase.fulfilled,
+      //   addRecipeToDatabaseFullfilled
+      // )
 
       .addMatcher(({ type }) => type.endsWith('/fulfilled'), fulfilled)
       .addMatcher(({ type }) => type.endsWith('/pending'), pending)
