@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { List, Link } from './FollowUs.styled';
+// import { SocialsItem } from '../../../../components/Socials/Socials.styled';
 import { facebook, instagram, youtube } from '../../../../images';
 
 const service = [facebook, instagram, youtube];

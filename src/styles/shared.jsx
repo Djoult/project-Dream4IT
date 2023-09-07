@@ -116,3 +116,74 @@ export const Disabled = css`
   user-select: none;
   opacity: 0.5;
 `;
+
+const color = {
+  yellow: '#fff9b4',
+  yellow2: '#ffd000',
+  orange: '#ff8b56',
+  orange2: '#ff6600',
+  magenta: '#d6249f',
+  magenta2: '#ff00ae',
+  blue: '#285aeb',
+  blue2: '#0040ff',
+};
+
+export const InstaColorsTransition = css`
+  ${TransitionMain('background')};
+
+  @property --color1 {
+    syntax: '<color>';
+    initial-value: ${color.yellow};
+    inherits: false;
+  }
+
+  @property --color2 {
+    syntax: '<color>';
+    initial-value: ${color.yellow};
+    inherits: false;
+  }
+
+  @property --color3 {
+    syntax: '<color>';
+    initial-value: ${color.orange};
+    inherits: false;
+  }
+
+  @property --color4 {
+    syntax: '<color>';
+    initial-value: ${color.magenta};
+    inherits: false;
+  }
+
+  @property --color5 {
+    syntax: '<color>';
+    initial-value: ${color.blue};
+    inherits: false;
+  }
+
+  transition: background ease-in 250ms, --color1 ease-in 250ms,
+    --color2 ease-in 250ms, --color3 ease-in 250ms, --color4 ease-in 250ms,
+    --color5 ease-in 250ms;
+
+  &:hover,
+  &:focus {
+    --color1: ${color.yellow2};
+    --color2: ${color.yellow2};
+    --color3: ${color.orange2};
+    --color4: ${color.magenta2};
+    --color5: ${color.blue2};
+
+    &:nth-of-type(2) {
+      /* background: var(--color4); */
+      background: radial-gradient(
+        circle at 30% 107%,
+        var(--color1) 0%,
+        var(--color2) 5%,
+        var(--color3) 45%,
+        var(--color4) 60%,
+        var(--color5) 90%
+      );
+      box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+    }
+  }
+`;

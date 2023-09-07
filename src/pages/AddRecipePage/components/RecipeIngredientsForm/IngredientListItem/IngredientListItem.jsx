@@ -5,6 +5,7 @@ import { IconClose } from '../../../../../styles/icons';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useAddRecipe } from '../../../../../redux/addRecipe/hooks';
+import { formValidation as validation } from '../../../data/formValidation';
 
 import {
   customSelectStyles,
@@ -51,6 +52,11 @@ export const IngredientListItem = ({ showRemoveBtn, onRemoveClick }) => {
     setMeasure(value);
   };
 
+  const handleItemRemove = () => {
+    removeRecipeIngredients({ key: ingredient });
+    onRemoveClick();
+  };
+
   const handleError = () => {
     toast.error(error.message);
   };
@@ -82,6 +88,12 @@ export const IngredientListItem = ({ showRemoveBtn, onRemoveClick }) => {
 
         <Measure>
           <TextField
+            // ставим required только если не disabled
+            // То бишь, если выбран ингредиент
+            {...(ingredient && { required: true })}
+            pattern={validation.measure.pattern}
+            minLength={validation.measure.min}
+            title={validation.measure.message}
             disabled={!ingredient}
             inputOverride={InputStyled}
             placeholder="Measure"
@@ -91,7 +103,7 @@ export const IngredientListItem = ({ showRemoveBtn, onRemoveClick }) => {
         </Measure>
       </Fields>
       {showRemoveBtn && (
-        <RemoveButton type="button" onClick={onRemoveClick}>
+        <RemoveButton type="button" onClick={handleItemRemove}>
           <IconClose data-icon-close size={25} />
         </RemoveButton>
       )}
