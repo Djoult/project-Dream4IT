@@ -78,6 +78,7 @@ export const Drink = styled.h4`
 `;
 
 export const About = styled.p`
+  width: 210px;
   //whitespace: nowrap;
   overflow: hidden;
 `;

@@ -16,8 +16,14 @@ const ERR_INGREDIENTS_MISSING = `You must select at least ${INGREDIENTS_MIN} ing
 const MSG_SUCCESS_ADDED = 'Recipe added successfully';
 
 export const RecipeForm = () => {
-  const { recipe, error, setError, pendingAction, addRecipeToDatabaseAsync } =
-    useAddRecipe();
+  const {
+    recipe,
+    error,
+    setError,
+    resetAll,
+    pendingAction,
+    addRecipeToDatabaseAsync,
+  } = useAddRecipe();
   const [thumbFile, setThumbFile] = useState(null);
   const [wasSubmitted, setWasSubmitted] = useState(false);
   const formRef = useRef(null);
@@ -70,6 +76,8 @@ export const RecipeForm = () => {
 
     addRecipeToDatabaseAsync(formData).then(() => {
       toast.success(MSG_SUCCESS_ADDED);
+      // TODO Доделать
+      resetAll();
     });
   };
 

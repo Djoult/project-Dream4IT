@@ -97,6 +97,14 @@ const addRecipeSlice = createSlice({
     setError: (state, { payload }) => {
       state.error = payload;
     },
+    resetAll: ({ recipe }) => {
+      recipe.drink =
+        recipe.about =
+        recipe.category =
+        recipe.glass =
+        recipe.instructions =
+          '';
+    },
   },
 
   extraReducers: builder => {

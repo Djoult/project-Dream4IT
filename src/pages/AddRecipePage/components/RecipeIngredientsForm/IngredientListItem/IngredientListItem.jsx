@@ -62,6 +62,7 @@ export const IngredientListItem = ({ showRemoveBtn, onRemoveClick }) => {
   };
 
   const isLoading = /ingredients/i.test(pendingAction);
+
   const ingredientOptions = ingredients.map(({ title }) => ({
     label: title,
     value: title,
@@ -83,6 +84,7 @@ export const IngredientListItem = ({ showRemoveBtn, onRemoveClick }) => {
             placeholder="Ingredient"
             onChange={handleIngredientChange}
             options={ingredientOptions}
+            // value={ingredients.length ? { label: ingredient } : null}
           />
         </Ingredient>
 
