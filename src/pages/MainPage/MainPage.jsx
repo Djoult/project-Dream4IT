@@ -30,7 +30,7 @@ export const Container = styled.div`
 const MainPage = () => {
   const navigate = useNavigate();
   const handleButtonClick = () => {
-    navigate('/drinks');
+    navigate('/drinks/1');
   };
   return (
     <>
