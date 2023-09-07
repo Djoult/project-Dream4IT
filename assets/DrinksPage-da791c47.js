@@ -1,4 +1,4 @@
-import{n,P as i,j as e,L as T,r as h}from"./index-c0fd9450.js";import{T as M}from"./TitlePage-a44b660b.js";import{E as C}from"./EllipsesLayout-bd5e8c94.js";import{U as P,B as R}from"./Button Pagination-68fe4110.js";import{C as D}from"./ListCardsTwo.styled-04285b69.js";const I="/project-Dream4IT/assets/down-arrow-svgrepo-com-8dce313c.svg",E="/project-Dream4IT/assets/loop-svgrepo-com-a28bd999.svg";n.div`
+import{n,P as i,j as e,L as T,r as h}from"./index-ad18059f.js";import{T as M}from"./TitlePage-6a2304ef.js";import{E as C}from"./EllipsesLayout-00ef75e3.js";import{U as P,B as R}from"./Button Pagination-c21e87e5.js";import{C as D}from"./ListCardsTwo.styled-d4ec2194.js";const I="/project-Dream4IT/assets/down-arrow-svgrepo-com-8dce313c.svg",E="/project-Dream4IT/assets/loop-svgrepo-com-a28bd999.svg";n.div`
     display: flex;
     max-width: 335px;
 `;const G=n.div`
@@ -308,7 +308,7 @@ Guarnire con una ciliegia al maraschino.`,instructionsRU:"Перемешать �
   display: flex;
   justify-content: space-between;
   width: 335px;
-`,f=({_id:o,drink:l,drinkThumb:a})=>e.jsxs(U,{children:[e.jsx(T,{to:`/recipe/${o}`,children:e.jsx(F,{src:a})}),e.jsxs(q,{children:[e.jsx(_,{children:l}),e.jsx(V,{children:"Ingredients"})]})]});f.propTypes={_id:i.object,drink:i.string,drinkThumb:i.string};const W=n.ul`
+`,f=({_id:o,drink:l,drinkThumb:a})=>e.jsxs(U,{children:[e.jsx(T,{to:`/recipe/${o.$oid}`,children:e.jsx(F,{src:a})}),e.jsxs(q,{children:[e.jsx(_,{children:l}),e.jsx(V,{children:"Ingredients"})]})]});f.propTypes={_id:i.object,drink:i.string,drinkThumb:i.string};const W=n.ul`
   margin: 0 auto 80px auto;
 
   @media screen and (min-width: 768px) {
