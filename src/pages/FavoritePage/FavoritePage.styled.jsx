@@ -14,7 +14,8 @@ export const Container404 = styled.div`
     margin: -116px 0 60px 32px;
   }
   @media screen and (min-width: 1440px) {
-    margin: 25px 0 62px 110px;
+    margin: 105px 0 62px 130px;
+    
   }
 `;
 
