@@ -36,7 +36,6 @@ export const PageTitle = styled.h1`
   color: ${colors.textMainColor};
 
   @media screen and (min-width: ${bp.tablet}) {
-    margin-bottom: 60px;
     font-size: 56px;
   }
   @media screen and (min-width: ${bp.desktop}) {

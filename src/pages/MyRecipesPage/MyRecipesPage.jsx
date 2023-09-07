@@ -5,8 +5,9 @@ import ListCardsTwo from '../../components/ListCardsTwo/ListCardsTwo';
 import { fetchMyCocktails } from '../../redux/Cocktails/myCocktails-operations';
 import { getMyCocktails } from '../../redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import { Container, Page } from './MyRecipesPage.styled';
+import { Container, Container404, Page } from './MyRecipesPage.styled';
 import { setToken, instance } from '../../api/auth';
+import NotFoundColection from '../../components/NotFoundColection/NotFoundColection';
 
 const MyRecipesPage = () => {
   const [myCocktails, setMyCocktails] = useState([]);
@@ -55,15 +56,26 @@ const MyRecipesPage = () => {
     //   dispatch(deleteContact(id));
     // };
   };
-
+  console.log(myCocktails.length === 0);
   return (
-    <>
+    <> 
       <Page>
         <EllipsesLayout />
-        <Container>
-          <TitlePage titlePage="My recipes" />
-        </Container>
-        <ListCardsTwo items={myCocktails} onDel={deleteCoctails} />
+        {myCocktails.length !== 0 ? (
+          <>
+            <Container>
+              <TitlePage titlePage="My recipes" />
+            </Container>
+            <ListCardsTwo items={myCocktails} onDel={deleteCoctails} />
+          </>
+        ) : (
+          <>
+            <Container404>
+              <TitlePage titlePage="My recipes" />
+            </Container404>
+            <NotFoundColection colection="own" />
+          </>
+        )}
       </Page>
     </>
   );

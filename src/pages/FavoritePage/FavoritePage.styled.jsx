@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const Page = styled.div`
   position: relative;
@@ -6,8 +6,20 @@ export const Page = styled.div`
   margin: 0 auto;
 `;
 
+export const Container404 = styled.div`
+  position: absolute;
+
+  margin: -16px 0 40px 20px;
+  @media screen and (min-width: 768px) {
+    margin: -116px 0 60px 32px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin: 25px 0 62px 110px;
+  }
+`;
+
 export const Container = styled.div`
-  padding: 80px 0 40px 20px;
+  margin: 80px 0 40px 20px;
   @media screen and (min-width: 768px) {
     padding: 140px 0 60px 32px;
   }
@@ -15,3 +27,4 @@ export const Container = styled.div`
     padding: 158px 0 62px 110px;
   }
 `;
+
