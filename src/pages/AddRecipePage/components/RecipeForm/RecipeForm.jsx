@@ -26,7 +26,7 @@ export const RecipeForm = () => {
   // произойдет автоскроллинг к нему и будет скрыто сообщение валидации
   // В конце автоскроллинга форсим повторное появление сообщения
   // TODO: если автоскролл не произошел - при ручном скроллинге единоразово
-  // отскроллит назад к полю с невалидным значением (пока будет фичей-))
+  // отскроллит назад к полю с невалидным значением (будет фичей-))
   useEffect(() => {
     const form = formRef.current;
 
@@ -68,9 +68,9 @@ export const RecipeForm = () => {
       formData.append(name, value);
     });
 
-    addRecipeToDatabaseAsync(formData).then(() =>
-      toast.success(MSG_SUCCESS_ADDED)
-    );
+    // addRecipeToDatabaseAsync(formData).then(() => {
+    //   toast.success(MSG_SUCCESS_ADDED);
+    // });
   };
 
   const handleError = () => {
@@ -78,7 +78,7 @@ export const RecipeForm = () => {
     setError(null);
   };
 
-  const isLoading = /todatabase/i.test(pendingAction);
+  const isLoading = /toDatabase/i.test(pendingAction);
 
   return (
     <Form ref={formRef} onSubmit={handleFormSubmit}>

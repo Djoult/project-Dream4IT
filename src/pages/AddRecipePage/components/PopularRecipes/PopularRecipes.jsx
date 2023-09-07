@@ -31,7 +31,8 @@ export const PopularRecipes = ({ count }) => {
   };
 
   const items = popular.length ? popular : random;
-  const title = popular.length ? 'Popular' : 'Random';
+  // const title = popular.length ? 'Popular' : 'Random';
+  const title = 'Popular';
   const len = fitIntoRange(count, 4, 6, 4);
   const isLoading = /popular|random/i.test(pendingAction);
 

@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const WelcomePageContainer = styled.div`
   min-width: 335px;

@@ -21,8 +21,10 @@ export const useDispatchedActions = actions => {
   }, [dispatch]);
 };
 
+const selectAddRecipe = state => state?.addRecipe;
+
 export const useAddRecipe = () => {
-  const addRecipe = useSelector(state => state?.addRecipe);
+  const addRecipe = useSelector(selectAddRecipe);
   const dispatchedThunks = useDispatchedActions(addRecipeThunk);
   const dispatchedActions = useDispatchedActions(addRecipesActions);
 
