@@ -102,7 +102,7 @@ export const Ellipse221 = styled.div`
 `;
 
 export const Box = styled.div`
-  // z-index: -1;
+  z-index: -1;
   position: relative;
   pointer-events: none;
 `;

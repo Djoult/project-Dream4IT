@@ -11,14 +11,17 @@ import NotFoundColection from '../../components/NotFoundColection/NotFoundColect
 
 const MyRecipesPage = () => {
   const [myCocktails, setMyCocktails] = useState([]);
+  const [loading, setLoading] = useState(true);
   const token = useSelector(state => state.auth.token);
   useEffect(() => {
     setToken(token);
     const fetchData = async () => {
       try {
+        setLoading(true);
         await instance.get('api/recipes/own?limit=9').then(res => {
           const data = res.data;
           setMyCocktails(data.hits);
+          setLoading(false);
         });
       } catch (error) {
         console.error('Error fetching coctails', error);
@@ -56,25 +59,25 @@ const MyRecipesPage = () => {
     //   dispatch(deleteContact(id));
     // };
   };
-  console.log(myCocktails.length === 0);
+
   return (
-    <> 
+    <>
       <Page>
         <EllipsesLayout />
-        {myCocktails.length !== 0 ? (
+        {!loading && myCocktails.length !== 0 ? (
           <>
             <Container>
               <TitlePage titlePage="My recipes" />
             </Container>
             <ListCardsTwo items={myCocktails} onDel={deleteCoctails} />
           </>
-        ) : (
-          <>
+        ) : ( !loading &&
+          (<>
             <Container404>
               <TitlePage titlePage="My recipes" />
             </Container404>
             <NotFoundColection colection="own" />
-          </>
+          </>)
         )}
       </Page>
     </>
