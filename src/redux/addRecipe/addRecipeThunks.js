@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { setToken, instance as axios } from '../../api/auth';
 
-axios.defaults.baseURL = 'http://localhost:3000';
+// axios.defaults.baseURL = 'http://localhost:3000';
 
 const route = {
   getIngredients: 'api/recipes/ingredient-list?limit=200',
