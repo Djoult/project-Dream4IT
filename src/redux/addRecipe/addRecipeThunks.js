@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { setToken, instance as axios } from '../../api/auth';
 
+// axios.defaults.baseURL = 'http://localhost:3000';
+
 const route = {
   getIngredients: 'api/recipes/ingredient-list?limit=200',
   getCategory: 'api/recipes/category-list',
@@ -22,8 +24,9 @@ export const fetchIngredients = createAsyncThunk(
       setToken(state.auth.token);
       const { data } = await axios.get(route.getIngredients);
       return data.hits;
-    } catch ({ message }) {
-      return rejectWithValue(message);
+    } catch (error) {
+      console.log(error);
+      return rejectWithValue(error?.message);
     }
   },
   {
@@ -48,8 +51,9 @@ export const fetchCategory = createAsyncThunk(
       setToken(state.auth.token);
       const { data } = await axios.get(route.getCategory);
       return data;
-    } catch ({ message }) {
-      return rejectWithValue(message);
+    } catch (error) {
+      console.log(error);
+      return rejectWithValue(error?.message);
     }
   },
   {
@@ -74,8 +78,9 @@ export const fetchGlass = createAsyncThunk(
       setToken(state.auth.token);
       const { data } = await axios.get(route.getGlass);
       return data;
-    } catch ({ message }) {
-      return rejectWithValue(message);
+    } catch (error) {
+      console.log(error);
+      return rejectWithValue(error?.message);
     }
   },
   {
@@ -99,8 +104,9 @@ export const fetchPopular = createAsyncThunk(
       setToken(state.auth.token);
       const { data } = await axios.get(route.getPopular);
       return data.hits;
-    } catch ({ message }) {
-      return rejectWithValue(message);
+    } catch (error) {
+      console.log(error);
+      return rejectWithValue(error?.message);
     }
   },
   {
@@ -121,8 +127,26 @@ export const fetchRandom = createAsyncThunk(
       // в ЛС не сохраянем - всегда тянем новые
       const { data } = await axios.get(route.getRandom);
       return data.hits;
-    } catch ({ message }) {
-      return rejectWithValue(message);
+    } catch (error) {
+      console.log(error);
+      return rejectWithValue(error?.message);
+    }
+  }
+);
+
+export const addRecipeToDatabase = createAsyncThunk(
+  'addRecipe/addRecipeToDatabase',
+  async (formData, { rejectWithValue, getState }) => {
+    try {
+      const state = getState();
+      setToken(state.auth.token);
+
+      const { data } = await axios.post(route.postRecipe, formData);
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log(error);
+      return rejectWithValue(error?.message);
     }
   }
 );

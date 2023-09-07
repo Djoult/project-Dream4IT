@@ -1,9 +1,9 @@
 import Select from 'react-select';
 import { Fields } from './RecipeDetails.styled';
-import { useState } from 'react';
 import { TextField } from './TextField/TextField';
 import { toast } from 'react-toastify';
 import { useAddRecipe } from '../../../../redux/addRecipe/hooks';
+import { formValidation as validation } from '../../data/formValidation';
 
 import {
   customSelectStyles,
@@ -12,7 +12,10 @@ import {
 
 export const RecipeDetails = () => {
   const {
-    setRecipe,
+    setRecipeDrink,
+    setRecipeAbout,
+    setRecipeCategory,
+    setRecipeGlass,
     recipe,
     category,
     glass,
@@ -44,36 +47,46 @@ export const RecipeDetails = () => {
       {error && handleError()}
 
       <TextField
+        required
+        pattern={validation.drink.pattern}
+        maxLength={validation.drink.max}
+        title={validation.drink.message}
         placeholder="Enter item title"
-        onChange={e => setRecipe({ key: 'drink', value: e?.target.value })}
+        onChange={e => setRecipeDrink(e?.target.value)}
         value={recipe.drink}
       />
 
       <TextField
+        // required
+        pattern={validation.about.pattern}
+        maxLength={validation.about.max}
+        title={validation.about.message}
         placeholder="Enter about recipe"
-        onChange={e => setRecipe({ key: 'about', value: e?.target.value })}
+        onChange={e => setRecipeAbout(e?.target.value)}
         value={recipe.about}
       />
 
       <Select
+        required
         isClearable
         isLoading={isCategoryLoading}
         onMenuOpen={fetchCategory}
         styles={customSelectStyles}
         components={customSelectComponents}
         placeholder="Category"
-        onChange={itm => setRecipe({ key: 'category', value: itm?.value })}
+        onChange={itm => setRecipeCategory(itm?.value ?? '')}
         options={categoryOptions}
       />
 
       <Select
+        required
         isClearable
         isLoading={isGlassLoading}
         onMenuOpen={fetchGlass}
         styles={customSelectStyles}
         components={customSelectComponents}
         placeholder="Glass"
-        onChange={itm => setRecipe({ key: 'glass', value: itm?.value })}
+        onChange={itm => setRecipeGlass(itm?.value ?? '')}
         options={glassOptions}
       />
     </Fields>
