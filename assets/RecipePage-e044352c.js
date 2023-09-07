@@ -1,4 +1,4 @@
-import{n as t,m as l,w as C,P as m,c as T,X as j,r as h,q as x,t as g,j as e,Y as S}from"./index-ae404f8e.js";import{E as Y}from"./EllipsesLayout-8dde1e5e.js";import{T as E}from"./TitlePage-40495a7d.js";const B=t.div`
+import{n as t,m as l,w as C,P as m,c as T,X as j,r as h,q as x,t as g,j as e,Y as S}from"./index-bf4d79b3.js";import{E as Y}from"./EllipsesLayout-68d83a52.js";import{T as E}from"./TitlePage-7aa132cd.js";const B=t.div`
   width: 335px;
   margin-left: auto;
   margin-right: auto;
