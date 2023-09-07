@@ -7,6 +7,7 @@ import EllipsesLayout from '../../components/EllipsesLayout/EllipsesLayout';
 import RecipePageHero from '../../components/RecipePageHero/RecipePageHero.jsx';
 import RecipeInngredientsList from '../../components/RecipeInngredientsList/RecipeInngredientsList.jsx';
 import RecipePreparation from '../../components/RecipePreparation/RecipePreparation.jsx';
+import Loader from '../../components/Loader/Loader';
 
 const Page = styled.div`
   position: relative;
@@ -25,36 +26,43 @@ export const Container = styled.div`
 `;
 const RecipePage = () => {
   const [recipe, setResipe] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const { recipeId } = useParams();
   const token = useSelector(state => state.auth.token);
 
   useEffect(() => {
     setToken(token);
 
+    setIsLoading(true);
+
     instance
       .get(`/api/recipes/${recipeId}`)
       .then(res => {
-        console.log(res.data);
         const data = res.data;
 
         setResipe(data);
       })
       .catch(error => console.log(error.message))
+      .finally(setIsLoading(false));
   }, [recipeId]);
 
   return (
     <>
       <Page>
         <EllipsesLayout />
-        <Container>
-          {recipe !== null && (
-            <>
-              <RecipePageHero recipe={recipe} />
-              <RecipeInngredientsList recipe={recipe} />
-              <RecipePreparation recipe={recipe} />
-            </>
-          )}
-        </Container>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <Container>
+            {recipe !== null && (
+              <>
+                <RecipePageHero recipe={recipe} />
+                <RecipeInngredientsList recipe={recipe} />
+                <RecipePreparation recipe={recipe} />
+              </>
+            )}
+          </Container>
+        )}
       </Page>
     </>
   );
