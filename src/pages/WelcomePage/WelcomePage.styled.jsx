@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const WelcomePageContainer = styled.div`
   min-width: 335px;
@@ -66,7 +66,7 @@ export const WelcomeDescription = styled.p`
 `;
 
 export const ButtonWrapper = styled.div`
-  width: 337px;
+  width: 400px;
   justify-content: center;
   display: flex;
 
