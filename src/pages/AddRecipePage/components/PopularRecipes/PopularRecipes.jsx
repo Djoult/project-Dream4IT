@@ -7,6 +7,7 @@ import { useAddRecipe } from '../../../../redux/addRecipe/hooks';
 import { fitIntoRange } from '../../../../heplers';
 import { toast } from 'react-toastify';
 import { BeatLoader } from 'react-spinners';
+import { colors } from '../../../../styles/GlobalStyles';
 
 export const PopularRecipes = ({ count }) => {
   const {
@@ -40,7 +41,7 @@ export const PopularRecipes = ({ count }) => {
 
       <SubtitleSec>
         {`${title} recipes `}
-        {isLoading && <BeatLoader size={10} color="#BCE6D2" />}
+        {isLoading && <BeatLoader size={10} color={colors.successColor} />}
       </SubtitleSec>
       <List>
         {items.slice(0, len).map((itm, idx) => (
