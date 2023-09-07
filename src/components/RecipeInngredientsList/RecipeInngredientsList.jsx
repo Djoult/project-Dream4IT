@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import defaultInngregientImg from '../../images/inngredients/defaultInngregientImg.jpg';
+import defaultInngregientImg from '../../images/inngredients/defaultInngregientImg.png';
 import {
   StyledInngredientsList,
   StyledWrapper,

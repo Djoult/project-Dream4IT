@@ -36,7 +36,6 @@ export const StyledGlass = styled.p`
 
 export const StyledAbout = styled.p`
   margin-top: 20px;
-  margin-bottom: 40px;
   width: 355px;
   font-size: 14px;
   font-weight: 400;
@@ -54,6 +53,7 @@ export const StyledAbout = styled.p`
 `;
 
 export const StyledFavoriteBtn = styled.button`
+  margin-top: 40px;
   margin-bottom: 80px;
   padding: 14px 40px;
   font-size: 14px;
@@ -85,7 +85,7 @@ export const StyledRecipeHeroImg = styled.img`
   width: 335px;
   height: 400px;
 
-  border-radius: 6px;
+  border-radius: 8px;
 
   /* Tablet screen */
   @media screen and (min-width: 768px) {

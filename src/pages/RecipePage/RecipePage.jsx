@@ -6,6 +6,7 @@ import { setToken, instance } from '../../api/auth';
 import EllipsesLayout from '../../components/EllipsesLayout/EllipsesLayout';
 import RecipePageHero from '../../components/RecipePageHero/RecipePageHero.jsx';
 import RecipeInngredientsList from '../../components/RecipeInngredientsList/RecipeInngredientsList.jsx';
+import RecipePreparation from '../../components/RecipePreparation/RecipePreparation.jsx';
 
 const Page = styled.div`
   position: relative;
@@ -23,15 +24,12 @@ export const Container = styled.div`
   }
 `;
 const RecipePage = () => {
-  const [isLoading, setIsLoading] = useState(false);
   const [recipe, setResipe] = useState(null);
   const { recipeId } = useParams();
   const token = useSelector(state => state.auth.token);
 
   useEffect(() => {
     setToken(token);
-
-    setIsLoading(true);
 
     instance
       .get(`/api/recipes/${recipeId}`)
@@ -42,7 +40,6 @@ const RecipePage = () => {
         setResipe(data);
       })
       .catch(error => console.log(error.message))
-      .finally(setIsLoading(false));
   }, [recipeId]);
 
   return (
@@ -54,6 +51,7 @@ const RecipePage = () => {
             <>
               <RecipePageHero recipe={recipe} />
               <RecipeInngredientsList recipe={recipe} />
+              <RecipePreparation recipe={recipe} />
             </>
           )}
         </Container>
