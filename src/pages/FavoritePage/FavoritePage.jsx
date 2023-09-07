@@ -12,11 +12,11 @@ import NotFoundColection from '../../components/NotFoundColection/NotFoundColect
 // import { useDispatch, useSelector } from 'react-redux';
 // import { deleteContact } from 'redux/operations';
 
-import items from "../../data/DB/cocktails.json";
+import items from '../../data/DB/cocktails.json';
 
 const FavoritePage = () => {
   const [favoriteCocktails, setFavoriteCocktails] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const token = useSelector(state => state.auth.token);
 
   useEffect(() => {
@@ -59,13 +59,13 @@ const FavoritePage = () => {
     //   dispatch(deleteContact(id));
     // };
   };
-  
+
   return (
     <>
       <Page>
         <EllipsesLayout />
 
-        { favoriteCocktails.length !== 0 ? (
+        {!loading && favoriteCocktails.length !== 0 ? (
           <>
             <Container>
               <TitlePage titlePage="Favorites" />
