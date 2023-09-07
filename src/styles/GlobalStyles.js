@@ -33,6 +33,17 @@ export const GlobalStyles = css`
     --transition-duration: 250ms;
     --transition-func: ease;
   }
+  html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 
   html {
     scroll-behavior: smooth;
