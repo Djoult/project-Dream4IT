@@ -141,8 +141,8 @@ export const fetchRandom = createAsyncThunk(
       const state = getState();
       setToken(state.auth.token);
 
-      const persisted = getPersisted('random');
-      if (persisted.length) return persisted;
+      // const persisted = getPersisted('random');
+      // if (persisted.length) return persisted;
 
       const { data } = await axios.get(route.getRandom);
       return data.hits;
