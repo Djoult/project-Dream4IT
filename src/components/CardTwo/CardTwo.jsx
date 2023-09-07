@@ -14,15 +14,13 @@ import {
   ButtonTrash,
   Box
 } from "./CardTwo.styled";
-import { ReactComponent as GreyPlugL } from '../../images/greyPlug/greyPlugL.svg';
 
-const CardTwo = ({ _id, drink, instructions, drinkThumb, onDelete }) => {
+const CardTwo = ({ _id, drink, instructions, drinkThumb="../src/images/myCocktail.png", onDelete }) => {
 
-  const propsImg =Object.values({drinkThumb})[0];
-  
+   
   return (
     <Wrapper>
-      { (!propsImg || propsImg === '') ? <Box><GreyPlugL /></Box> : <Img src={drinkThumb} /> } 
+      <Img src={drinkThumb} /> 
       <Info>
         <Title>{drink}</Title>
         <Ingredients>Ingredients</Ingredients>
