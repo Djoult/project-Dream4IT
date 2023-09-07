@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 export const NavList = styled.ul`
   display: flex;
@@ -11,6 +11,8 @@ export const NavList = styled.ul`
 export const StyledLink = styled(NavLink)`
   font-family: Manrope;
   font-size: 14px;
+
+  white-space: nowrap;
 
   font-weight: 600;
   line-height: 18px;
@@ -40,7 +42,6 @@ export const StyledLink = styled(NavLink)`
   &:focus {
     background: #f3f3f3;
     color: #000000;
-    /* transform: scale(1.02); */
     border: 2px solid rgba(64, 112, 205, 0.5);
   }
 
