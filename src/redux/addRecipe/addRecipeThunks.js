@@ -40,15 +40,15 @@ export const fetchIngredients = createAsyncThunk(
       //console.log(error);
       return rejectWithValue(error?.message);
     }
-  },
-  {
-    // отменяем диспатчинг, иначе будет задержка в компонентах
-    // Даже если не произойдет запрос на бек
-    condition: (_, { getState }) => {
-      const { ingredients } = getState();
-      if (ingredients.length) return false;
-    },
   }
+  // {
+  //   // отменяем диспатчинг, иначе будет задержка в компонентах
+  //   // Даже если не произойдет запрос на бек
+  //   condition: (_, { getState }) => {
+  //     const { ingredients } = getState();
+  //     if (ingredients.length) return false;
+  //   },
+  // }
 );
 
 export const fetchCategory = createAsyncThunk(
@@ -69,13 +69,13 @@ export const fetchCategory = createAsyncThunk(
       //console.log(error);
       return rejectWithValue(error?.message);
     }
-  },
-  {
-    condition: (_, { getState }) => {
-      const { category } = getState();
-      if (category.length) return false;
-    },
   }
+  // {
+  //   condition: (_, { getState }) => {
+  //     const { category } = getState();
+  //     if (category.length) return false;
+  //   },
+  // }
 );
 
 export const fetchGlass = createAsyncThunk(
@@ -96,13 +96,13 @@ export const fetchGlass = createAsyncThunk(
       //console.log(error);
       return rejectWithValue(error?.message);
     }
-  },
-  {
-    condition: (_, { getState }) => {
-      const { glass } = getState();
-      if (glass.length) return false;
-    },
   }
+  // {
+  //   condition: (_, { getState }) => {
+  //     const { glass } = getState();
+  //     if (glass.length) return false;
+  //   },
+  // }
 );
 
 export const fetchPopular = createAsyncThunk(
@@ -125,13 +125,13 @@ export const fetchPopular = createAsyncThunk(
       //console.log(error);
       return rejectWithValue(error?.message);
     }
-  },
-  {
-    condition: (_, { getState }) => {
-      const { popular } = getState();
-      if (popular?.length) return false;
-    },
   }
+  // {
+  //   condition: (_, { getState }) => {
+  //     const { popular } = getState();
+  //     if (popular?.length) return false;
+  //   },
+  // }
 );
 
 export const fetchRandom = createAsyncThunk(
@@ -140,6 +140,9 @@ export const fetchRandom = createAsyncThunk(
     try {
       const state = getState();
       setToken(state.auth.token);
+
+      const persisted = getPersisted('random');
+      if (persisted.length) return persisted;
 
       const { data } = await axios.get(route.getRandom);
       return data.hits;

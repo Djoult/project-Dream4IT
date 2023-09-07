@@ -78,7 +78,7 @@ export const RecipeDetails = () => {
         placeholder="Category"
         onChange={itm => setRecipeCategory(itm?.value ?? '')}
         options={categoryOptions}
-        // value={recipe.category ? { label: recipe.category } : null}
+        value={recipe.category ? { label: recipe.category } : null}
       />
 
       <Select
@@ -91,7 +91,7 @@ export const RecipeDetails = () => {
         placeholder="Glass"
         onChange={itm => setRecipeGlass(itm?.value ?? '')}
         options={glassOptions}
-        // value={recipe.glass ? { label: recipe.glass } : null}
+        value={recipe.glass ? { label: recipe.glass } : null}
       />
     </Fields>
   );
