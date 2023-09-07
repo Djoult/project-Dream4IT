@@ -75,13 +75,13 @@ const FavoritePage = () => {
               onDel={deleteCoctails}
             />
           </>
-        ) : (
-          <>
+        ) : ( !loading &&
+          (<>
             <Container404>
               <TitlePage titlePage="Favorites" />
             </Container404>
             <NotFoundColection colection="favorite" />
-          </>
+          </>)
         )}
       </Page>
     </>

@@ -71,13 +71,13 @@ const MyRecipesPage = () => {
             </Container>
             <ListCardsTwo items={myCocktails} onDel={deleteCoctails} />
           </>
-        ) : (
-          <>
+        ) : ( !loading &&
+          (<>
             <Container404>
               <TitlePage titlePage="My recipes" />
             </Container404>
             <NotFoundColection colection="own" />
-          </>
+          </>)
         )}
       </Page>
     </>
