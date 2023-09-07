@@ -1,4 +1,4 @@
-import{n as t,m as x,P as o,o as m,j as e,p as h,r as d,c as w,q as b,t as C,L as j}from"./index-141a300b.js";import{E as y}from"./EllipsesLayout-77c3fcf5.js";const c="/project-Dream4IT/assets/hero-desktop-5baff696.jpg",_=t.section`
+import{n as t,m as x,P as o,o as m,j as e,p as h,r as d,c as w,q as b,t as C,L as j}from"./index-127024b0.js";import{E as y}from"./EllipsesLayout-23f0857b.js";const c="/project-Dream4IT/assets/hero-desktop-5baff696.jpg",_=t.section`
   background-color: ${x.mainBgColor};
   min-height: 100%;
   padding-left: 20px;
@@ -128,6 +128,6 @@ import{n as t,m as x,P as o,o as m,j as e,p as h,r as d,c as w,q as b,t as C,L a
   @media screen and (min-width: 1440px) {
     padding: 158px 0 62px 110px;
   }
-`,W=()=>{const i=m(),r=()=>{i("/drinks")};return e.jsxs(e.Fragment,{children:[e.jsx(u,{title:"Craft Your Perfect Drink with Drink Master",description:`Unlock your inner mixologist with Drink Master, 
+`,W=()=>{const i=m(),r=()=>{i("/drinks/1")};return e.jsxs(e.Fragment,{children:[e.jsx(u,{title:"Craft Your Perfect Drink with Drink Master",description:`Unlock your inner mixologist with Drink Master, 
         your one-stop destination for exploring, crafting, 
         and mastering the world's finest beverages. `}),e.jsxs(B,{children:[e.jsx(y,{}),e.jsxs(M,{children:[" ",e.jsx(p,{categoryDrink:"Punch/party drink"}),e.jsx(p,{categoryDrink:"Cocktail"}),e.jsx(p,{categoryDrink:"Shake"}),e.jsx(p,{categoryDrink:"Other/Unknown"}),e.jsx(A,{children:e.jsx(h,{onClick:r,children:"Other drinks"})})]})]})]})};export{M as Container,W as default};
