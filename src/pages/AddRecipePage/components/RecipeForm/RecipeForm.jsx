@@ -7,14 +7,18 @@ import { useEffect, useRef, useState } from 'react';
 import debounce from 'lodash.debounce';
 import { useAddRecipe } from '../../../../redux/addRecipe/hooks';
 import { toast } from 'react-toastify';
+import { instance, setToken } from '../../../../api/auth';
+import { useSelector } from 'react-redux';
+import { isStr } from '../../../../heplers';
 
 const INGREDIENTS_MIN = 2;
 const ERR_INGREDIENTS_MISSING = `You must specify at least ${INGREDIENTS_MIN} ingredients`;
 
 export const RecipeForm = () => {
-  const { recipe, addRecipeToDatabaseAsync } = useAddRecipe();
+  const { recipe, error, addRecipeToDatabaseAsync } = useAddRecipe();
   const [thumbFile, setThumbFile] = useState(null);
   const [wasSubmitted, setWasSubmitted] = useState(false);
+  const token = useSelector(state => state.auth.token);
   const formRef = useRef(null);
 
   // Если поле с невалидным значением за пределами вьюпорта -
@@ -55,34 +59,44 @@ export const RecipeForm = () => {
 
     // формируем form-data
     const formData = new FormData();
-    Object.entries({
+    const obj = {
       ...recipe,
       ingredients,
       drinkThumb: thumbFile,
-    }).forEach(([name, value]) => {
+    };
+
+    Object.entries(obj).forEach(([name, value]) => {
+      if (!isStr(value) || value !== 'drinkThumb') {
+        value = JSON.stringify(value);
+      }
       formData.append(name, value);
     });
 
+    setToken(token);
+    instance.post('api/recipes/own', formData).then(toast.success('ssss'));
+
     // TODO: лоадинг на кнопку добавить
     // Ресет всех инпутов добавить
-    addRecipeToDatabaseAsync(formData)
-      .then(toast.success('Successfully'))
-      .catch(toast.error);
-
-    // TODO: reset всех инпутов
   };
 
+  // const handleError = () => {
+  //   toast.error(error.request.responseText);
+  // };
+
   return (
-    <Form ref={formRef} onSubmit={handleFormSubmit}>
-      <DetailsWrapper>
-        <RecipeThumb onChange={setThumbFile} />
-        <RecipeDetails />
-      </DetailsWrapper>
-      <IngredientList />
-      <RecipePreparation />
-      <AddButton type="submit" onClick={() => setWasSubmitted(true)}>
-        Add
-      </AddButton>
-    </Form>
+    <>
+      {/* {error && handleError()} */}
+      <Form ref={formRef} onSubmit={handleFormSubmit}>
+        <DetailsWrapper>
+          <RecipeThumb onChange={setThumbFile} />
+          <RecipeDetails />
+        </DetailsWrapper>
+        <IngredientList />
+        <RecipePreparation />
+        <AddButton type="submit" onClick={() => setWasSubmitted(true)}>
+          Add
+        </AddButton>
+      </Form>
+    </>
   );
 };

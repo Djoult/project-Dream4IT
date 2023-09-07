@@ -18,7 +18,7 @@ export const callGetApi = async url => {
   return data;
 };
 
-export const callApi = async (url, payload, method = "POST", headers = {}) => {
+export const callApi = async (url, payload, method = 'POST', headers = {}) => {
   const { data } = await instance({
     url,
     method,
@@ -33,4 +33,3 @@ export const callApi = async (url, payload, method = "POST", headers = {}) => {
 //   const response = await instance.get(url);
 //   return response.data;
 // };
-
