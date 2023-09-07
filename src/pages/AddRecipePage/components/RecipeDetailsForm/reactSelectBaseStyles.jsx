@@ -7,7 +7,6 @@ const mediaQuery = {
 
 export const customSelectComponents = {
   IndicatorSeparator: () => null,
-  //   DropdownIndicator: () => null,
 };
 
 const fontParams = {
@@ -27,7 +26,7 @@ export const customSelectStyles = {
       [mediaQuery.tablet]: {
         height: '58px',
       },
-      // после верхнего mediaQuery, иначе перебье
+      // после верхнего mediaQuery, иначе перебьет
       ...fontParams,
       border: 'none',
       color: colors.textMainColor,
@@ -38,13 +37,19 @@ export const customSelectStyles = {
       },
       backgroundColor: 'transparent',
       boxShadow: 'none',
+      transitionDuration: 'var(--transition-duration)',
+      transitionTimingFunction: 'var(--transition-func)',
+      transitionProperty: 'border-color',
     };
   },
 
   menu: base => {
     return {
       ...base,
-      width: '60%',
+      width: '70%',
+      [mediaQuery.tablet]: {
+        width: '60%',
+      },
       right: '0',
       borderRadius: '20px',
       color: colors.textMainColor,
@@ -82,10 +87,7 @@ export const customSelectStyles = {
   option: (base, state) => {
     return {
       ...base,
-      color:
-        state.isFocused || state.isSelected
-          ? colors.textMainColor
-          : colors.grayColor,
+      color: state.isFocused ? colors.textMainColor : colors.grayColor,
       backgroundColor: state.isFocused && 'rgb(255 255 255 / 0.2)',
       ':active': {
         backgroundColor: 'rgb(255 255 255 / 0.5)',
@@ -98,6 +100,13 @@ export const customSelectStyles = {
     return {
       ...base,
       color: colors.textMainColor,
+    };
+  },
+
+  indicatorsContainer: base => {
+    return {
+      ...base,
+      cursor: 'pointer',
     };
   },
 };

@@ -5,6 +5,7 @@ import { IconClose } from '../../../../../styles/icons';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useAddRecipe } from '../../../../../redux/addRecipe/hooks';
+import { formValidation as validation } from '../../../data/formValidation';
 
 import {
   customSelectStyles,
@@ -21,14 +22,50 @@ import {
 } from './IngredientListItem.styled';
 
 export const IngredientListItem = ({ showRemoveBtn, onRemoveClick }) => {
-  const [ingredient, setIngredient] = useState('');
   const [measure, setMeasure] = useState('');
-  const { ingredients, fetchIngredients, error, pendingAction } =
-    useAddRecipe();
+  const [ingredient, setIngredient] = useState('');
+  const {
+    ingredients,
+    setRecipeIngredients,
+    removeRecipeIngredients,
+    fetchIngredients,
+    error,
+    pendingAction,
+  } = useAddRecipe();
+
+  const handleIngredientChange = (selected, opts) => {
+    const { action, removedValues } = opts;
+
+    if (action === 'clear') {
+      const [{ label: key }] = removedValues;
+      removeRecipeIngredients({ key });
+      setIngredient('');
+    } else if (action === 'select-option') {
+      setRecipeIngredients({ key: selected.value, value: measure });
+      setIngredient(selected.value);
+    }
+  };
+
+  const handleMeasureChange = e => {
+    const { value = '' } = e?.target || '';
+    setRecipeIngredients({ key: ingredient, value });
+    setMeasure(value);
+  };
+
+  const handleItemRemove = () => {
+    removeRecipeIngredients({ key: ingredient });
+    onRemoveClick();
+  };
 
   const handleError = () => {
     toast.error(error.message);
   };
+
+  const isLoading = /ingredients/i.test(pendingAction);
+  const ingredientOptions = ingredients.map(({ title }) => ({
+    label: title,
+    value: title,
+  }));
 
   return (
     <Row>
@@ -38,28 +75,35 @@ export const IngredientListItem = ({ showRemoveBtn, onRemoveClick }) => {
         <Ingredient>
           <Select
             // TODO: покажет лоадер для всех добавленных полей
-            isLoading={pendingAction}
-            onMenuOpen={!ingredients.length && fetchIngredients}
+            isClearable
+            isLoading={isLoading}
+            onMenuOpen={fetchIngredients}
             styles={customSelectStyles}
             components={customSelectComponents}
             placeholder="Ingredient"
-            onChange={({ label }) => setIngredient(label)}
-            options={ingredients.map(({ title }) => ({ label: title }))}
+            onChange={handleIngredientChange}
+            options={ingredientOptions}
           />
         </Ingredient>
 
         <Measure>
           <TextField
+            // ставим required только если не disabled
+            // То бишь, если выбран ингредиент
+            {...(ingredient && { required: true })}
+            pattern={validation.measure.pattern}
+            minLength={validation.measure.min}
+            title={validation.measure.message}
             disabled={!ingredient}
             inputOverride={InputStyled}
             placeholder="Measure"
-            onChange={e => setMeasure(e?.target.value ?? '')}
+            onChange={handleMeasureChange}
             value={measure}
           />
         </Measure>
       </Fields>
       {showRemoveBtn && (
-        <RemoveButton type="button" onClick={onRemoveClick}>
+        <RemoveButton type="button" onClick={handleItemRemove}>
           <IconClose data-icon-close size={25} />
         </RemoveButton>
       )}

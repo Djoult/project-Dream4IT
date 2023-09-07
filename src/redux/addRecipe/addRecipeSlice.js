@@ -8,19 +8,15 @@ import * as thunk from './addRecipeThunks';
 export const fetchIngredientsFullfilled = (state, { payload: ingredients }) => {
   state.ingredients = ingredients;
 };
-
 export const fetchCategoryFullfilled = (state, { payload: category }) => {
   state.category = category;
 };
-
 export const fetchGlassFullfilled = (state, { payload: glass }) => {
   state.glass = glass;
 };
-
 export const fetchPopularFullfilled = (state, { payload: popular }) => {
   state.popular = popular;
 };
-
 export const fetchRandomFullfilled = (state, { payload: random }) => {
   state.random = random;
 };
@@ -32,11 +28,9 @@ export const fetchRandomFullfilled = (state, { payload: random }) => {
 export const fulfilled = state => {
   state.pendingAction = state.error = null;
 };
-
 export const pending = (state, action) => {
   state.pendingAction = action.type.replace(/\/pending/i, '');
 };
-
 export const rejected = (state, { payload: error }) => {
   state.pendingAction = null;
   state.error = error;
@@ -56,15 +50,17 @@ const initialState = {
 
   // reducers
   recipe: {
-    drink: null,
-    about: null,
-    category: null,
-    glass: null,
-    // хеш {title: measure}, чтобы не дублировались при добавлении
+    drink: '',
+    about: '',
+    category: '',
+    glass: '',
+    // хеш {title: measure},
+    // чтобы не дублировались при добавлении
     // Учтен будет самый последний
     ingredients: {},
-    instructions: null,
+    instructions: '',
   },
+  // thumbFile: null,
   pendingAction: null,
   error: null,
 };
@@ -74,9 +70,33 @@ const addRecipeSlice = createSlice({
   initialState,
 
   reducers: {
-    setDrink: (state, { payload: drink }) => {
+    setRecipe: (state, { payload: { key, value } }) => {
+      state.recipe[key] = value;
+    },
+    setRecipeDrink: (state, { payload: drink }) => {
       state.recipe.drink = drink;
     },
+    setRecipeAbout: (state, { payload: about }) => {
+      state.recipe.about = about;
+    },
+    setRecipeCategory: (state, { payload: category }) => {
+      state.recipe.category = category;
+    },
+    setRecipeGlass: (state, { payload: glass }) => {
+      state.recipe.glass = glass;
+    },
+    setRecipeInstructions: (state, { payload: instructions }) => {
+      state.recipe.instructions = instructions;
+    },
+    setRecipeIngredients: (state, { payload: { key, value } }) => {
+      state.recipe.ingredients[key] = value;
+    },
+    removeRecipeIngredients: (state, { payload: { key } }) => {
+      delete state.recipe.ingredients[key];
+    },
+    // setRecipeThumbFile: (state, { payload: file }) => {
+    //   state.thumbFile = file;
+    // },
   },
 
   extraReducers: builder => {

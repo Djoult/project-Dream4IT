@@ -1,15 +1,18 @@
+import { colors } from '../../styles/GlobalStyles';
+import { breakpoint as bp } from '../../shared';
 import styled from '@emotion/styled';
 
 export const Title = styled.h1`
-  color: #f3f3f3;
-  font-family: Manrope;
+  font-family: var(--main-font-family);
   font-size: 32px;
-  font-style: normal;
   font-weight: 600;
-  line-height: 38px;
+  line-height: 0.9;
+  color: ${colors.textMainColor};
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${bp.tablet}) {
     font-size: 56px;
-    line-height: 60px;
+  }
+  @media screen and (min-width: ${bp.desktop}) {
+    font-size: 64px;
   }
 `;

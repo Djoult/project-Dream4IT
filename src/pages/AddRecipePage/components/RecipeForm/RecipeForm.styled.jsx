@@ -18,6 +18,6 @@ export const DetailsWrapper = styled.div`
   }
 `;
 
-export const ButtonAdd = styled(ButtonPrimary)`
+export const AddButton = styled(ButtonPrimary)`
   margin-top: 20px;
 `;

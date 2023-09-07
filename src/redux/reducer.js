@@ -4,11 +4,11 @@ import { userReducer } from './userSlice';
 import { persistReducer } from 'redux-persist';
 import { addRecipeReducer } from './addRecipe/addRecipeSlice';
 import storage from 'redux-persist/lib/storage';
-// 
+//
 // import  { testReducer } from "./Cocktails/myCocktails-reduser";
-import myCocktailsReducer from "./Cocktails/myCocktails-reduser";
-import favoritesReduser from  "./Cocktails/favorites-reduser"
-// 
+import myCocktailsReducer from './Cocktails/myCocktails-reduser';
+import favoritesReduser from './Cocktails/favorites-reduser';
+//
 const persistConfig = {
   key: 'root',
   storage,
