@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import defaultInngregientImg from '../../images/inngredients/defaultInngregientImg.png';
 import {
   StyledTitle,
   StyledItem,
@@ -12,6 +13,13 @@ const RecipePreparation = ({ recipe }) => {
   const [isDesktop, setIsDesktop] = useState(false);
 
   const { drinkThumb, instructions, drink } = recipe;
+  let imgPath = '';
+
+  if (drinkThumb !== undefined || drinkThumb !== null) {
+    imgPath = drinkThumb;
+  } else {
+    imgPath = defaultInngregientImg;
+  }
 
   const instrArray = instructions
     .split('.')
@@ -54,7 +62,7 @@ const RecipePreparation = ({ recipe }) => {
               return <StyledItem>{item}</StyledItem>;
             })}
           </ul>
-          <StyledImg src={drinkThumb} alt={drink} />
+          <StyledImg src={imgPath} alt={drink} />
         </>
       )}
     </StyledPreparationWrapper>

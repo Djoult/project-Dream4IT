@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { instance, setToken } from '../../api/auth';
 import TitlePage from '../../components/TitlePage/TitlePage';
+import defaultInngregientImg from '../../images/inngredients/defaultInngregientImg.png';
 import {
   StyledGlass,
   StyledAbout,
@@ -18,6 +19,13 @@ const RecipePageHero = ({ recipe }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const { drink, glass, about, drinkThumb } = recipe;
+  let imgPath = '';
+
+  if (drinkThumb !== undefined || drinkThumb !== null) {
+    imgPath = drinkThumb;
+  } else {
+    imgPath = defaultInngregientImg;
+  }
 
   useEffect(() => {
     setToken(token);
@@ -64,7 +72,7 @@ const RecipePageHero = ({ recipe }) => {
           </StyledFavoriteBtn>
         )}
       </div>
-      <StyledRecipeHeroImg src={drinkThumb} alt="Cocktail photo" />
+      <StyledRecipeHeroImg src={imgPath} alt="Cocktail photo" />
     </StyledWrapper>
   );
 };
