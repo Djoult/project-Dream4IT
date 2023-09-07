@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const instance = axios.create({
   baseURL: 'https://drinkmaster-backend.onrender.com',
+  //baseUrl: 'http://localhost:3000',
 });
 
 export const setToken = token => {

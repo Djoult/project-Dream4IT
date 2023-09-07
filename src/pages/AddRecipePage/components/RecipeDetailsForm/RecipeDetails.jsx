@@ -17,6 +17,7 @@ export const RecipeDetails = () => {
     setRecipeCategory,
     setRecipeGlass,
     recipe,
+    setError,
     category,
     glass,
     fetchGlass,
@@ -27,6 +28,7 @@ export const RecipeDetails = () => {
 
   const handleError = () => {
     toast.error(error.message);
+    setError(null);
   };
 
   const isCategoryLoading = /category/i.test(pendingAction);
