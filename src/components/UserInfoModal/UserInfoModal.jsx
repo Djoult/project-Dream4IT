@@ -98,7 +98,7 @@ const UserInfoModal = ({ closeModal }) => {
   };
 
   return (
-    <StyledBackdrop>
+    <StyledBackdrop onClick={closeModal}>
       <StyledModal onClick={handleModalClick}>
         <ModalTopEllipse />
         <StyledIconClose src={xCross} alt="icon close" onClick={closeModal} />

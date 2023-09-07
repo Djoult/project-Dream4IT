@@ -33,6 +33,7 @@ export const SryledEditBtn = styled.button`
   line-height: 1.3;
   border: none;
   cursor: pointer;
+  white-space: nowrap;
 
   color: ${colors.textMainColor};
   background-color: ${colors.mainBgColor};

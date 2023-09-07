@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const StyledBackdrop = styled.div`
   position: fixed;
@@ -59,6 +59,7 @@ export const LogoutButton = styled.button`
 
   transition: color 0.3s, background-color 0.3s,
     transform 0.3s cubic-bezier(0.7, 0.98, 0.86, 0.98);
+  cursor: pointer;
 
   @media (min-width: 768px) {
     font-size: 16px;
