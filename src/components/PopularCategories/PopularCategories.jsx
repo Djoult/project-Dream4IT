@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { setToken, instance } from '../../api/auth';
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../redux/selectors';
@@ -59,7 +60,9 @@ const PopularCategories = ({ categoryDrink }) => {
 
             <div className={css.nameAndIngridients}>
               <p className={css.nameCocktail}>{drink.drink}</p>
-              <p className={css.ingredients}>Ingredients</p>
+              <Link className={css.ingredients} to={`/recipe/${drink._id}`}>
+                Ingredients
+              </Link>
             </div>
           </li>
         ))}
