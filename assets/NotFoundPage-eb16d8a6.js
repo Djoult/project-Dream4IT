@@ -1,4 +1,4 @@
-import{n,j as t}from"./index-ad18059f.js";import"./TitlePage-6a2304ef.js";import{N as o}from"./notfound_mobile-76c30311.js";import{E as i}from"./EllipsesLayout-00ef75e3.js";const e=n.div`
+import{n,j as t}from"./index-96914cb7.js";import"./TitlePage-a73abac1.js";import{N as o}from"./notfound_mobile-76c30311.js";import{E as i}from"./EllipsesLayout-8147d057.js";const e=n.div`
     position: relative;
     max-width: 465px;
     display: flex;
