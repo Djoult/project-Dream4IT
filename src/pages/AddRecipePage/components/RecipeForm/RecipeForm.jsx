@@ -68,9 +68,9 @@ export const RecipeForm = () => {
       formData.append(name, value);
     });
 
-    // addRecipeToDatabaseAsync(formData).then(() => {
-    //   toast.success(MSG_SUCCESS_ADDED);
-    // });
+    addRecipeToDatabaseAsync(formData).then(() => {
+      toast.success(MSG_SUCCESS_ADDED);
+    });
   };
 
   const handleError = () => {
