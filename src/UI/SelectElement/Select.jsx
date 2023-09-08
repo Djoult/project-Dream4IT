@@ -186,8 +186,10 @@ const CustomSelectComponent = ({ options, value, onChange, placeholder }) => {
   const [selectedValue, setSelectedValue] = useState(value || "");
 
   const handleSelect = (option) => {
-    setSelectedValue(option);
-    onChange(option);
+    if (option !== selectedValue) {
+      setSelectedValue(option);
+      onChange(option);
+    }
     setIsOpen(false);
   };
 
@@ -206,9 +208,6 @@ const CustomSelectComponent = ({ options, value, onChange, placeholder }) => {
       </SelectButton>
       {isOpen && (
         <OptionsWrapper isOpen={isOpen}>
-          <Option key="all" onClick={() => handleSelect("all")}>
-            {placeholder}
-          </Option>
           {options.map((option) => (
             <Option key={option} onClick={() => handleSelect(option)}>
               {option}
