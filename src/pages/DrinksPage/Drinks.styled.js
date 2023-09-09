@@ -53,6 +53,7 @@ max-width: 335px;
   @media only screen and (min-width: 768px) {
     width: 265px;
     padding: 15px;
+    padding-left: 24px;
     font-size: 17px;
   }
   
