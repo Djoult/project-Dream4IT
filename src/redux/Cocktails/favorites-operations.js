@@ -1,33 +1,30 @@
-import * as api from "./api/cocktails";
-import * as actions from "./cocktails-actions";
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { callGetApi, callApi } from '../../api/auth';
 
 export const fetchFavorites = createAsyncThunk(
     "favorite/fetch", 
     async (_, thunkAPI) => {
-        try  {
-            const {data} = await api.getFavorites();
-            return data;
+        try  {            
+            const data = await callGetApi('/api/recipes/favorite');    
+            return data.hits;
         }
-        catch ({response}) {
-            return thunkAPI.rejectWithValue(response)
+        catch (error) {
+            return thunkAPI.rejectWithValue(error.message);
         }
     }
     
-)
+);
 
-// export const fetchFavorites = () => {
-//     const func = async (dispatch) => {
-//         try {
-//         dispatch(actions.fetchFavoritesPending());
-//         const {data} = await api.getFavorites();
-//         console.log(data);
-//         dispatch(actions.fetchFavoritesFulfilled(data))
-//         }
-//         catch ({response})  { 
-//             dispatch(actions.fetchFavoritesRejected(response))
-//         }        
-//     }
-//     return func
-// }
+export const deleteFavorite = createAsyncThunk(
+    "favorite/delete", 
+    async ( id, thunkAPI) => {
+      try {
+        await callApi(`/api/recipes/favorite/${id}`, id, 'patch'); 
+        return id;
+      }
+      catch(error) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+    }
+  )
 

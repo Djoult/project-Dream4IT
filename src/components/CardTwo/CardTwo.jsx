@@ -16,8 +16,7 @@ import {
 } from "./CardTwo.styled";
 
 const CardTwo = ({ _id, drink, instructions, drinkThumb="../src/images/myCocktail.png", onDelete }) => {
-
-   
+ 
   return (
     <Wrapper>
       <Img src={drinkThumb} /> 
